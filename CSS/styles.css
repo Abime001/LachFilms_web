@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+
+.padre{
+    display: flex; /**/
+    flex-flow: column nowrap; 
+}
+    .header{
+        display: flex;
+        flex-flow: column nowrap;
+        margin: 0;
+        margin-top: 0;
+        position: fixed;
+        width: 100%;
+    }
+    .menu{
+        background-color: white;
+        display: flex;
+        flex-flow: row nowrap;
+        height: auto;
+        align-items: center;
+        
+    }
+        .logo{
+            flex: 1 1 auto;
+            margin-left: 30px;
+        }
+
+        .nav{
+            flex: 0 1 auto;
+            font-family: 'Mukta', sans-serif;
+        }
+            .nav a{
+                color: gray;
+                font-size: 20px;
+                padding: 0 10px;
+                letter-spacing: 2px;
+            }
+    .fijada{
+        display: flex;
+        float: right;
+        flex-flow: column nowrap;
+        position: fixed;
+    }
+        .top_right{
+            top: 50px;
+            right:5px;
+        }
+        .pad{
+            padding-bottom: 10px;
+        }
+        .bottom_right{
+            top: 600px;
+            right: 5px;
+        }
+.video{
+    padding-top: 30px;
+}

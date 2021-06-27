@@ -2,70 +2,72 @@
     font-family: Yugothib;
     src: url("./assets/fonts/yugothib.ttf");
 }
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-size: 18px;
     font-family: Yugothib;
 }
-a{
+a {
     text-decoration: none;
 }
 
-.padre{
+.padre {
     display: flex; /**/
-    flex-flow: column nowrap; 
+    flex-flow: column nowrap;
 }
-    .header{
-        display: flex;
-        flex-flow: column nowrap;
-        margin: 0;
-        margin-top: 0;
-        position: fixed;
-        width: 100%;
-    }
-    .menu{
-        background-color: white;
-        display: flex;
-        flex-flow: row nowrap;
-        height: auto;
-        align-items: center;
-        
-    }
-        .logo{
-            flex: 1 1 auto;
-            margin-left: 30px;
-        }
+.header {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0;
+    margin-top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+.menu {
+    background-color: white;
+    display: flex;
+    flex-flow: row nowrap;
+    height: auto;
+    align-items: center;
+}
+.logo {
+    flex: 1 1 auto;
+    margin-left: 30px;
+}
 
-        .nav{
-            flex: 0 1 auto;
-            font-family: 'Mukta', sans-serif;
-        }
-            .nav a{
-                color: gray;
-                font-size: 20px;
-                padding: 0 10px;
-                letter-spacing: 2px;
-            }
-    .fijada{
-        display: flex;
-        float: right;
-        flex-flow: column nowrap;
-        position: fixed;
-    }
-        .top_right{
-            top: 45px;
-            right: 10px;
-        }
-        .pad{
-            padding-bottom: 10px;
-        }
-        .bottom_right{
-            top: 600px;
-            right: 15px;
-        }
-.video{
+.nav {
+    flex: 0 1 auto;
+    font-family: "Mukta", sans-serif;
+}
+.nav a {
+    color: gray;
+    font-size: 20px;
+    padding: 0 10px;
+    letter-spacing: 2px;
+}
+.fijada {
+    display: flex;
+    float: right;
+    flex-flow: column nowrap;
+    position: fixed;
+    right: 30px;
+}
+
+.top_right {
+    top: 90px;
+}
+
+.pad {
+    margin: 10px 0;
+}
+.bottom_right {
+    bottom: 10px;
+    right: 30px;
+}
+.video {
     padding-top: 30px;
 }
 
@@ -100,7 +102,7 @@ a {
     margin-top: 41px;
     width: 100%;
     height: 447px;
-    background-image: url(assets/img/travel.png);
+    background-image: url(../assets/img/travel.png);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -142,20 +144,20 @@ a {
     background-size: cover;
 }
 .portafolio-container .d-social {
-    background-image: url(assets/img/calabera.png);
+    background-image: url(../assets/img/calabera.png);
 }
 .portafolio-container .d-producto {
-    background-image: url(assets/img/producto.png);
+    background-image: url(../assets/img/producto.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-aereo {
-    background-image: url(assets/img/aereo.png);
+    background-image: url(../assets/img/aereo.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-turismo {
-    background-image: url(assets/img/globo.png);
+    background-image: url(../assets/img/globo.png);
 }
 
 .filtro-aereo,
@@ -246,120 +248,126 @@ a {
     height: 280px;
 }
 
-.foot{
-    background: #413F42;
+.foot {
+    padding: 50px 0;
+    background: #413f42;
     width: 100%;
     display: flex;
+    align-items: center;
     flex-direction: row;
-
 }
 
-    #sectfoot h3{
-        color: white;
-        letter-spacing: 0px;  
-        margin-top: 30px; 
-        letter-spacing: 7px;
-        border-bottom: n;
-    }
-    #sectfoot h5{
-        color: white;   
-        margin: 10px;
-    }
+#sectfoot h3 {
+    color: white;
+    letter-spacing: 0px;
+    margin-top: 30px;
+    letter-spacing: 7px;
+    border-bottom: n;
+}
+#sectfoot h5 {
+    color: white;
+    margin: 10px;
+}
 
-    .izq{
-        background-color: none;
-        position: relative;
-        width: 50%;
-    }
-    .der{
-        width: 50%;
-        background-color: none;
-        position: relative;
-    }
+.izq {
+    position: relative;
+    width: 50%;
+}
+.der {
+    width: 50%;
+    position: relative;
+}
 
-    .forms{
-        width: auto;
-        height: auto;
-        background-color:none;
-        text-align: center;
-    }
-        #u-s, #e-m, #m-s{
-            margin-top: 20px;
-        }
+.forms {
+    width: auto;
+    height: auto;
+    background-color: none;
+    text-align: center;
+}
+#u-s,
+#e-m,
+#m-s {
+    margin-top: 20px;
+}
 
-    .input-icono{
-        background:none;
-        display: flex;
-        align-items: center;
-        width: 50%;
-        padding-left: 10px;
-        height: 30px;
-        border: 3px solid white;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        margin: auto;
-    }
-    .input-icono input[type="text"], .input-icono input[type="email"]{
-        outline: none;
-        font-size: 25px;
-        border: none;
-        color: white;
-        width: 100%;
-        background: none;
-        margin-bottom: 5px;
-        height: auto;
-    }
-    .input-icono2{
-        background:none;
-        display: flex;
-        align-items: center;
-        width: 50%;
-        padding-left: 10px;
-        height: auto;
-        border: 3px solid white;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        margin: auto;
-    }
-    #txtarea{
-        outline: none;
-        font-size: 25px;
-        border: none;
-        width: 100%;
-        background: none;
-        color: white;
-        position: relative;
-    }
-    
-    i{
-        font-size: 25px;
-        padding-right: 10px;
-        padding-bottom: 5px;
-        color: #ffff;
-        position: relative;
-    }
-    #terminos{
-        color: white;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-        label{
-            font-size: 15px;
-        }
-        #boton{
-            text-decoration: none;
-            padding: 7px;
-            padding-left: 10px;
-            padding-right: 10px;
-            font-size: 15px;
-            color: gray;
-            background-color: white;
-            border:none;
-        }
-        #boton:hover{
-            background: none;
-            color: white;
-        }
+.input-icono {
+    background: none;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    padding-left: 10px;
+    height: 30px;
+    border: 3px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: auto;
+}
+.input-icono input[type="text"],
+.input-icono input[type="email"] {
+    outline: none;
+    font-size: 25px;
+    border: none;
+    color: white;
+    width: 100%;
+    background: none;
+    margin-bottom: 5px;
+}
+.input-icono2 {
+    background: none;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    padding-left: 10px;
+    height: auto;
+    border: 3px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: auto;
+}
 
+
+#txtarea {
+    outline: none;
+    font-size: 25px;
+    border: none;
+    width: 100%;
+    background: none;
+    color: white;
+    position: relative;
+}
+
+i {
+    font-size: 25px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    color: #ffff;
+    position: relative;
+}
+#terminos {
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+label {
+    font-size: 15px;
+}
+#boton {
+    text-decoration: none;
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 15px;
+    color: gray;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    border: 2px solid white;
+}
+#boton:hover {
+    background: none;
+    color: white;
+    border: 2px solid white;
+}

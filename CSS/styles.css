@@ -1,7 +1,13 @@
+@font-face {
+    font-family: Yugothib;
+    src: url("./assets/fonts/yugothib.ttf");
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 18px;
+    font-family: Yugothib;
 }
 a{
     text-decoration: none;
@@ -49,16 +55,311 @@ a{
         position: fixed;
     }
         .top_right{
-            top: 50px;
-            right:5px;
+            top: 45px;
+            right: 10px;
         }
         .pad{
             padding-bottom: 10px;
         }
         .bottom_right{
             top: 600px;
-            right: 5px;
+            right: 15px;
         }
 .video{
     padding-top: 30px;
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
+h2 {
+    font-size: 2rem;
+    letter-spacing: 50px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 50px;
+    letter-spacing: 10px;
+    color: #ffff;
+}
+
+p {
+    letter-spacing: 2px;
+    line-height: 30px;
+    margin: 20px 0;
+    color: #ffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+#travel {
+    margin-top: 41px;
+    width: 100%;
+    height: 447px;
+    background-image: url(assets/img/travel.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#travel h2 {
+    color: #ffff;
+}
+
+#portafolio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 41px 0;
+}
+#portafolio h2 {
+    color: #747474;
+    width: fit-content;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #747474;
+}
+
+.portafolio-container {
+    display: flex;
+    margin: 50px 0;
+}
+.portafolio-container .d-h {
+    width: 516px;
+    height: 541px;
+    display: flex;
+    flex-direction: column;
+}
+.portafolio-container .d-v {
+    position: relative;
+    width: 304px;
+    height: 541px;
+    background-size: cover;
+}
+.portafolio-container .d-social {
+    background-image: url(assets/img/calabera.png);
+}
+.portafolio-container .d-producto {
+    background-image: url(assets/img/producto.png);
+    height: 50%;
+    position: relative;
+}
+.portafolio-container .d-aereo {
+    background-image: url(assets/img/aereo.png);
+    height: 50%;
+    position: relative;
+}
+.portafolio-container .d-turismo {
+    background-image: url(assets/img/globo.png);
+}
+
+.filtro-aereo,
+.filtro-social,
+.filtro-producto,
+.filtro-turismo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.filtro-aereo:hover {
+    opacity: 1;
+}
+.filtro-social:hover {
+    opacity: 1;
+}
+.filtro-producto:hover {
+    opacity: 1;
+}
+.filtro-turismo:hover {
+    opacity: 1;
+}
+
+.info {
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+}
+
+.section {
+    text-align: center;
+}
+.section h3 {
+    color: #747474;
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #747474;
+}
+.section p {
+    color: #747474;
+}
+.section-arrow {
+    transform: rotate(-180deg);
+    cursor: pointer;
+}
+
+#social {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    transition-delay: 3s;
+}
+
+#producto {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
+#aereo {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
+#turismo {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s ease-in-out;
+}
+
+.container-img {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    height: fit-content;
+    margin: auto;
+}
+.container-img img {
+    width: 420px;
+    margin: 50px;
+    height: 280px;
+}
+
+.foot{
+    background: #413F42;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+
+    #sectfoot h3{
+        color: white;
+        letter-spacing: 0px;  
+        margin-top: 30px; 
+        letter-spacing: 7px;
+        border-bottom: n;
+    }
+    #sectfoot h5{
+        color: white;   
+        margin: 10px;
+    }
+
+    .izq{
+        background-color: none;
+        position: relative;
+        width: 50%;
+    }
+    .der{
+        width: 50%;
+        background-color: none;
+        position: relative;
+    }
+
+    .forms{
+        width: auto;
+        height: auto;
+        background-color:none;
+        text-align: center;
+    }
+        #u-s, #e-m, #m-s{
+            margin-top: 20px;
+        }
+
+    .input-icono{
+        background:none;
+        display: flex;
+        align-items: center;
+        width: 50%;
+        padding-left: 10px;
+        height: 30px;
+        border: 3px solid white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin: auto;
+    }
+    .input-icono input[type="text"], .input-icono input[type="email"]{
+        outline: none;
+        font-size: 25px;
+        border: none;
+        color: white;
+        width: 100%;
+        background: none;
+        margin-bottom: 5px;
+        height: auto;
+    }
+    .input-icono2{
+        background:none;
+        display: flex;
+        align-items: center;
+        width: 50%;
+        padding-left: 10px;
+        height: auto;
+        border: 3px solid white;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin: auto;
+    }
+    #txtarea{
+        outline: none;
+        font-size: 25px;
+        border: none;
+        width: 100%;
+        background: none;
+        color: white;
+        position: relative;
+    }
+    
+    i{
+        font-size: 25px;
+        padding-right: 10px;
+        padding-bottom: 5px;
+        color: #ffff;
+        position: relative;
+    }
+    #terminos{
+        color: white;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+        label{
+            font-size: 15px;
+        }
+        #boton{
+            text-decoration: none;
+            padding: 7px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 15px;
+            color: gray;
+            background-color: white;
+            border:none;
+        }
+        #boton:hover{
+            background: none;
+            color: white;
+        }
+

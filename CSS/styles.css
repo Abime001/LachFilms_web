@@ -202,11 +202,30 @@ a {
 }
 .section p {
     color: #747474;
+    text-justify: auto;
+    margin: 0 20px;
 }
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
 .section-arrow {
-    transform: rotate(-180deg);
+    transform: translateY(-180deg);
     cursor: pointer;
+    width: 80px;
+    margin-bottom: 40px;
+    animation: flotar 3s ease-in-out infinite;
 }
+
 
 #social {
     opacity: 0;
@@ -238,13 +257,15 @@ a {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    width: 90%;
+    width: 80%;
     height: fit-content;
     margin: auto;
 }
 .container-img img {
+    min-height: 180px;
+    min-width: 320px;
     width: 420px;
-    margin: 50px;
+    margin: 30px 10px;
     height: 280px;
 }
 
@@ -326,7 +347,6 @@ a {
     border-right: none;
     margin: auto;
 }
-
 
 #txtarea {
     outline: none;

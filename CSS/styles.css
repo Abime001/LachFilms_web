@@ -10,7 +10,7 @@ a {
 }
 
 .padre {
-    display: flex; 
+    display: flex;
     flex-flow: column nowrap;
 }
 .header {
@@ -27,7 +27,6 @@ a {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    
 }
 .logo {
     flex: 1 1 auto;
@@ -49,49 +48,49 @@ a {
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
 }
-    .nav a:hover{
-        color: #000;
-    }
-    .nav .dot{
-        width: 6px;
-        height: 6px;
-        background: #000;
-        border-radius: 50%;
-        opacity: 0;
-        -webkit-transform: translateX(0px);
-        transform: translateX(0px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    .nav a:nth-child(1):hover ~ .dot {
-        -webkit-transform: translateX(30px);
-        transform: translateX(30px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-    }
-    .nav a:nth-child(2):hover ~ .dot {
-        -webkit-transform: translateX(110px);
-        transform: translateX(110px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      .nav a:nth-child(3):hover ~ .dot {
-        -webkit-transform: translateX(200px);
-        transform: translateX(200px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
-      
-      .nav a:nth-child(4):hover ~ .dot {
-        -webkit-transform: translateX(285px);
-        transform: translateX(285px);
-        -webkit-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        opacity: 1;
-      }
+.nav a:hover {
+    color: #000;
+}
+.nav .dot {
+    width: 6px;
+    height: 6px;
+    background: #000;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+.nav a:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+.nav a:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(110px);
+    transform: translateX(110px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+.nav a:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+
+.nav a:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(285px);
+    transform: translateX(285px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
 
 .fijada {
     display: flex;
@@ -139,7 +138,7 @@ a {
     margin-top: 41px;
     width: 100%;
     height: 447px;
-    background-image: url(../assets/img/travel.png);
+    background-image: url(../images/travel.png);
     background-size: cover;
     display: flex;
     align-items: center;
@@ -181,20 +180,20 @@ a {
     background-size: cover;
 }
 .portafolio-container .d-social {
-    background-image: url(../assets/img/calabera.png);
+    background-image: url(../images/calabera.png);
 }
 .portafolio-container .d-producto {
-    background-image: url(../assets/img/producto.png);
+    background-image: url(../images/producto.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-aereo {
-    background-image: url(../assets/img/aereo.png);
+    background-image: url(../images/aereo.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-turismo {
-    background-image: url(../assets/img/globo.png);
+    background-image: url(../images/globo.png);
 }
 
 .filtro-aereo,
@@ -240,9 +239,24 @@ a {
 .section p {
     color: #747474;
 }
+
+@keyframes flotar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
 .section-arrow {
     transform: rotate(-180deg);
+    width: 80px;
     cursor: pointer;
+    animation: flotar 3s ease-in-out infinite;
+    margin-bottom: 40px;
 }
 
 #social {
@@ -285,133 +299,147 @@ a {
     height: 280px;
 }
 
-.footer{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
-    justify-content:space-around;
-    align-items:unset;
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: unset;
     background-color: #000;
-    height: auto;
     padding: 1em;
+    padding: 50px;
 }
 
-    #Contact-us{
-        margin-top: 4em;
-        font-size: 0.7em;
-        line-height: 1.5;
-    }
+#Contact-us {
+    margin-top: 4em;
+    font-size: .7em;
+    line-height: 1.5rem;
+}
 
-  .footer__item{
-    order:0;
-    flex:0 1 auto;
-    align-self:auto;
-    height:auto;
-    width:auto;
+.footer__item {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    height: auto;
+    width: auto;
     color: #ffff;
     text-align: center;
-  }
-    .social-media{
-        margin-top: 1em;
-    }
-    .formulario input, .formulario span, .formulario label, .formulario textarea{
-        font-family: 'Ubuntu', sans-serif;
-        display: block;
-        border: none;
-        font-size: small;        
-    }
-    .formulario textarea:focus, .formulario input:focus{
-        outline: 0;
-    }
-    input.question, textarea.question {
-        color: #ffff;
-        font-size: 15px;
-        font-weight: 300;
-        border-radius: 2px;
-        margin: 0;
-        border: none;
-        width: 100%;
-        background: rgba(0, 0, 0, 0);
-        transition: padding-top 0.2s ease, margin-top 0.2s ease;
-        overflow-x: hidden;
-    }
-    textarea.question{
-        font-size: 15px;
-    }
-    input.question + label, textarea.question + label {
-        display: block;
-        position: relative;
-        white-space: nowrap;
-        padding: 0;
-        margin: 0;
-        width: 10%;
-        border-top: 1px solid rgb(255, 174, 0);
-        -webkit-transition: width 0.4s ease;
-        transition: width 0.4s ease;
-        height: 0px;
-        margin-bottom: 1em;
-    }   
-    input.question:focus + label, textarea.question:focus + label {
-        width: 100%;
-    }
-    input.question:focus, input.question:valid {
-        padding-top: 1px;
-    }
-    textarea.question:valid, textarea.question:focus {
-        margin-top: 10px;
-    }
-    input.question:focus + label > span, input.question:valid + label > span {
-        top: -30px;
-        font-size: 10px;
-        color: #333;
-        font-weight: 700;
-        
-    }
-    textarea.question:focus + label > span, textarea.question:valid + label > span {
-        top: -50px;
-        font-size: 10px;
-        color: #333;
-        font-weight: 700;
-    }
-    input.question:valid + label, textarea.question:valid + label {
-        border-color: green;
-    }
-    input.question:invalid, textarea.question:invalid {
-        box-shadow: none;
-    }
+}
+.social-media {
+    margin-top: 1em;
+}
+.social-media a {
+    margin: 0 10px;
+}
+.formulario input,
+.formulario span,
+.formulario label,
+.formulario textarea {
+    font-family: "Ubuntu", sans-serif;
+    display: inline-block;
+    border: none;
+    font-size: small;
+}
+.formulario textarea:focus,
+.formulario input:focus {
+    outline: 0;
+}
+input.question,
+textarea.question {
+    color: #ffff;
+    font-size: 15px;
+    font-weight: 300;
+    border-radius: 2px;
+    margin: 0;
+    border: none;
+    width: 100%;
+    background: rgba(0, 0, 0, 0);
+    transition: padding-top 0.2s ease, margin-top 0.2s ease;
+    overflow-x: hidden;
+}
+textarea.question {
+    font-size: 15px;
+}
+input.question + label,
+textarea.question + label {
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    width: 10%;
+    border-top: 1px solid rgb(255, 174, 0);
+    -webkit-transition: width 0.4s ease;
+    transition: width 0.4s ease;
+    height: 0px;
+    margin-bottom: 1em;
+}
+input.question:focus + label,
+textarea.question:focus + label {
+    width: 100%;
+}
+input.question:focus,
+input.question:valid {
+    padding-top: 1px;
+}
+textarea.question:valid,
+textarea.question:focus {
+    margin-top: 10px;
+}
+input.question:focus + label > span,
+input.question:valid + label > span {
+    top: -30px;
+    font-size: 10px;
+    color: #333;
+    font-weight: 700;
+}
+textarea.question:focus + label > span,
+textarea.question:valid + label > span {
+    top: -50px;
+    font-size: 10px;
+    color: #333;
+    font-weight: 700;
+}
+input.question:valid + label,
+textarea.question:valid + label {
+    border-color: green;
+}
+input.question:invalid,
+textarea.question:invalid {
+    box-shadow: none;
+}
 
-    input.question + label > span, textarea.question + label > span {
-        margin: 0;
-        position: absolute;
-        color: #ffff;
-        font-size: 15px;
-        top: -1.30em;
-        left: 0px;
-        -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-        transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
-    }
-    textarea.question + label > span {
-        top: -3em;
-    }
+input.question + label > span,
+textarea.question + label > span {
+    margin: 0;
+    position: absolute;
+    color: #ffff;
+    font-size: 15px;
+    top: -1.3em;
+    left: 0px;
+    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
+}
+textarea.question + label > span {
+    top: -3em;
+}
 
-    input[type="submit"] {
-        -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-        transition: opacity 0.2s ease, background 0.2s ease;
-        display: block;
-        opacity: 1;
-        margin: 0;
-        padding: 5px;
-        cursor: pointer;
-        width: 100%;
-        background-color: transparent;
-        color: #ffff;
-    }
-    input[type="submit"]:hover {
-        background-color: #ffff ;
-        color: #000;
-        font-weight: 600;
-      }
-
-
-
-
+input[type="submit"] {
+    -webkit-transition: opacity 0.3s ease, background 0.3s ease;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    display: block;
+    opacity: 1;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    color: #ffff;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+input[type="submit"]:hover {
+    background-color: #ffff;
+    color: #000;
+    font-weight: 600;
+}

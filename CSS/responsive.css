@@ -1,6 +1,6 @@
 /* MEDIA QUERIES */
 
-/* TABLETS */
+/* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
     #travel {
         background-size: unset;
@@ -64,16 +64,17 @@
     }
 }
 
-
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     #portafolio h2 {
         font-size: 2rem;
         letter-spacing: 20px;
     }
-
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
+    #portafolio {
+        padding-top: 10px;
+    }
     #portafolio h2 {
         font-size: 1rem;
         letter-spacing: 20px;
@@ -89,46 +90,43 @@
 @media all and (min-width: 600px) {
     .menu {
         justify-content: center;
-      }
-      .logo {
+    }
+    .logo {
         flex: 1;
-      }
-      .toggle {
+    }
+    .toggle {
         flex: 1;
         text-align: right;
-      }
-      .item.lach {
+    }
+    .item.lach {
         width: auto;
         order: 1;
         display: block;
-      }
-      .toggle {
-        order: 2;
-      }
-
-  }
-
-    
-  /* Desktop menu */
-  @media all and (min-width: 900px) {
-    .item {
-      display: block;
-      width: auto;
     }
     .toggle {
-      display: none;
+        order: 2;
+    }
+}
+
+/* Desktop menu */
+@media all and (min-width: 900px) {
+    .item {
+        display: block;
+        width: auto;
+    }
+    .toggle {
+        display: none;
     }
     .logo {
-      order: 0;
+        order: 0;
     }
     .item {
-      order: 1;
+        order: 1;
     }
     .lach {
-      order: 2;
+        order: 2;
     }
     .menu li {
-      padding: 0px 10px;
+        padding: 0px 10px;
     }
-
-  }
+}

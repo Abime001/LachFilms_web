@@ -1,17 +1,48 @@
+/* TIPOGRAFIAS */
 @font-face {
-    font-family: Yugothib;
-    src: url("../assets/fonts/yugothib.ttf");
+    font-family: Gotham;
+    src: url("../fonts/Gotham-Light.otf");
 }
-* {
-    font-family: 'Yugothib';
+@font-face {
+    font-family: Gotham-black;
+    src: url("../fonts/Gotham-Black.otf");
+}
+
+*{
+    font-family: Gotham;
 }
 a {
     text-decoration: none;
+    font-family: Gotham-black;
 }
 
 .padre {
     display: flex;
     flex-flow: column nowrap;
+}
+
+@keyframes aparecer {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.form-modal{
+    background: rgb(42, 42, 42);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.658);
+    position: fixed;
+    z-index: 10;
+    top: 40%;
+    text-align: center;
+    right: 30%;
+    padding: 50px;
+    border-radius: 10px;
+    animation: aparecer .5s ease-in-out ;
 }
 
 nav {
@@ -121,25 +152,30 @@ a {
     text-decoration: none;
 }
 
+/* SECCION TRAVEL */
 #travel {
     margin-top: 45px;
     width: 100%;
-    height: auto;
+    height: fit-content;
 }
 #travel h2 {
     color: #ffff;
 }
 
+/* SECCION PORTAFOLIO */
 #portafolio {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 45px 0;
+    margin: 41px 0;
+    padding-top: 100px;
 }
 #portafolio h2 {
     color: #747474;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     padding-bottom: 5px;
     border-bottom: 3px solid #747474;
@@ -204,10 +240,13 @@ a {
 
 .info {
     width: 90%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
     height: fit-content;
     margin: auto;
 }
 
+/* SECCION DESPLEGABLE DEL PORTAFOLIO */
 .section {
     text-align: center;
 }
@@ -221,7 +260,7 @@ a {
     color: #747474;
 }
 
-@keyframes flotar {
+@-webkit-keyframes flotar {
     0% {
         transform: translateY(0px);
     }
@@ -237,7 +276,8 @@ a {
     width: 80px;
     cursor: pointer;
     margin: 40px 0;
-    animation: flotar 3s ease-in-out infinite;
+    -webkit-animation: flotar 3s ease-in-out infinite;
+            animation: flotar 3s ease-in-out infinite;
 }
 
 #social {
@@ -265,20 +305,7 @@ a {
     transition: all 0.5s ease-in-out;
 }
 
-.container-img {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    width: 90%;
-    height: fit-content;
-    margin: auto;
-}
-.container-img img {
-    width: 420px;
-    margin: 50px;
-    height: 280px;
-}
+/* FOOTER */
 
 .footer {
     display: flex;
@@ -334,7 +361,7 @@ a {
         color:gray;
         letter-spacing: 0;
         line-height: 1.02;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-family: Gotham;
         font-size: small;
         font-weight: 400;
         text-align: justify;
@@ -345,11 +372,13 @@ a {
 .social-media a {
     margin: 0 10px;
 }
+
+/* footer formulario */
 .formulario input,
 .formulario span,
 .formulario label,
 .formulario textarea {
-    font-family: "Ubuntu", sans-serif;
+    font-family: Gotham;
     display: inline-block;
     border: none;
     font-size: small;
@@ -383,7 +412,6 @@ textarea.question + label {
     margin: 0;
     width: 10%;
     border-top: 1px solid rgb(255, 174, 0);
-    -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0px;
     margin-bottom: 1em;
@@ -431,15 +459,13 @@ textarea.question + label > span {
     font-size: 15px;
     top: -1.3em;
     left: 0px;
-    -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
 }
 textarea.question + label > span {
     top: -3em;
 }
 
-input[type="submit"] {
-    -webkit-transition: opacity 0.3s ease, background 0.3s ease;
+button {
     transition: opacity 0.3s ease, background 0.3s ease;
     display: block;
     opacity: 1;
@@ -452,7 +478,7 @@ input[type="submit"] {
     border: 1px solid white;
     border-radius: 3px;
 }
-input[type="submit"]:hover {
+button:hover {
     background-color: #ffff;
     color: #000;
     font-weight: 600;
@@ -464,7 +490,7 @@ input[type="submit"]:hover {
     text-align: center;
 }
 #create > label{
-    font-family:'Oxygen', sans-serif;
+    font-family:Gotham;
     font-weight: 600;
     font-size: 12px;
 }

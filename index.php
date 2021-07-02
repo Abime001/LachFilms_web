@@ -273,12 +273,12 @@
                 <span id="footer__span">Puedes cotizar $ precios $</span>
                 <!-- FORMULARIO DEL FOOTER -->
                 <div>
-                    <form action="#" method="post">
+                    <form action="form.php" method="POST">
                         <div class="formulario">
                             <input
                                 type="text"
                                 class="question"
-                                name="user"
+                                name="name"
                                 id="name"
                                 required
                                 autocomplete="off"
@@ -308,11 +308,8 @@
                             <label for="msg"
                                 ><span>¿En que te podemos ayudar?</span></label
                             >
-                            <input
-                                type="submit"
-                                value="Enviar"
-                                id="form-submit"
-                            />
+                            <button id="form-submit" type="submit">Enviar</button>
+                            
                         </div>
                     </form>
                 </div>

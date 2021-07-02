@@ -21,6 +21,30 @@ a {
     flex-flow: column nowrap;
 }
 
+@keyframes aparecer {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.form-modal{
+    background: rgb(42, 42, 42);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.658);
+    position: fixed;
+    z-index: 10;
+    top: 40%;
+    text-align: center;
+    right: 30%;
+    padding: 50px;
+    border-radius: 10px;
+    animation: aparecer .5s ease-in-out ;
+}
+
 nav {
     background: #D9DCDF;
     padding: 0px 20px;
@@ -441,7 +465,7 @@ textarea.question + label > span {
     top: -3em;
 }
 
-input[type="submit"] {
+button {
     transition: opacity 0.3s ease, background 0.3s ease;
     display: block;
     opacity: 1;
@@ -454,7 +478,7 @@ input[type="submit"] {
     border: 1px solid white;
     border-radius: 3px;
 }
-input[type="submit"]:hover {
+button:hover {
     background-color: #ffff;
     color: #000;
     font-weight: 600;

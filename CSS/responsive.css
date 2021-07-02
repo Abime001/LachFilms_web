@@ -64,11 +64,13 @@
     }
 }
 
+
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     #portafolio h2 {
         font-size: 2rem;
         letter-spacing: 20px;
     }
+
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
@@ -82,3 +84,51 @@
         letter-spacing: 30px;
     }
 }
+
+/* Tablet menu */
+@media all and (min-width: 600px) {
+    .menu {
+        justify-content: center;
+      }
+      .logo {
+        flex: 1;
+      }
+      .toggle {
+        flex: 1;
+        text-align: right;
+      }
+      .item.lach {
+        width: auto;
+        order: 1;
+        display: block;
+      }
+      .toggle {
+        order: 2;
+      }
+
+  }
+
+    
+  /* Desktop menu */
+  @media all and (min-width: 900px) {
+    .item {
+      display: block;
+      width: auto;
+    }
+    .toggle {
+      display: none;
+    }
+    .logo {
+      order: 0;
+    }
+    .item {
+      order: 1;
+    }
+    .lach {
+      order: 2;
+    }
+    .menu li {
+      padding: 0px 10px;
+    }
+
+  }

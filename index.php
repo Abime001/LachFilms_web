@@ -252,12 +252,12 @@
                 </div>
                 <label>Follow Us</label>
                 <div class="social-media">
-                    <a target="_blank" href="#"
+                    <a target="_blank" href="https://api.whatsapp.com/send?phone=2212209419"
                         ><img
                             src="images/icons/whatsapp.png"
                             title="Whatsapp de Lach Films"
                     /></a>
-                    <a target="_blank" href="#"
+                    <a target="_blank" href="https://www.facebook.com/lachfilms"
                         ><img
                             src="images/icons/facebook.png"
                             title="Facebook de LachFilms"

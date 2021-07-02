@@ -1,7 +1,7 @@
 /* MEDIA QUERIES */
 
 /* TABLETS */
-@media only screen and (min-width: 400px) and (max-width: 1200px) {
+@media only screen and (min-width: 300px) and (max-width: 1200px) {
     #travel {
         background-size: unset;
         background-repeat: no-repeat;

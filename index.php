@@ -25,12 +25,12 @@
         <nav>
             <ul class="menu">
                 <li class="logo">
-                    <a href="#"
+                    <a href="#home"
                         ><img
                             src="images/lach_logo.png"
                             width="50px"
                             height="50px"
-                            alt=""
+                            alt="Logotipo de Lach Films"
                     /></a>
                 </li>
                 <li class="item"><a href="#home">Home</a></li>
@@ -316,7 +316,7 @@
             </div>
         </footer>
         <div id="create">
-            <label for=""> Digital, Create-It.</label>
+            <label for="create"> Digital, Create-It.</label>
         </div>
 
         <!-- SCRIPTS JS DE ANIMACIONES -->

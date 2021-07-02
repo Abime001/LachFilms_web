@@ -58,7 +58,7 @@
         <!-- SECCION TRAVEL -->
         
 
-        <div data-aos="fade-up" data-aos-duration="3000">
+        <div data-aos="fade-up" data-aos-duration="500">
             <section id="travel">
                 <video id="trav"
                     src="./video/travel.mp4"

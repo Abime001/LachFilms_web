@@ -111,7 +111,7 @@ nav {
     width: 2em;
     height: 2em;
     /* Color queda a opinión */
-    background-color:red; 
+    background-color: #FFC107; 
     color: aliceblue;
     position: fixed;
     bottom: 20px;
@@ -169,8 +169,8 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 41px 0;
-    padding-top: 100px;
+    margin-bottom: 30px;
+    padding-top: 20px;
 }
 #portafolio h2 {
     color: #747474;
@@ -335,7 +335,7 @@ a {
     display: flex;
     margin-bottom: -2em;
 }
-    #footer__span{
+    .footer__span{
         font-size: small;
         line-height: 3;
         color: gray;

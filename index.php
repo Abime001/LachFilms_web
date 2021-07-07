@@ -147,14 +147,9 @@
             <h3>SOCIAL</h3>
             <!-- SnapWidget -->
             <script src="https://snapwidget.com/js/snapwidget.js"></script>
-            <iframe
-                src="https://snapwidget.com/embed/946900"
-                class="snapwidget-widget"
-                allowtransparency="true"
-                frameborder="0"
-                scrolling="no"
-                style="border: none; overflow: hidden; width: 100%"
-            ></iframe>
+                <!-- SnapWidget -->
+                <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                <iframe src="https://snapwidget.com/embed/946900" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
             <img
                 id="arrow_s"
                 class="section-arrow"
@@ -167,14 +162,10 @@
             <h3>PRODUCTO</h3>
             <!-- SnapWidget -->
             <script src="https://snapwidget.com/js/snapwidget.js"></script>
-            <iframe
-                src="https://snapwidget.com/embed/946900"
-                class="snapwidget-widget"
-                allowtransparency="true"
-                frameborder="0"
-                scrolling="no"
-                style="border: none; overflow: hidden; width: 100%"
-            ></iframe>
+            <!-- SnapWidget -->
+            <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                <iframe src="https://snapwidget.com/embed/946900" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
+                    
             <img
                 id="arrow_p"
                 class="section-arrow"
@@ -187,14 +178,9 @@
             <h3>AEREO</h3>
             <!-- SnapWidget -->
             <script src="https://snapwidget.com/js/snapwidget.js"></script>
-            <iframe
-                src="https://snapwidget.com/embed/946900"
-                class="snapwidget-widget"
-                allowtransparency="true"
-                frameborder="0"
-                scrolling="no"
-                style="border: none; overflow: hidden; width: 100%"
-            ></iframe>
+                    <!-- SnapWidget -->
+                <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                <iframe src="https://snapwidget.com/embed/946900" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
             <img
                 id="arrow_a"
                 class="section-arrow"
@@ -207,14 +193,9 @@
             <h3>TURISMO</h3>
             <!-- SnapWidget -->
             <script src="https://snapwidget.com/js/snapwidget.js"></script>
-            <iframe
-                src="https://snapwidget.com/embed/946900"
-                class="snapwidget-widget"
-                allowtransparency="true"
-                frameborder="0"
-                scrolling="no"
-                style="border: none; overflow: hidden; width: 100%"
-            ></iframe>
+                    <!-- SnapWidget -->
+                <script src="https://snapwidget.com/js/snapwidget.js"></script>
+                <iframe src="https://snapwidget.com/embed/946900" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:100%; "></iframe>
             <img
                 id="arrow_t"
                 class="section-arrow"
@@ -227,17 +208,13 @@
         <footer class="footer" id="nosotros">
             <div class="footer__item" id="f-u">
                 <label>Ubicación<br /></label>
-                <span class="footer__span">!Puedes encontrarnos aqui!</span>
-                <div id="footer__map">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.9195423513797!2d-98.2600004854411!3d18.979160387143562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb9aea1ae4861%3A0x9bc7dd9dd985e584!2sLach%20Films!5e0!3m2!1ses!2smx!4v1625102062417!5m2!1ses!2smx"
-                        width="auto"
-                        height="auto"
-                        style="border: none; border-radius: 3px"
-                        allowfullscreen
-                        title="Ubicación de Lach Films, en google maps"
-                    ></iframe>
-                </div>
+                <span class="footer__span">!Puedes aqui!</span><br>
+                <iframe id="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.9195423513797!2d-98.2600004854411!3d18.979160387143562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cfb9aea1ae4861%3A0x9bc7dd9dd985e584!2sLach%20Films!5e0!3m2!1ses!2smx!4v1625102062417!5m2!1ses!2smx"
+                    style="border: none; border-radius: 3px"
+                    allowfullscreen
+                    title="Ubicación de Lach Films, en google maps"
+                ></iframe>
             </div>
             <div class="footer__item" id="f-s">
                 <label id="about-us">¿Quienes somos?</label

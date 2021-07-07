@@ -8,7 +8,7 @@
     src: url("../fonts/Gotham-Black.otf");
 }
 
-*{
+* {
     font-family: Gotham;
 }
 a {
@@ -22,17 +22,17 @@ a {
 }
 
 @keyframes aparecer {
-    0%{
+    0% {
         transform: translateY(-100px);
         opacity: 0;
     }
-    100%{
+    100% {
         transform: translateY(0px);
         opacity: 1;
     }
 }
 
-.form-modal{
+.form-modal {
     background: rgb(42, 42, 42);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.658);
     position: fixed;
@@ -42,76 +42,76 @@ a {
     right: 30%;
     padding: 50px;
     border-radius: 10px;
-    animation: aparecer .5s ease-in-out ;
+    animation: aparecer 0.5s ease-in-out;
 }
 
 nav {
-    background: #D9DCDF;
+    background: #d9dcdf;
     padding: 0px 20px;
     margin-top: 0;
     margin-bottom: 0;
-  }
-  ul {
+}
+ul {
     list-style-type: none;
-  }
+}
 
-  .item > a {
-    color: #3D3D3D;
+.item > a {
+    color: #3d3d3d;
     text-decoration: none;
     transition: all 0.3s ease 0s;
-  }
-  .item > a:hover {
+}
+.item > a:hover {
     color: #5b9cdc;
-    border-bottom: 2px solid #5787b9;  
-    transition: all 0.2s ease 0s;  
-  }
+    border-bottom: 2px solid #5787b9;
+    transition: all 0.2s ease 0s;
+}
 
-  .menu li {
+.menu li {
     font-size: 16px;
     padding: 5px 10px;
     white-space: nowrap;
-    margin:0;
-  }
-  .toggle a {
+    margin: 0;
+}
+.toggle a {
     font-size: 20px;
-    color: #3D3D3D;
+    color: #3d3d3d;
     text-decoration: none;
-  }
+}
 
-  /* Mobile menu */
-  .menu {
+/* Mobile menu */
+.menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-top: 0px;
     margin-bottom: 0px;
-  }
-  .toggle {
+}
+.toggle {
     order: 1;
-  }
-  .item.lach{
+}
+.item.lach {
     order: 2;
     color: #3d3d3d;
     font-weight: 600;
     font-size: 20px;
-  }
-  .item {
+}
+.item {
     width: 100%;
     text-align: center;
     order: 3;
     display: none;
-  }
-  .item.active {
+}
+.item.active {
     display: block;
-  }
+}
 
-#go__up{
+#go__up {
     display: block;
     width: 2em;
     height: 2em;
     /* Color queda a opinión */
-    background-color: #FFC107; 
+    background-color: #ffc107;
     color: aliceblue;
     position: fixed;
     bottom: 20px;
@@ -277,7 +277,7 @@ a {
     cursor: pointer;
     margin: 40px 0;
     -webkit-animation: flotar 3s ease-in-out infinite;
-            animation: flotar 3s ease-in-out infinite;
+    animation: flotar 3s ease-in-out infinite;
 }
 
 #social {
@@ -315,34 +315,36 @@ a {
     align-items: center;
     background-color: black;
 }
-#f-u, #f-f, #f-s{
+#f-u,
+#f-f,
+#f-s {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-#f-u{
+#f-u {
     justify-content: center;
     text-align: center;
 }
-#map{
+#map {
     width: 200px;
     height: auto;
 }
 
-    #logo__img{
-        width: 5em;
-        height: 5em;
-    }
+#logo__img {
+    width: 5em;
+    height: 5em;
+}
 
-.footer__map{
+.footer__map {
     display: flex;
     margin-bottom: -2em;
 }
-    .footer__span{
-        font-size: small;
-        line-height: 3;
-        color: gray;
-        font-style: italic;
-    }
+.footer__span {
+    font-size: small;
+    line-height: 3;
+    color: gray;
+    font-style: italic;
+}
 .footer__item {
     order: 0;
     flex: 0 1 auto;
@@ -355,20 +357,20 @@ a {
     margin: 0px 20px;
     background: #000;
 }
-.about-us{
+.about-us {
     text-align: center;
     width: 14em;
-    height: auto;    
+    height: auto;
 }
-    .about-us > p {
-        color:gray;
-        letter-spacing: 0;
-        line-height: 1.02;
-        font-family: Gotham;
-        font-size: small;
-        font-weight: 400;
-        text-align: justify;
-    }
+.about-us > p {
+    color: gray;
+    letter-spacing: 0;
+    line-height: 1.02;
+    font-family: Gotham;
+    font-size: small;
+    font-weight: 400;
+    text-align: justify;
+}
 .social-media {
     margin-top: 1em;
 }
@@ -487,13 +489,13 @@ button:hover {
     font-weight: 600;
 }
 
-#create{
-    background-color: #D9DCDF;
+#create {
+    background-color: #d9dcdf;
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
-#create > label{
-    font-family:Gotham;
+#create > label {
+    font-family: Gotham;
     font-weight: 600;
     font-size: 12px;
 }

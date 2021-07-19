@@ -2,10 +2,12 @@
 @font-face {
     font-family: Gotham;
     src: url("../fonts/Gotham-Light.otf");
+    font-display: swap;
 }
 @font-face {
     font-family: Gotham-black;
     src: url("../fonts/Gotham-Black.otf");
+    font-display: swap;
 }
 
 *{
@@ -131,7 +133,7 @@ html {
 
 h2 {
     font-size: 2rem;
-    letter-spacing: 50px;
+    letter-spacing: 25px;
 }
 
 h3 {
@@ -141,8 +143,8 @@ h3 {
     color: #ffff;
 }
 
-p {
-    letter-spacing: 2px;
+.p-portafolio {
+    letter-spacing: 1px;
     line-height: 30px;
     margin: 20px 0;
     color: #ffff;
@@ -162,6 +164,23 @@ a {
     color: #ffff;
 }
 
+/* SECCIÓN TITLE */
+#portafolio h1{
+    color: #3d3d3d;
+    font-size: 3em;
+}
+#p-t-1{
+    color: #3d3d3dbb;
+    margin-top: 0;    
+}
+#p-div-title{
+    text-align: center;
+    width: 1000px;
+    line-height: 1.5;
+    color: #3d3d3d;
+    margin-bottom: 1em;
+}
+
 /* SECCION PORTAFOLIO */
 #portafolio {
     width: 100%;
@@ -173,12 +192,12 @@ a {
     padding-top: 20px;
 }
 #portafolio h2 {
-    color: #747474;
-    width: -webkit-fit-content;
+    color: #3d3d3d;
+    /* width: -webkit-fit-content;
     width: -moz-fit-content;
-    width: fit-content;
+    width: fit-content; */
     padding-bottom: 5px;
-    border-bottom: 3px solid #747474;
+    border-bottom: 2px solid #747474;
 }
 
 .portafolio-container {
@@ -254,7 +273,7 @@ a {
     color: #747474;
     display: inline-block;
     padding-bottom: 5px;
-    border-bottom: 3px solid #747474;
+    border-bottom: 2px solid #747474;
 }
 .section p {
     color: #747474;

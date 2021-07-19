@@ -74,18 +74,20 @@
         <!-- SECCION PORTAFOLIO -->
 
         <section id="portafolio">
+            <h1>LACH FILMS</h1>
+            <p id="p-t-1">¡Capturémoslo juntos! </p>
+            <div id="p-div-title">
+                <p id="p-t-2">Somos una productora enfocada en la realización de <b>proyectos fotográficos y audiovisuales.</b><br> 
+                    Contamos con la capacidad y experiencia de nuestros productores y directores. Escuchamos sus necesidades para traducirlas en las <b>soluciones más eficientes y personalizadas</b> para cada producción. Nuestros recursos y soluciones locales e internacionales nos convierten en la combinación perfecta para su proyecto.</p>
+            </div>
             <h2>PORTAFOLIO</h2>
             <div class="portafolio-container">
                 <div class="d-v d-social">
                     <a href="#social" id="btn-social" class="filtro-social">
                         <div class="info">
                             <h3>SOCIAL</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellat eum laudantium autem
-                                fugit, esse harum magni culpa ea accusantium vel
-                                ducimus earum ad ex, unde omnis sint ut porro
-                                architecto?
+                            <p class="p-portafolio">
+                                No te arrepentirás de vivir la experiencia de una sesión fotografíca profesional. Preserva esos momentos tan emocionantes. Bodas, festivales, fiestas y muchos eventos más.
                             </p>
                         </div>
                     </a>
@@ -99,12 +101,8 @@
                         >
                             <div class="info">
                                 <h3>PRODUCTO</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Repellat eum laudantium
-                                    autem fugit, esse harum magni culpa ea
-                                    accusantium vel ducimus earum ad ex, unde
-                                    omnis sint ut porro architecto?
+                                <p class="p-portafolio">
+                                    ¿Quieres que tus productos se vean perfectos? Ven con nosotros y deja que hagamos la magía que necesitas en tus productos para que sean tan atractivos como puedas imaginarlos. 
                                 </p>
                             </div>
                         </a>
@@ -114,12 +112,8 @@
                         <a href="#aereo" id="btn-aereo" class="filtro-aereo">
                             <div class="info">
                                 <h3>AEREO</h3>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Repellat eum laudantium
-                                    autem fugit, esse harum magni culpa ea
-                                    accusantium vel ducimus earum ad ex, unde
-                                    omnis sint ut porro architecto?
+                                <p class="p-portafolio">
+                                    Que mejor que una toma aerea para mostrar todo lo que tu ciudad puede ofrecer. Asombra en tu perfil, eventos o negocio con las mejores tomas areas que LachFilms te puede ofrecer. ¿lo imaginas? Lo podemos hacer.
                                 </p>
                             </div>
                         </a>
@@ -129,12 +123,8 @@
                     <a href="#turismo" id="btn-turismo" class="filtro-turismo">
                         <div class="info">
                             <h3>TURISMO</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Repellat eum laudantium autem
-                                fugit, esse harum magni culpa ea accusantium vel
-                                ducimus earum ad ex, unde omnis sint ut porro
-                                architecto?
+                            <p class="p-portafolio">
+                                Permite que te acompañemos en tu viaje y deja que capturemos en video o fotografía la experiencia de vivir la cultura del lugar que visites. Tu te encargas de disfrutar y nosotros de enmarcarte. 
                             </p>
                         </div>
                     </a>

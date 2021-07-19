@@ -273,8 +273,8 @@
                             <textarea
                                 name="message"
                                 class="question"
-                                id="msg"
-                                rows="2"
+                                id="msg" 
+                                rows="2
                                 required
                                 autocomplete="off"
                             ></textarea>

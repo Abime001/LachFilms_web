@@ -11,7 +11,7 @@
         <meta name="author" content="Create-It">
         <meta name="keywords" content="Lach, Films, productora, fotogrfia, contenido, videos, redes sociales">
         <meta name="copyright" content="Create-It">
-        <title>Lach Films - Productora fotográfica y audiovisual</title>
+        <title>Lach Films | Productora fotográfica y audiovisual</title>
         <!-- de 32px shortcut icon -->
         <link rel="shortcut icon" href="images/icons/lach_logo.ico" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous"/>
@@ -49,14 +49,24 @@
 
         <!-- HOME -->
         <div id="home" class="video">
-            <video autoplay muted loop width="100%" height="100%" title="Lach Films video de bienvenida"> 
+            <video autoplay muted loop width="100%" title="Lach Films video de bienvenida"> 
                 <source src="video/logo_animado.mp4" />
             </video>
-            
+        </div>
+
+        <div class="card">
+            <div class="card-texto">
+                <h2 id="titulo-video">PRODUCCIÓN FOTOGRÁFICA Y AUDIOVISUAL A TU MEDIDA</h2>
+            </div>
+            <div class="card-description">
+                ¡Escribenos! Cotizamos tu propuesta con la mejor calidad posible. Solo en LACH FILMS.
+            </div>
+            <div class="card-butron">
+                <a href="#about-us" class="animated-button thar-three">Contactanos</a> 
+            </div>
         </div>
 
         <!-- SECCION TRAVEL -->
-        
 
         <div data-aos="fade-up" data-aos-duration="500">
             <section id="travel">
@@ -80,7 +90,7 @@
                 <p id="p-t-2">Somos una productora enfocada en la realización de <b>proyectos fotográficos y audiovisuales.</b><br> 
                     Contamos con la capacidad y experiencia de nuestros productores y directores. Escuchamos sus necesidades para traducirlas en las <b>soluciones más eficientes y personalizadas</b> para cada producción. Nuestros recursos y soluciones locales e internacionales nos convierten en la combinación perfecta para su proyecto.</p>
             </div>
-            <h2>PORTAFOLIO</h2>
+            <h2 id="h2-portafolio">PORTAFOLIO</h2>
             <div class="portafolio-container">
                 <div class="d-v d-social">
                     <a href="#social" id="btn-social" class="filtro-social">
@@ -293,7 +303,7 @@
         </div>
 
         <!-- SCRIPTS JS DE ANIMACIONES -->
-        <script src="./main.js"></script>
+        <script src="./JS/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>

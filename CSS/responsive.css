@@ -2,6 +2,7 @@
 
 /* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
+
     #travel {
         background-size: unset;
         background-repeat: no-repeat;
@@ -77,9 +78,31 @@
         width: auto;
         font-size: 1em;
     }
+    .card{
+        width: 200px;
+        top: 10%;
+    }
+    .card-texto{
+        color: #589bdf;
+        text-align: right;
+        font-size: 1em;
+    }
+    
+    .card-description{
+        line-height: 1;
+        font-size: 10px;
+    }
+    
+    a.animated-button.thar-three {
+        padding: 10px 10px 10px 10px;
+        font-size: 10px;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
+    .card{
+        display: none;
+    }
     #portafolio {
         padding-top: 10px;
     }
@@ -146,3 +169,4 @@
         padding: 0px 10px;
     }
 }
+

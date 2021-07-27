@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../images/icons/lach_logo.ico" />
+        <link rel="stylesheet" href="../CSS/styles.css" />
+        <link rel="stylesheet" href="../CSS/normalize.css" />
+        <!-- Link Swiper's CSS -->
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/swiper/swiper-bundle.min.css"
+        />
+        <title>AEREO</title>
+    </head>
+    <body data-barba="wrapper">
+        <div
+            class="container-img"
+            data-barba="container"
+            data-barba-namespace="home"
+        >
+            <h2>AEREO</h2>
+            <hr />
+            <!-- Swiper -->
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img
+                            src="../images/img_aereo/DJI_0002.jpg"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="../images/img_aereo/DJI_0019 (1).JPG"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/img_aereo/DJI_0019.JPG" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="../images/img_aereo/DJI_0046.jpg"
+                        />
+                    </div>
+                    <div class="swiper-slide">
+                        <img
+                            src="../images/img_aereo/HDR_0003.jpg"
+                        />
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- Swiper JS -->
+            <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+            <!-- Initialize Swiper -->
+            <script>
+                //SLIDER
+                const swiper = new Swiper(".swiper-container", {
+                    effect: "coverflow",
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: "auto",
+                    coverflowEffect: {
+                        rotate: 30,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                    loop: true,
+                    autoplay: {
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    },
+                });
+            </script>
+        </div>
+    </body>
+</html>

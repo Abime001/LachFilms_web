@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     </head>
     <body data-barba="wrapper">
-        <div data-barba="container" data-barba-namespace="home">
+        <div data-barba="container" data-barba-namespace="social">
             <!-- NAV -->
             <nav>
             <ul class="menu" id="menu">
@@ -68,7 +68,6 @@
         </div>
         
         <!-- SECCION TRAVEL -->
-        
         <div data-aos="fade-up" data-aos-duration="500">
             <section id="travel">
                 <video id="trav"
@@ -83,7 +82,6 @@
         </div>
 
         <!-- SECCION PORTAFOLIO -->
-        
         <section id="portafolio">
             <h1>LACH FILMS</h1>
             <div class="portafolio-info">
@@ -144,7 +142,6 @@
                 </div>
             </div>
         </section>
-    </div>
         
         <!-- FOOTER -->
         <footer class="footer" id="nosotros">
@@ -160,95 +157,95 @@
             </div>
             <div class="footer__item" id="f-s">
                 <label id="about-us">¿Quienes somos?</label
-                ><br />
-                <div class="about-us">
-                    <p>
-                        LACH FILMS es una productora enfocada a la realización
-                        de proyectos fotográficos y audiovisuales, la cual
-                        cuenta con la capacidad y experiencia de nuestros
-                        productores y directores.
-                    </p>
+                    ><br />
+                    <div class="about-us">
+                        <p>
+                            LACH FILMS es una productora enfocada a la realización
+                            de proyectos fotográficos y audiovisuales, la cual
+                            cuenta con la capacidad y experiencia de nuestros
+                            productores y directores.
+                        </p>
+                    </div>
+                    <label>Follow Us</label>
+                    <div class="social-media">
+                        <a target="_blank" href="https://api.whatsapp.com/send?phone=2212209419"
+                        ><img
+                        src="images/icons/whatsapp.png"
+                        title="Whatsapp de Lach Films"
+                        /></a>
+                        <a target="_blank" href="https://www.facebook.com/lachfilms"
+                        ><img
+                        src="images/icons/facebook.png"
+                        title="Facebook de LachFilms"
+                        /></a>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured"
+                        ><img
+                        src="images/icons/youtube.png"
+                        title="Canal de YouTube de Lach Films"
+                        /></a>
+                        <a target="_blank" href="https://www.instagram.com/lachfilms/"
+                        ><img
+                        src="images/icons/instagram.png"
+                        title="Instagram de Lach Films"
+                        /></a>
+                    </div>
                 </div>
-                <label>Follow Us</label>
-                <div class="social-media">
-                    <a target="_blank" href="https://api.whatsapp.com/send?phone=2212209419"
-                        ><img
-                            src="images/icons/whatsapp.png"
-                            title="Whatsapp de Lach Films"
-                    /></a>
-                    <a target="_blank" href="https://www.facebook.com/lachfilms"
-                        ><img
-                            src="images/icons/facebook.png"
-                            title="Facebook de LachFilms"
-                    /></a>
-                    <a target="_blank" href="https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured"
-                        ><img
-                            src="images/icons/youtube.png"
-                            title="Canal de YouTube de Lach Films"
-                    /></a>
-                    <a target="_blank" href="https://www.instagram.com/lachfilms/"
-                        ><img
-                            src="images/icons/instagram.png"
-                            title="Instagram de Lach Films"
-                    /></a>
-                </div>
-            </div>
-            <div class="footer__item" id="f-f">
-                <label>Escribenos!</label> <br />
-                <span class="footer__span">Puedes cotizar $ precios $</span>
-                <!-- FORMULARIO DEL FOOTER -->
-                <div>
-                    <form action="form.php" method="POST">
-                        <div class="formulario">
-                            <input
+                <div class="footer__item" id="f-f">
+                    <label>Escribenos!</label> <br />
+                    <span class="footer__span">Puedes cotizar $ precios $</span>
+                    <!-- FORMULARIO DEL FOOTER -->
+                    <div>
+                        <form action="form.php" method="POST">
+                            <div class="formulario">
+                                <input
                                 type="text"
                                 class="question"
                                 name="name"
                                 id="name"
                                 required
                                 autocomplete="off"
-                            />
-                            <label for="name"
+                                />
+                                <label for="name"
                                 ><span>Escribe tu nombre!</span></label
-                            >
-
-                            <input
+                                >
+                                
+                                <input
                                 type="email"
                                 class="question"
                                 name="email"
                                 id="email"
                                 required
                                 autocomplete="off"
-                            />
-                            <label for="email"><span>Email</span></label>
-
-                            <textarea
+                                />
+                                <label for="email"><span>Email</span></label>
+                                
+                                <textarea
                                 name="message"
                                 class="question"
                                 id="msg" 
-                                rows="2
+                                rows="2"
                                 required
                                 autocomplete="off"
-                            ></textarea>
-                            <label for="msg"
+                                ></textarea>
+                                <label for="msg"
                                 ><span>¿En que te podemos ayudar?</span></label
-                            >
-                            <button id="form-submit" type="submit" title="Enviar">Enviar</button>
-                            
-                        </div>
-                    </form>
+                                >
+                                <button id="form-submit" type="submit" title="Enviar">Enviar</button>
+                                
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </footer>
+            <div id="create">
+                <label> Digital, Create-It.</label>
             </div>
-        </footer>
-        <div id="create">
-            <label> Digital, Create-It.</label>
         </div>
-
-        <!-- SCRIPTS JS DE ANIMACIONES -->
-        <script src="./JS/main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <source src="./JS/barba.min.js">
+            
+            <!-- SCRIPTS JS DE ANIMACIONES -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script src="./JS/main.js"></script>
         <script>
             AOS.init();
         </script>

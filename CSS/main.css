@@ -20,7 +20,7 @@
 /* PAGE SECCTION PORTAFOLIO */
 
 .header{
-    background: #3d3d3d;
+    background: #000000;
 }
 
 .btn-back{
@@ -42,6 +42,21 @@
     font-family: Gotham-black;
     letter-spacing: 20px;
     margin: 0;
+}
+
+.container-img span{
+    text-align: center;
+    color: #808080;
+    margin: 40px auto;
+    line-height: 30px;
+    font-size: 1.5rem;
+    display: block;
+}
+
+.container-img span a{
+    color: white;
+    font-weight: 700;
+    font-family: RobotoCondensed;
 }
 
 .container-img hr{
@@ -102,11 +117,11 @@
 }
 
 .s-img-1{
-    background-image: url(../images/img_social/IMG_20201030_124206.jpg);
+    background-image: url(../images/img_social/IMG_20201030_130442.jpg);
 }
 
 .s-img-2{
-    background-image: url(../images/img_social/IMG_20210228_130134.jpg);
+    background-image: url(../images/img_social/IMG_20210228_124721.jpg);
 }
 
 .s-img-3{
@@ -114,11 +129,11 @@ background-image: url(../images/img_social/IMG_4844_2.jpg);
 }
 
 .s-img-4{
-    background-image: url(../images/img_social/PicsArt_04-14-10.59.30.jpg);
+    background-image: url(../images/img_social/IMG_1798.jpg);
 }
 
 .s-img-5{
-    background-image: url(../images/img_social/PicsArt_07-19-09.36.04.jpg);
+    background-image: url(../images/img_social/IMG_20200625_191150_654.jpg);
 }
 
 .s-img-6{

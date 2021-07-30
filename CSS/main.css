@@ -95,8 +95,9 @@
 }
 
 /* IMG SOCIAL */
-.s-img-1, .s-img-2, .s-img-3, .s-img-4, .s-img-5, .s-img-6{
-    background-size: 100% 100%;
+.s-img-1, .s-img-2, .s-img-3, .s-img-4, .s-img-5, .s-img-6,.a-img-1, .a-img-2, .a-img-3, .a-img-4, .a-img-5, .a-img-6,
+.p-img-1, .p-img-2, .p-img-3, .p-img-4, .p-img-5, .p-img-6, .t-img-1, .t-img-2, .t-img-3, .t-img-4, .t-img-5, .t-img-6{
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
@@ -122,6 +123,78 @@ background-image: url(../images/img_social/IMG_4844_2.jpg);
 
 .s-img-6{
     background-image: url(../images/img_social/IMG_20200705_071427.jpg);
+}
+
+.a-img-1{
+    background-image: url(../images/img_aereo/DJI_0002.jpg);
+}
+
+.a-img-2{
+    background-image: url(../images/img_aereo/DJI_0019.JPG);
+}
+
+.a-img-3{
+    background-image: url(../images/img_aereo/DJI_0046.jpg);
+}
+
+.a-img-4{
+    background-image: url(../images/img_aereo//HDR_0003.jpg);
+}
+
+.a-img-5{
+    background-image: url(../images/img_aereo/2021-07-30\ 010745.png);
+}
+
+.a-img-6{
+    background-image: url(../images/img_aereo/DJI_0020.JPG);
+}
+
+.p-img-1{
+    background-image: url(../images/img_products/IMG_1003.jpg);
+}
+
+.p-img-2{
+    background-image: url(../images/img_products/IMG_1006.jpg);
+}
+
+.p-img-3{
+    background-image: url(../images/img_products/IMG_1009.jpg);
+}
+
+.p-img-4{
+    background-image: url(../images/img_products/IMG_1003.jpg);
+}
+
+.p-img-5{
+    background-image: url(../images/img_products/IMG_1006.jpg);
+}
+
+.p-img-6{
+    background-image: url(../images/img_products/IMG_1009.jpg);
+}
+
+.t-img-1{
+    background-image: url(../images/img_turismo/IMG_20200313_133552.jpg);
+}
+
+.t-img-2{
+    background-image: url(../images/img_turismo/IMG_20200621_073151.jpg);
+}
+
+.t-img-3{
+    background-image: url(../images/img_turismo/IMG_20200712_070205.jpg);
+}
+
+.t-img-4{
+    background-image: url(../images/img_turismo/IMG_20210424_201225.jpg);
+}
+
+.t-img-5{
+    background-image: url(../images/img_turismo/PicsArt_04-02-08.21.37.jpg);
+}
+
+.t-img-6{
+    background-image: url(../images/img_turismo/IMG_20210318_194440.jpg);
 }
 
 * {

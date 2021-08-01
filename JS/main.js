@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var arrow_s = document.getElementById("arrow_s");
 var arrow_p = document.getElementById("arrow_p");
 var arrow_a = document.getElementById("arrow_a");
@@ -89,6 +90,20 @@ btn_turismo.addEventListener("click", function () {
 
     producto.style.display = "none";
     producto.style.opacity = 0;
+=======
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop:true,
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+>>>>>>> 071920a6b9fb922607c9f5d320d3a0f55ab908ed
 });
 
 btn__menu_nav.addEventListener( "click", function() {
@@ -181,5 +196,9 @@ $(function () {
             },
         ],
     });
+<<<<<<< HEAD
 });
 >>>>>>> 4ec89ced25f4959841fac986ab3770139606f90f
+=======
+});
+>>>>>>> 071920a6b9fb922607c9f5d320d3a0f55ab908ed

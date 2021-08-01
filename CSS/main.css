@@ -17,9 +17,6 @@
     font-display: swap;
 }
 
-<<<<<<< HEAD
-/* PAGE SECTION PORTAFOLIO */
-=======
 /* SWIPER */
 .swiper-container {
     width: 100%;
@@ -34,7 +31,6 @@
     text-align: center;
     font-size: 18px;
     background: #fff;
-
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -68,7 +64,6 @@
 }
 
 /* PAGE SECCTION PORTAFOLIO */
->>>>>>> 071920a6b9fb922607c9f5d320d3a0f55ab908ed
 
 .header {
     background: #000000;
@@ -105,7 +100,7 @@
 }
 
 .container-img span a {
-    color: white;
+    color: #ffff;
     font-weight: 700;
     font-family: RobotoCondensed;
 }
@@ -114,23 +109,32 @@
     width: 60%;
     margin-top: 20px;
 }
+.container-img #anuncio >p{
+    color:rgba(255, 255, 255, 0.801);
+    size: 0.5rem;
+}
+.container-img #anuncio:hover{
+    color:#589bdf;
+}
 
-<<<<<<< HEAD
 
-.container-mosaico{
-=======
 .container-mosaico {
->>>>>>> 071920a6b9fb922607c9f5d320d3a0f55ab908ed
     margin-top: 100px;
     width: 100%;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .mosaico-row {
     width: 100%;
     height: 500px;
-    display: flex;
-    align-items: center;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:unset;
+    align-content:flex-start;
 }
 
 .mosaico-row div {
@@ -141,6 +145,7 @@
 .mosaico-row div img {
     width: 100%;
     height: 500px;
+    object-fit: cover;
 }
 
 /* ANIMACION ENTRE PÁGINAS */
@@ -166,55 +171,23 @@
 }
 
 /* IMG DE CADA SECCIÓN DEL PORTAFOLIO */
-.s-img-1,
-.s-img-2,
-.s-img-3,
-.s-img-4,
-.s-img-5,
-.s-img-6,
-.a-img-1,
-.a-img-2,
-.a-img-3,
-.a-img-4,
-.a-img-5,
-.a-img-6,
-.p-img-1,
-.p-img-2,
-.p-img-3,
-.p-img-4,
-.p-img-5,
-.p-img-6,
-.t-img-1,
-.t-img-2,
-.t-img-3,
-.t-img-4,
-.t-img-5,
-.t-img-6 {
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
-.s-img-1 {
+.s-img-1{
     background-image: url(../images/img_social/s-img-1.jpg);
 }
-
-.s-img-2 {
+.s-img-2{
     background-image: url(../images/img_social/s-img-2.jpg);
 }
-
-.s-img-3 {
+.s-img-3{
     background-image: url(../images/img_social/s-img-3.jpg);
 }
-
-.s-img-4 {
+.s-img-4{
     background-image: url(../images/img_social/s-img-4.jpg);
 }
-
-.s-img-5 {
+.s-img-5{
     background-image: url(../images/img_social/s-img-5.jpg);
 }
-
-.s-img-6 {
+.s-img-6{
     background-image: url(../images/img_social/s-img-6.jpg);
 }
 

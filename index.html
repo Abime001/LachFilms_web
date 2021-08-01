@@ -17,7 +17,10 @@
         <link rel="stylesheet" href="./CSS/normalize.css">
         <link rel="stylesheet" href="./CSS/main.css" />
         <link rel="stylesheet" href="./CSS/responsive.css">
-        <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+        <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
     </head>
 
     <body data-barba="wrapper">
@@ -58,7 +61,7 @@
             </button>
 
             <!-- HOME -->
-            <div id="home" class="video">
+            <section id="home" class="video">
                 <video
                     autoplay
                     muted
@@ -85,21 +88,30 @@
                         >Contactanos</a
                     >
                 </div>
-            </div>
-
-            <!-- SECCION TRAVEL -->
-        <div data-aos="fade-up" data-aos-duration="500">
-            <section id="travel">
-                <video id="trav"
-                src="./video/travel.mp4"
-                autoplay
-                muted
-                loop
-                width="100%"
-                title="Servicios ofertados por Lach Films"
-                ></video>
             </section>
-        </div>  
+
+        <!-- SECCION TRAVEL -->
+        <section id="travel">
+                <!-- Swiper -->
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+          <a href="./pages/videos_social.html" class="swiper-slide">
+              <img src="./images/slider/social.jpg" alt="Social">
+          </a>
+          <a href="./pages/videos_turismo.html" class="swiper-slide">
+            <img src="./images/slider/turismo.jpg" alt="Turismo">
+          </a>
+          <a href="./pages/videos_aereo.html" class="swiper-slide">
+            <img src="./images/slider/aereo.jpg" alt="Aereo">
+          </a>
+          <a href="./pages/videos_productos.html" class="swiper-slide">
+              <img src="./images/slider/productos.jpg" alt="Productos">
+          </a>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+        </section>
 
         <!-- SECCION PORTAFOLIO -->
         <section id="portafolio">
@@ -264,11 +276,8 @@
     
     <!-- SCRIPTS JS DE ANIMACIONES -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script> -->
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./JS/main.js"></script>
 </html>

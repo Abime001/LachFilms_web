@@ -17,11 +17,7 @@
     font-display: swap;
 }
 
-<<<<<<< HEAD:CSS/styles.css
-<<<<<<< HEAD
-=======
-=======
-/* PAGE SECCTION PORTAFOLIO */
+/* PAGE SECTION PORTAFOLIO */
 
 .header{
     background: #000000;
@@ -33,7 +29,6 @@
     left: 100px;
 }
 
->>>>>>> 4ec89ced25f4959841fac986ab3770139606f90f:CSS/main.css
 .container-img{
     width: 100%;
     height: fit-content;
@@ -68,6 +63,7 @@
     width: 60%;
     margin-top: 20px;
 }
+
 
 .container-mosaico{
     margin-top: 100px;
@@ -216,7 +212,6 @@ background-image: url(../images/img_social/IMG_4844_2.jpg);
 .t-img-6{
     background-image: url(../images/img_turismo/IMG_20210318_194440.jpg);
 }
->>>>>>> d9f6c7be59d2038ec73899badde5755c26453124
 
 * {
     font-family: Gotham;

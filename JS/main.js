@@ -3,7 +3,7 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     loop:true,
     autoplay: {
-        delay: 2000,
+        delay: 2500,
         disableOnInteraction: false
     },
     navigation: {
@@ -11,6 +11,27 @@ var swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+
+var swiperVid = new Swiper(".mySwiperVid", {
+    loop:true,
+    followFinger: true,
+    preventClicks:true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    effect: 'fade',
+    fadeEffect: {
+        crossFade: true
+      },
+    keyboard: {
+       enabled: true,
+       onlyInViewport: false,
+    },
+  });
 
 btn__menu_nav.addEventListener( "click", function() {
     $(".toggle").on("click", function() {

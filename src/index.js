@@ -7,7 +7,7 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     loop:true,
     autoplay: {
-        delay: 2000,
+        delay: 2500,
         disableOnInteraction: false
     },
     navigation: {

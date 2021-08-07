@@ -1,14 +1,14 @@
-import './CSS/main.css';
-import './CSS/normalize.css';
-import './CSS/responsive.css';
+import "./CSS/main.css";
+import "./CSS/normalize.css";
+import "./CSS/responsive.css";
 
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
-    loop:true,
+    loop: true,
     autoplay: {
         delay: 2000,
-        disableOnInteraction: false
+        disableOnInteraction: false,
     },
     navigation: {
         nextEl: ".swiper-button-next",
@@ -16,10 +16,8 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
-var swiperVid = new Swiper(".mySwiperVid", {
-    loop:true,
-    followFinger: true,
-    preventClicks:true,
+var swiperVid = new Swiper(".swiperVid", {
+    loop: true,
     autoplay: {
         delay: 3000,
         disableOnInteraction: false
@@ -35,10 +33,11 @@ var swiperVid = new Swiper(".mySwiperVid", {
        enabled: true,
        onlyInViewport: false,
     },
-  });
+    followFinger: true
+});
 
-btn__menu_nav.addEventListener( "click", function() {
-    $(".toggle").on("click", function() {
+btn__menu_nav.addEventListener("click", function () {
+    $(".toggle").on("click", function () {
         if ($(".item").hasClass("active")) {
             $(".item").removeClass("active");
             $(this).find("a").html("<i class='fas fa-bars'></i>");
@@ -53,9 +52,8 @@ var x = document.getElementById("go__up");
 
 window.onscroll = function () {
     "use strict";
-    
+
     if (window.pageYOffset >= 200) {
-        
         x.style.display = "block";
     } else {
         x.style.display = "none";
@@ -97,7 +95,13 @@ function pageTransition() {
 
 function contentAnimation() {
     var tl = gsap.timeline();
-    tl.from(".animate-this", { duration: 1, y: 30, opacity: 0, stagger: 0.4, delay: 0.2 });
+    tl.from(".animate-this", {
+        duration: 1,
+        y: 30,
+        opacity: 0,
+        stagger: 0.4,
+        delay: 0.2,
+    });
 }
 
 $(function () {
@@ -124,5 +128,4 @@ $(function () {
             },
         ],
     });
-
 });

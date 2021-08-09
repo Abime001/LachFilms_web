@@ -110,6 +110,18 @@
         width: inherit;
         margin: 20px 0;
     }
+    .btn-back {
+        position: fixed;
+        top: 10px;
+        width: 20px;
+        left: 5px;
+    }
+    .btn-back a img {
+        width: 40px;
+    }
+    .portafolio-info {
+        width: 94%;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
@@ -144,6 +156,17 @@
     .m div{
         width: inherit;
         margin: 20px 0;
+    }
+    .btn-back {
+        position: fixed;
+        top: 10px;
+        left: 5px;
+    }
+    .btn-back a img {
+        width: 40px;
+    }
+    .portafolio-info {
+        width: 94%;
     }
 }
 

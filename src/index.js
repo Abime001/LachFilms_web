@@ -7,13 +7,8 @@ var swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     loop: true,
     autoplay: {
-<<<<<<< HEAD
         delay: 2000,
         disableOnInteraction: false,
-=======
-        delay: 2500,
-        disableOnInteraction: false
->>>>>>> 3b607f7c675834ff160f00536bd39243dca8d3e5
     },
     navigation: {
         nextEl: ".swiper-button-next",

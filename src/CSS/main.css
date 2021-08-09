@@ -508,40 +508,6 @@ a {
     margin: auto;
 }
 
-/* SECCION DESPLEGABLE DEL PORTAFOLIO */
-.section {
-    text-align: center;
-}
-.section h3 {
-    color: #747474;
-    display: inline-block;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #747474;
-}
-.section p {
-    color: #747474;
-}
-
-@-webkit-keyframes flotar {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.section-arrow {
-    width: 80px;
-    cursor: pointer;
-    margin: 40px 0;
-    -webkit-animation: flotar 3s ease-in-out infinite;
-    animation: flotar 3s ease-in-out infinite;
-}
-
 #social {
     opacity: 0;
     display: none;

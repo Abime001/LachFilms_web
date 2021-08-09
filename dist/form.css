@@ -1,0 +1,27 @@
+@keyframes aparecer {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.form-modal {
+    background: rgb(42, 42, 42);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.658);
+    position: fixed;
+    z-index: 10;
+    top: 40%;
+    text-align: center;
+    right: 30%;
+    padding: 50px;
+    border-radius: 10px;
+    animation: aparecer 0.5s ease-in-out;
+}
+
+.form-modal p{
+    color: white;
+}

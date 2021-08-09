@@ -2,7 +2,6 @@
 
 /* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
-
     #travel {
         background-size: unset;
         background-repeat: no-repeat;
@@ -63,7 +62,7 @@
         background: rgba(0, 0, 0, 0.5);
         opacity: 1;
     }
-    #p-div-title{
+    #p-div-title {
         width: auto;
         font-size: 1em;
     }
@@ -74,34 +73,47 @@
         font-size: 2rem;
         letter-spacing: 20px;
     }
-    #p-div-title{
+    #p-div-title {
         width: auto;
         font-size: 1em;
     }
-    .card{
+    .card {
         width: 200px;
         top: 10%;
     }
-    .card-texto{
+    .card-texto {
         color: #589bdf;
         text-align: right;
         font-size: 1em;
     }
-    
-    .card-description{
+
+    .card-description {
         line-height: 1;
         font-size: 10px;
     }
-    
+
     a.animated-button.thar-three {
         padding: 10px 10px 10px 10px;
         font-size: 10px;
     }
 
+    .mosaico-row {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .f-m {
+        width: 100%;
+        height: fit-content;
+    }
+    .m div{
+        width: inherit;
+        margin: 20px 0;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
-    .card{
+    .card {
         display: none;
     }
     #portafolio {
@@ -116,9 +128,22 @@
         color: #ffff;
         letter-spacing: 30px;
     }
-    #p-div-title{
+    #p-div-title {
         width: auto;
         font-size: 1em;
+    }
+    .mosaico-row {
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .f-m {
+        width: 100%;
+        height: inherit;
+    }
+    .m div{
+        width: inherit;
+        margin: 20px 0;
     }
 }
 
@@ -142,11 +167,10 @@
     .toggle {
         order: 2;
     }
-    #p-div-title{
+    #p-div-title {
         width: auto;
         font-size: 1em;
     }
-
 }
 
 /* Desktop menu */
@@ -171,4 +195,3 @@
         padding: 0px 10px;
     }
 }
-

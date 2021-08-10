@@ -245,6 +245,23 @@ ul {
     list-style-type: none;
 }
 
+.quienes-somos{
+    width: 40%;
+    text-align: center;
+    margin: 70px auto;
+}
+
+.logo a label{
+    color: #232321;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.logo a{
+    display: flex;
+    align-items: center;
+}
+
 .item > a {
     color: #3d3d3d;
     text-decoration: none;

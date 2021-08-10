@@ -36,15 +36,14 @@
                                 height="50"
                                 alt="Logo de Lach Films, productora fotográfica y audiovisual"
                                 title="Logo de Lach Films, productora fotográfica y audiovisual"
-                        /></a>
+                                />
+                                <label>LACH FILMS</label>
+                        </a>
                     </li>
                     <li class="item"><a href="#home">Home</a></li>
                     <li class="item"><a href="#portafolio">Portafolio</a></li>
                     <li class="item"><a href="#trav">Travel</a></li>
                     <li class="item"><a href="#about-us">Nosotros</a></li>
-                    <li class="item lach" title="LachFilms">
-                        <label>LACH FILMS</label>
-                    </li>
                     <li class="toggle">
                         <a id="btn__menu_nav" href="#"
                             ><i class="fas fa-bars"></i
@@ -86,6 +85,17 @@
                 </div>
             </section>
 
+        <div class="quienes-somos">
+
+            <h1>LACH FILMS</h1>
+            <div id="p-div-title">
+                <p id="p-t-1">¡Capturémoslo juntos! </p>
+            <p id="p-t-2">Somos una productora enfocada en la realización de <b>proyectos fotográficos y audiovisuales.</b><br> 
+                Contamos con la capacidad y experiencia de nuestros productores y directores. Escuchamos sus necesidades para traducirlas en las <b>soluciones más eficientes y personalizadas</b> para cada producción. Nuestros recursos y soluciones locales e internacionales nos convierten en la combinación perfecta para su proyecto.
+            </p>
+            </div>
+        </div>
+
         <!-- SECCION TRAVEL -->
         <section id="travel">
                 <!-- Swiper -->
@@ -111,14 +121,9 @@
 
         <!-- SECCION PORTAFOLIO -->
         <section id="portafolio">
-            <h1>LACH FILMS</h1>
             <div class="portafolio-info">
-                <p id="p-t-1">¡Capturémoslo juntos! </p>
-                <div id="p-div-title">
-                    <p id="p-t-2">Somos una productora enfocada en la realización de <b>proyectos fotográficos y audiovisuales.</b><br> 
-                        Contamos con la capacidad y experiencia de nuestros productores y directores. Escuchamos sus necesidades para traducirlas en las <b>soluciones más eficientes y personalizadas</b> para cada producción. Nuestros recursos y soluciones locales e internacionales nos convierten en la combinación perfecta para su proyecto.</p>
-                    </div>
-                </div>
+                
+            </div>
                 <h2 id="h2-portafolio">PORTAFOLIO</h2>
                 <div class="portafolio-container">
                     <div class="d-v d-social">
@@ -266,7 +271,9 @@
         </div>
     </footer>
     <div id="create">
-        <label> Digital, Create-It.</label>
+        <a href="https://create-it.com.mx" target="_blank">
+            <label>CreateIt.</label>
+        </a>
     </div>
 </div>
 

@@ -3,7 +3,7 @@
     echo '<link rel="stylesheet" href="form.css">';
 
     //Configuración de el formulario y sus variables
-    $destinatario = 'jesusrodrigo881@gmail.com';
+    $destinatario = 'alberto@lachfilms.com';
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];

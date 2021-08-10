@@ -122,6 +122,9 @@
     .portafolio-info {
         width: 94%;
     }
+    .quienes-somos{
+        width: 90%;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
@@ -167,6 +170,9 @@
     }
     .portafolio-info {
         width: 94%;
+    }
+    .quienes-somos{
+        width: 90%;
     }
 }
 

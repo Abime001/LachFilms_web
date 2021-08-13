@@ -4,6 +4,8 @@ import FacebookICON from '../images/icons/facebook.png';
 import YTICON from '../images/icons/youtube.png';
 import InstagramICON from '../images/icons/instagram.png';
 import FormFooter from "./FormFooter";
+import DivCreate from "./DivCreate";
+import IconFooter from "./IconFooter";
 
 const Footer = () => (
     <>
@@ -35,38 +37,10 @@ const Footer = () => (
                 </div>
                 <label>Follow Us</label>
                 <div className="social-media">
-                    <a
-                        target="_blank"
-                        href="https://api.whatsapp.com/send?phone=2212209419">
-                        <img
-                            src={WhatsAppICON}
-                            title="Whatsapp de Lach Films"
-                        />
-                    </a>
-                    <a
-                        target="_blank"
-                        href="https://www.facebook.com/lachfilms">
-                        <img
-                            src={FacebookICON}
-                            title="Facebook de LachFilms"
-                        />
-                    </a>
-                    <a
-                        target="_blank"
-                        href="https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured">
-                        <img
-                            src={YTICON}
-                            title="Canal de YouTube de Lach Films"
-                        />
-                    </a>
-                    <a
-                        target="_blank"
-                        href="https://www.instagram.com/lachfilms/">
-                        <img
-                            src={InstagramICON}
-                            title="Instagram de Lach Films"
-                        />
-                    </a>
+                    <IconFooter icon={WhatsAppICON} url={"https://api.whatsapp.com/send?phone=2212209419"} title={"Whatsapp de lachfilms"}/>
+                    <IconFooter icon={FacebookICON} url={"https://www.facebook.com/lachfilms"} title={"Facebook de LachFilms"}/>
+                    <IconFooter icon={YTICON} url={"https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured"} title={"Canal de YouTube de Lach Films"}/>
+                    <IconFooter icon={InstagramICON} url={"https://www.instagram.com/lachfilms/"} title={"Instagram de Lach Films"}/>
                 </div>
             </div>
             <div className="footer__item" id="f-f">
@@ -75,11 +49,7 @@ const Footer = () => (
                 <FormFooter/>
             </div>
         </footer>
-        <div id="create">
-            <a href="https://create-it.com.mx" target="_blank">
-                <label>CreateIt.</label>
-            </a>
-        </div>
+        <DivCreate/>
     </>
 );
 

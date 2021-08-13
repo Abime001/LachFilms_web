@@ -1,6 +1,7 @@
 import React from 'react';
 import BackICON from '../images/icons/back.svg';
 import {Link} from 'react-router-dom';
+import DivCreate from '../components/DivCreate';
 
 const Videos = ()=>(
     <>
@@ -59,11 +60,7 @@ const Videos = ()=>(
 
                 </div>
             </div>
-            <div id="create">
-                <a href="https://create-it.com.mx" target="_blank">
-                    <label>Create It.</label>
-                </a>
-            </div>
+            <DivCreate/>
         </main>
     </>
 );

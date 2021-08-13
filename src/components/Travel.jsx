@@ -14,43 +14,40 @@ import SwiperCore, {
     Pagination,
     Mousewheel,
     Keyboard,
+    Autoplay,
 } from "swiper/core";
 
-SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard]);
+SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard, Autoplay]);
 
-const Travel = () => (
-    <section id="travel">
-        <Swiper
-            cssMode={true}
-            navigation={true}
-            pagination={true}
-            mousewheel={true}
-            keyboard={true}
-            loop={true}
-            autoplay={true}
-            className="mySwiper">
-            <SwiperSlide>
-                <Link to="/videos_lachfilms">
-                    <img src={SocialIMG} alt="" />
-                </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-                <Link to="/videos_lachfilms">
-                    <img src={TurismoIMG} alt="" />
-                </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-                <Link to="/videos_lachfilms">
-                    <img src={AereoIMG} alt="" />
-                </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-                <Link to="/videos_lachfilms">
-                    <img src={ProductoIMG} alt="" />
-                </Link>
-            </SwiperSlide>
-        </Swiper>
-    </section>
-);
+const Travel = () => {
+    return (
+        <section id="travel">
+            <Link to="/videos_lachfilms">
+                <Swiper
+                    cssMode={true}
+                    navigation={true}
+                    pagination={true}
+                    mousewheel={true}
+                    keyboard={true}
+                    loop={true}
+                    autoplay={{ delay: 2000, disableOnInteraction: false }}
+                    className="mySwiper">
+                    <SwiperSlide>
+                        <img src={SocialIMG} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={TurismoIMG} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={AereoIMG} alt="" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={ProductoIMG} alt="" />
+                    </SwiperSlide>
+                </Swiper>
+            </Link>
+        </section>
+    );
+};
 
 export default Travel;

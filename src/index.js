@@ -1,131 +1,102 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 import "./CSS/main.css";
 import "./CSS/normalize.css";
 import "./CSS/responsive.css";
 
-var swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-        delay: 2000,
-        disableOnInteraction: false,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
+ReactDOM.render(<App/>, document.getElementById("root"));
 
-var swiperVid = new Swiper(".swiperVid", {
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-      },
-    keyboard: {
-       enabled: true,
-       onlyInViewport: false,
-    },
-    followFinger: true
-});
+// btn__menu_nav.addEventListener("click", function () {
+//     $(".toggle").on("click", function () {
+//         if ($(".item").hasClass("active")) {
+//             $(".item").removeClass("active");
+//             $(this).find("a").html("<i class='fas fa-bars'></i>");
+//         } else {
+//             $(".item").addClass("active");
+//             $(this).find("a").html("<i class='fas fa-times'></i>");
+//         }
+//     });
+// });
 
-btn__menu_nav.addEventListener("click", function () {
-    $(".toggle").on("click", function () {
-        if ($(".item").hasClass("active")) {
-            $(".item").removeClass("active");
-            $(this).find("a").html("<i class='fas fa-bars'></i>");
-        } else {
-            $(".item").addClass("active");
-            $(this).find("a").html("<i class='fas fa-times'></i>");
-        }
-    });
-});
+// var x = document.getElementById("go__up");
 
-var x = document.getElementById("go__up");
+// window.onscroll = function () {
+//     "use strict";
 
-window.onscroll = function () {
-    "use strict";
+//     if (window.pageYOffset >= 200) {
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//     }
+// };
 
-    if (window.pageYOffset >= 200) {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-};
+// x.onclick = function () {
+//     "use strict";
+//     window.scrollTo(0, 0);
+// };
 
-x.onclick = function () {
-    "use strict";
-    window.scrollTo(0, 0);
-};
+// function delay(n) {
+//     n = n || 2000;
+//     return new Promise((done) => {
+//         setTimeout(() => {
+//             done();
+//         }, n);
+//     });
+// }
 
-function delay(n) {
-    n = n || 2000;
-    return new Promise((done) => {
-        setTimeout(() => {
-            done();
-        }, n);
-    });
-}
+// function pageTransition() {
+//     var tl = gsap.timeline();
+//     tl.to(".loading-screen", {
+//         duration: 1.2,
+//         width: "100%",
+//         left: "0%",
+//         ease: "Expo.easeInOut",
+//     });
 
-function pageTransition() {
-    var tl = gsap.timeline();
-    tl.to(".loading-screen", {
-        duration: 1.2,
-        width: "100%",
-        left: "0%",
-        ease: "Expo.easeInOut",
-    });
+//     tl.to(".loading-screen", {
+//         duration: 1,
+//         width: "100%",
+//         left: "100%",
+//         ease: "Expo.easeInOut",
+//         delay: 0.3,
+//     });
+//     tl.set(".loading-screen", { left: "-100%" });
+// }
 
-    tl.to(".loading-screen", {
-        duration: 1,
-        width: "100%",
-        left: "100%",
-        ease: "Expo.easeInOut",
-        delay: 0.3,
-    });
-    tl.set(".loading-screen", { left: "-100%" });
-}
+// function contentAnimation() {
+//     var tl = gsap.timeline();
+//     tl.from(".animate-this", {
+//         duration: 1,
+//         y: 30,
+//         opacity: 0,
+//         stagger: 0.4,
+//         delay: 0.2,
+//     });
+// }
 
-function contentAnimation() {
-    var tl = gsap.timeline();
-    tl.from(".animate-this", {
-        duration: 1,
-        y: 30,
-        opacity: 0,
-        stagger: 0.4,
-        delay: 0.2,
-    });
-}
+// $(function () {
+//     barba.init({
+//         sync: true,
 
-$(function () {
-    barba.init({
-        sync: true,
+//         transitions: [
+//             {
+//                 async leave(data) {
+//                     const done = this.async();
 
-        transitions: [
-            {
-                async leave(data) {
-                    const done = this.async();
+//                     pageTransition();
+//                     await delay(1000);
+//                     done();
+//                 },
 
-                    pageTransition();
-                    await delay(1000);
-                    done();
-                },
+//                 async enter(data) {
+//                     contentAnimation();
+//                 },
 
-                async enter(data) {
-                    contentAnimation();
-                },
-
-                async once(data) {
-                    contentAnimation();
-                },
-            },
-        ],
-    });
-});
+//                 async once(data) {
+//                     contentAnimation();
+//                 },
+//             },
+//         ],
+//     });
+// });

@@ -52,14 +52,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Aereo */ "./src/pages/Aereo.jsx");
 /* harmony import */ var _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Turismo */ "./src/pages/Turismo.jsx");
 /* harmony import */ var _pages_Productos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Productos */ "./src/pages/Productos.jsx");
 /* harmony import */ var _pages_Social__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Social */ "./src/pages/Social.jsx");
 /* harmony import */ var _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Inicio */ "./src/pages/Inicio.jsx");
 /* harmony import */ var _pages_Videos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Videos */ "./src/pages/Videos.jsx");
+/* harmony import */ var _pages_Panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Panel */ "./src/pages/Panel.jsx");
+
 
 
 
@@ -70,30 +72,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/",
     component: _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/aereo",
     component: _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/producto",
     component: _pages_Productos__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/social",
     component: _pages_Social__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/turismo",
     component: _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/videos_lachfilms",
     component: _pages_Videos__WEBPACK_IMPORTED_MODULE_6__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+    exact: true,
+    path: "/panel",
+    component: _pages_Panel__WEBPACK_IMPORTED_MODULE_7__.default
   })));
 };
 
@@ -147,6 +153,33 @@ var ButtonUp = function ButtonUp() {
 
 /***/ }),
 
+/***/ "./src/components/DivCreate.jsx":
+/*!**************************************!*\
+  !*** ./src/components/DivCreate.jsx ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var DivCreate = function DivCreate() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "create"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "https://create-it.com.mx",
+    target: "_blank"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It.")));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DivCreate);
+
+/***/ }),
+
 /***/ "./src/components/Footer.jsx":
 /*!***********************************!*\
   !*** ./src/components/Footer.jsx ***!
@@ -164,7 +197,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/icons/youtube.png */ "./src/images/icons/youtube.png");
 /* harmony import */ var _images_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/icons/instagram.png */ "./src/images/icons/instagram.png");
 /* harmony import */ var _FormFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormFooter */ "./src/components/FormFooter.jsx");
+/* harmony import */ var _DivCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _IconFooter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./IconFooter */ "./src/components/IconFooter.jsx");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -199,41 +236,28 @@ var Footer = function Footer() {
     className: "about-us"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "LACH FILMS es una productora enfocada a la realizaci\xF3n de proyectos fotogr\xE1ficos y audiovisuales, la cual cuenta con la capacidad y experiencia de nuestros productores y directores.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Follow Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "social-media"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    target: "_blank",
-    href: "https://api.whatsapp.com/send?phone=2212209419"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__,
-    title: "Whatsapp de Lach Films"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    target: "_blank",
-    href: "https://www.facebook.com/lachfilms"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__,
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
+    icon: _images_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__,
+    url: "https://api.whatsapp.com/send?phone=2212209419",
+    title: "Whatsapp de lachfilms"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
+    icon: _images_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__,
+    url: "https://www.facebook.com/lachfilms",
     title: "Facebook de LachFilms"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    target: "_blank",
-    href: "https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__,
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
+    icon: _images_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__,
+    url: "https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured",
     title: "Canal de YouTube de Lach Films"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    target: "_blank",
-    href: "https://www.instagram.com/lachfilms/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__,
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
+    icon: _images_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__,
+    url: "https://www.instagram.com/lachfilms/",
     title: "Instagram de Lach Films"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "footer__item",
     id: "f-f"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Escribenos!"), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
     className: "footer__span"
-  }, "Puedes cotizar $ precios $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FormFooter__WEBPACK_IMPORTED_MODULE_5__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "CreateIt."))));
+  }, "Puedes cotizar $ precios $"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_FormFooter__WEBPACK_IMPORTED_MODULE_5__.default, null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_DivCreate__WEBPACK_IMPORTED_MODULE_6__.default, null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
@@ -252,18 +276,78 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var emailjs_com__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! emailjs-com */ "./node_modules/emailjs-com/es/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 var FormFooter = function FormFooter() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    name: '',
+    message: '',
+    email: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      form = _useState2[0],
+      setForm = _useState2[1];
+
+  var handleChange = function handleChange(e) {
+    setForm(_objectSpread(_objectSpread({}, form), {}, _defineProperty({}, e.target.name, e.target.value)));
+  };
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+    var templateID = 'template_gn6rdmr';
+    sendFeedback(templateID, {
+      message: form.message,
+      name: form.name,
+      email: form.email
+    });
+    setForm({
+      name: '',
+      message: '',
+      email: ''
+    });
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    emailjs_com__WEBPACK_IMPORTED_MODULE_1__.default.init("user_4MbikDgc6ttbRRAxo59aq");
+  }, []);
+
+  var sendFeedback = function sendFeedback(templateID, variables) {
+    emailjs_com__WEBPACK_IMPORTED_MODULE_1__.default.send('service_65aibkp', templateID, variables).then(function (res) {
+      console.log('Succefull', res);
+    })["catch"](function (err) {
+      console.log(err, 'No se envio tu correo');
+    });
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    action: "form.php",
-    method: "POST"
+    onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "formulario"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
     type: "text",
     className: "question",
     name: "name",
+    onChange: handleChange,
     id: "name",
     required: true,
     autoComplete: "off"
@@ -273,13 +357,15 @@ var FormFooter = function FormFooter() {
     type: "email",
     className: "question",
     name: "email",
-    id: "email",
+    onChange: handleChange,
+    id: "emailTitle",
     required: true,
     autoComplete: "off"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
     htmlFor: "email"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Email")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("textarea", {
     name: "message",
+    onChange: handleChange,
     className: "question",
     id: "msg",
     rows: "2",
@@ -295,6 +381,229 @@ var FormFooter = function FormFooter() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FormFooter);
+
+/***/ }),
+
+/***/ "./src/components/IconBack.jsx":
+/*!*************************************!*\
+  !*** ./src/components/IconBack.jsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+var IconBack = function IconBack() {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    "class": "animate-this btn-back"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+    to: "/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
+    width: "50px",
+    alt: "Flecha para regresar a la p\xE1gina anterior"
+  })));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IconBack);
+
+/***/ }),
+
+/***/ "./src/components/IconFooter.jsx":
+/*!***************************************!*\
+  !*** ./src/components/IconFooter.jsx ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var IconFooter = function IconFooter(_ref) {
+  var icon = _ref.icon,
+      url = _ref.url,
+      title = _ref.title;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    target: "_blank",
+    href: url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    src: icon,
+    title: title
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IconFooter);
+
+/***/ }),
+
+/***/ "./src/components/IframesVideos.jsx":
+/*!******************************************!*\
+  !*** ./src/components/IframesVideos.jsx ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var IframesVideos = function IframesVideos(_ref) {
+  var url = _ref.url;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    "class": "m-i-1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
+    src: url,
+    width: "100%",
+    height: "100%",
+    frameborder: "0",
+    allow: "autoplay; fullscreen; picture-in-picture",
+    allowfullscreen: true
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IframesVideos);
+
+/***/ }),
+
+/***/ "./src/components/Mosaico.jsx":
+/*!************************************!*\
+  !*** ./src/components/Mosaico.jsx ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+ // import urlIcon from '``';``
+
+var Mosaico = function Mosaico(_ref) {
+  var img1 = _ref.img1,
+      img2 = _ref.img2,
+      img3 = _ref.img3,
+      img4 = _ref.img4,
+      img5 = _ref.img5,
+      img6 = _ref.img6;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "container-mosaico"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "mosaico-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-1.jpg",
+    download: "lachfilm-turismo-imagen1"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img1,
+    alt: "Imagen de la secci\xF3n turismo - 1",
+    title: "Imagen de la secci\xF3n turismo - 1"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-2.jpg",
+    download: "lachfilm-turismo-imagen2"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img2,
+    alt: "Imagen de la secci\xF3n turismo - 2",
+    title: "Imagen de la secci\xF3n turismo - 2"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "mosaico-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-3.jpg",
+    download: "lachfilm-turismo-imagen3"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img3,
+    alt: "Imagen de la secci\xF3n turismo - 3",
+    title: "Imagen de la secci\xF3n turismo - 3"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-4.jpg",
+    download: "lachfilm-turismo-imagen4"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img4,
+    alt: "Imagen de la secci\xF3n turismo - 4",
+    title: "Imagen de la secci\xF3n turismo - 4"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "mosaico-row"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-5.jpg",
+    download: "lachfilm-turismo-imagen5"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img5,
+    alt: "Imagen de la secci\xF3n turismo - 5",
+    title: "Imagen de la secci\xF3n turismo - 5"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "f-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    href: "../images/img_turismo/t-img-6.jpg",
+    download: "lachfilm-turismo-imagen6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "fm-img-m"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "i-a",
+    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+    className: "img-m",
+    src: img6,
+    alt: "Imagen de la secci\xF3n turismo - 6",
+    title: "Imagen de la secci\xF3n turismo - 6"
+  })))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Mosaico);
 
 /***/ }),
 
@@ -474,19 +783,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper.js");
-/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper-slide.js");
+/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper.js");
+/* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper-slide.js");
 /* harmony import */ var swiper_swiper_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/swiper.min.css */ "./node_modules/swiper/swiper.min.css");
 /* harmony import */ var _images_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/slider/aereo.jpg */ "./src/images/slider/aereo.jpg");
 /* harmony import */ var _images_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/slider/social.jpg */ "./src/images/slider/social.jpg");
 /* harmony import */ var _images_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/slider/turismo.jpg */ "./src/images/slider/turismo.jpg");
 /* harmony import */ var _images_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/slider/productos.jpg */ "./src/images/slider/productos.jpg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/core/core-class.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/navigation/navigation.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/pagination/pagination.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/mousewheel/mousewheel.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/keyboard/keyboard.js");
+/* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/autoplay/autoplay.js");
 
 
 
@@ -498,36 +808,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-swiper_core__WEBPACK_IMPORTED_MODULE_6__.default.use([swiper_core__WEBPACK_IMPORTED_MODULE_7__.default, swiper_core__WEBPACK_IMPORTED_MODULE_8__.default, swiper_core__WEBPACK_IMPORTED_MODULE_9__.default, swiper_core__WEBPACK_IMPORTED_MODULE_10__.default]);
+swiper_core__WEBPACK_IMPORTED_MODULE_6__.default.use([swiper_core__WEBPACK_IMPORTED_MODULE_7__.default, swiper_core__WEBPACK_IMPORTED_MODULE_8__.default, swiper_core__WEBPACK_IMPORTED_MODULE_9__.default, swiper_core__WEBPACK_IMPORTED_MODULE_10__.default, swiper_core__WEBPACK_IMPORTED_MODULE_11__.default]);
 
 var Travel = function Travel() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("section", {
     id: "travel"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_11__.Swiper, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Link, {
+    to: "/videos_lachfilms"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_13__.Swiper, {
     cssMode: true,
     navigation: true,
     pagination: true,
     mousewheel: true,
     keyboard: true,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false
+    },
     className: "mySwiper"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_12__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link, {
-    to: "/videos_lachfilms"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__,
     alt: ""
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_12__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link, {
-    to: "/videos_lachfilms"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__,
     alt: ""
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_12__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link, {
-    to: "/videos_lachfilms"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__,
     alt: ""
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_12__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Link, {
-    to: "/videos_lachfilms"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__,
     alt: ""
   })))));
@@ -603,8 +912,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _images_img_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_aereo/a-img-4.jpg */ "./src/images/img_aereo/a-img-4.jpg");
 /* harmony import */ var _images_img_aereo_a_img_5_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_aereo/a-img-5.png */ "./src/images/img_aereo/a-img-5.png");
 /* harmony import */ var _images_img_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_aereo/a-img-6.jpg */ "./src/images/img_aereo/a-img-6.jpg");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
+/* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+
 
 
 
@@ -625,15 +936,7 @@ var Aerero = function Aerero() {
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_7__,
-    width: "50px",
-    alt: "Flecha para regresar a la p\xE1gina anterior"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "container-img"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php"
@@ -644,110 +947,14 @@ var Aerero = function Aerero() {
     download: "lachfilm - pack aereo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), "En Lachfilms entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-mosaico"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-1 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-1.jpg",
-    download: "lachfilm-aereo-imagen1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
-    alt: "Imagen de la secci\xF3n aereo - 1",
-    title: "Imagen de la secci\xF3n aereo - 1"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-2 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-2.jpg",
-    download: "lachfilm-aereo-imagen2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    alt: "Imagen de la secci\xF3n aereo - 2",
-    title: "Imagen de la secci\xF3n aereo - 2"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-3 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-3.jpg",
-    download: "lachfilm-aereo-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    alt: "Imagen de la secci\xF3n aereo - 3",
-    title: "Imagen de la secci\xF3n aereo - 3"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-4 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-4.jpg",
-    download: "lachfilm-aereo-imagen4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    alt: "Imagen de la secci\xF3n aereo - 4",
-    title: "Imagen de la secci\xF3n aereo - 4"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-5 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-5.png",
-    download: "lachfilm-aereo-imagen5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_5_png__WEBPACK_IMPORTED_MODULE_5__,
-    alt: "Imagen de la secci\xF3n aereo - 5",
-    title: "Imagen de la secci\xF3n aereo - 5"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-6 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_aereo/a-img-6.jpg",
-    download: "lachfilm-aereo-imagen6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__,
-    alt: "Imagen de la secci\xF3n aereo - 6",
-    title: "Imagen de la secci\xF3n aereo - 6"
-  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It.")))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), "En Lachfilms entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    img1: _images_img_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_img_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_img_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_img_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_img_aereo_a_img_5_png__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_img_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Aerero);
@@ -790,6 +997,101 @@ var Inicio = function Inicio() {
 
 /***/ }),
 
+/***/ "./src/pages/Panel.jsx":
+/*!*****************************!*\
+  !*** ./src/pages/Panel.jsx ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var Panel = function Panel() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
+      _useState2 = _slicedToArray(_useState, 2),
+      clave = _useState2[0],
+      setClave = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      loagedo = _useState4[0],
+      setLoageado = _useState4[1];
+
+  var handleInput = function handleInput(e) {
+    setClave(e.target.value);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+
+  var onSubmit = function onSubmit(e) {
+    e.preventDefault();
+
+    if (clave == "lach2021") {
+      setLoageado(true);
+    } else {
+      setLoageado(false);
+    }
+  };
+
+  var imgSubmit = function imgSubmit(e) {
+    e.preventDefault();
+    var archivo = e.target.files[0];
+
+    if (!archivo) {
+      return;
+    }
+
+    var lector = new FileReader();
+
+    lector.onload = function (e) {
+      var contenido = e.target.result;
+      mostrarContenido(contenido);
+    };
+
+    ;
+    lector.readAsText(archivo);
+    mostrarContenido();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, loagedo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: imgSubmit,
+    action: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    type: "file",
+    name: "",
+    id: "file-input"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Cargar img"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    onSubmit: onSubmit,
+    action: ""
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: ""
+  }, "Escribe el c\xF3digo de accesos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    onChange: handleInput,
+    type: "text"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Entrar")));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Panel);
+
+/***/ }),
+
 /***/ "./src/pages/Productos.jsx":
 /*!*********************************!*\
   !*** ./src/pages/Productos.jsx ***!
@@ -802,11 +1104,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_products/p-img-1.jpg */ "./src/images/img_products/p-img-1.jpg");
-/* harmony import */ var _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_products/p-img-2.jpg */ "./src/images/img_products/p-img-2.jpg");
-/* harmony import */ var _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_products/p-img-3.jpg */ "./src/images/img_products/p-img-3.jpg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_products/p-img-1.jpg */ "./src/images/img_products/p-img-1.jpg");
+/* harmony import */ var _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_products/p-img-2.jpg */ "./src/images/img_products/p-img-2.jpg");
+/* harmony import */ var _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_products/p-img-3.jpg */ "./src/images/img_products/p-img-3.jpg");
+/* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
+/* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+
 
 
 
@@ -824,17 +1128,9 @@ var Productos = function Productos() {
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Link, {
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
-    width: "50px",
-    alt: "Flecha para regresar a la p\xE1gina anterior"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php"
   }, "LachFilms"), " te ofrece servicios de fotograf\xEDa y video.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres capturar la esencia de tus productos? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "Nuestros expertos en fotograf\xEDa de producto pueden ayudarte a mostrar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " la mejor cara de tus productos. Deja volar la creatividad. Incrementa el valor de tu negocio ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "con estas increibles fotograf\xEDas.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
@@ -843,78 +1139,14 @@ var Productos = function Productos() {
     download: "lachfilm - pack products.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-mosaico"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_products/p-img-1.jpg",
-    download: "lachfilm-productos-imagen1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    alt: "Imagen de la secci\xF3n productos - 1",
-    title: "Imagen de la secci\xF3n productos - 1"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_products/p-img-2.jpg",
-    download: "lachfilm-productos-imagen2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    alt: "Imagen de la secci\xF3n productos - 2",
-    title: "Imagen de la secci\xF3n productos - 2"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_products/p-img-3.jpg",
-    download: "lachfilm-productos-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    alt: "Imagen de la secci\xF3n productos - 3",
-    title: "Imagen de la secci\xF3n productos - 3"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_products/p-img-3.jpg",
-    download: "lachfilm-productos-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    alt: "Imagen de la secci\xF3n productos - 3",
-    title: "Imagen de la secci\xF3n productos - 3"
-  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It.")))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_4__.default, {
+    img1: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img5: _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img6: _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_5__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Productos);
@@ -933,14 +1165,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_social/s-img-1.jpg */ "./src/images/img_social/s-img-1.jpg");
-/* harmony import */ var _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_social/s-img-2.jpg */ "./src/images/img_social/s-img-2.jpg");
-/* harmony import */ var _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_social/s-img-3.jpg */ "./src/images/img_social/s-img-3.jpg");
-/* harmony import */ var _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_social/s-img-4.jpg */ "./src/images/img_social/s-img-4.jpg");
-/* harmony import */ var _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_social/s-img-5.jpg */ "./src/images/img_social/s-img-5.jpg");
-/* harmony import */ var _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/img_social/s-img-6.jpg */ "./src/images/img_social/s-img-6.jpg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_social/s-img-1.jpg */ "./src/images/img_social/s-img-1.jpg");
+/* harmony import */ var _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_social/s-img-2.jpg */ "./src/images/img_social/s-img-2.jpg");
+/* harmony import */ var _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_social/s-img-3.jpg */ "./src/images/img_social/s-img-3.jpg");
+/* harmony import */ var _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_social/s-img-4.jpg */ "./src/images/img_social/s-img-4.jpg");
+/* harmony import */ var _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_social/s-img-5.jpg */ "./src/images/img_social/s-img-5.jpg");
+/* harmony import */ var _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_social/s-img-6.jpg */ "./src/images/img_social/s-img-6.jpg");
+/* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
+/* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+
 
 
 
@@ -952,7 +1186,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Social = function Social() {
-  var mosaico = [{}];
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -962,16 +1195,7 @@ var Social = function Social() {
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-    "class": "animate-this",
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
-    width: "50px",
-    alt: "Flecha para regresar a la p\xE1gina anterior"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "container-img"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php"
@@ -982,110 +1206,14 @@ var Social = function Social() {
     download: "lachfilm - pack social.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-mosaico"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-1 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-1.jpg",
-    download: "lachfilm-social-imagen1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    alt: "Imagen social 1",
-    title: "Imagen de la secci\xF3n social -1"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-2 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-2.jpg",
-    download: "lachfilm-social-imagen2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    alt: "Imagen de la secci\xF3n social - 2",
-    title: "Imagen de la secci\xF3n social - 2"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-3 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-3.jpg",
-    download: "lachfilm-social-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    alt: "Imagen de la secci\xF3n social - 3",
-    title: "Imagen de la secci\xF3n social - 3"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-4 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-4.jpg",
-    download: "lachfilm-social-imagen4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_5__,
-    alt: "Imagen de la secci\xF3n social - 4",
-    title: "Imagen de la secci\xF3n social - 4"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-5 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-5.jpg",
-    download: "lachfilm-social-imagen5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_6__,
-    alt: "Imagen de la secci\xF3n social - 5",
-    title: "Imagen de la secci\xF3n social - 5"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-6 f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_social/s-img-6.jpg",
-    download: "lachfilm-social-imagen6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_7__,
-    alt: "Imagen de la secci\xF3n social - 6",
-    title: "Imagen de la secci\xF3n social - 6"
-  })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It."))))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    img1: _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Social);
@@ -1104,14 +1232,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var _images_img_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_turismo/t-img-1.jpg */ "./src/images/img_turismo/t-img-1.jpg");
-/* harmony import */ var _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_turismo/t-img-2.jpg */ "./src/images/img_turismo/t-img-2.jpg");
-/* harmony import */ var _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_turismo/t-img-3.jpg */ "./src/images/img_turismo/t-img-3.jpg");
-/* harmony import */ var _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_turismo/t-img-4.jpg */ "./src/images/img_turismo/t-img-4.jpg");
-/* harmony import */ var _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_turismo/t-img-5.jpg */ "./src/images/img_turismo/t-img-5.jpg");
-/* harmony import */ var _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../images/img_turismo/t-img-6.jpg */ "./src/images/img_turismo/t-img-6.jpg");
+/* harmony import */ var _images_img_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_turismo/t-img-1.jpg */ "./src/images/img_turismo/t-img-1.jpg");
+/* harmony import */ var _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_turismo/t-img-2.jpg */ "./src/images/img_turismo/t-img-2.jpg");
+/* harmony import */ var _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_turismo/t-img-3.jpg */ "./src/images/img_turismo/t-img-3.jpg");
+/* harmony import */ var _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_turismo/t-img-4.jpg */ "./src/images/img_turismo/t-img-4.jpg");
+/* harmony import */ var _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_turismo/t-img-5.jpg */ "./src/images/img_turismo/t-img-5.jpg");
+/* harmony import */ var _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_turismo/t-img-6.jpg */ "./src/images/img_turismo/t-img-6.jpg");
+/* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
+/* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
 
 
 
@@ -1121,6 +1250,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+var variable = "1X6L8AylqOvHQlPdfJc4OrxDihv5Gfg-e";
 
 var Turismo = function Turismo() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1132,15 +1263,7 @@ var Turismo = function Turismo() {
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
-    to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: "../images/icons/back.svg",
-    width: "50px",
-    alt: "Flecha para regresar a la p\xE1gina anterior"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "container-img"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php"
@@ -1151,110 +1274,14 @@ var Turismo = function Turismo() {
     download: "lachfilm - pack turismo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-mosaico"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-1.jpg",
-    download: "lachfilm-turismo-imagen1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    alt: "Imagen de la secci\xF3n turismo - 1",
-    title: "Imagen de la secci\xF3n turismo - 1"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-2.jpg",
-    download: "lachfilm-turismo-imagen2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    alt: "Imagen de la secci\xF3n turismo - 2",
-    title: "Imagen de la secci\xF3n turismo - 2"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-3.jpg",
-    download: "lachfilm-turismo-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    alt: "Imagen de la secci\xF3n turismo - 3",
-    title: "Imagen de la secci\xF3n turismo - 3"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-4.jpg",
-    download: "lachfilm-turismo-imagen4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_5__,
-    alt: "Imagen de la secci\xF3n turismo - 4",
-    title: "Imagen de la secci\xF3n turismo - 4"
-  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-5.jpg",
-    download: "lachfilm-turismo-imagen5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_6__,
-    alt: "Imagen de la secci\xF3n turismo - 5",
-    title: "Imagen de la secci\xF3n turismo - 5"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-6.jpg",
-    download: "lachfilm-turismo-imagen6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    "class": "img-m",
-    src: _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_7__,
-    alt: "Imagen de la secci\xF3n turismo - 6",
-    title: "Imagen de la secci\xF3n turismo - 6"
-  }))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It.")))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    img1: "https://drive.google.com/uc?export=downloads&id=".concat(variable),
+    img2: _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Turismo);
@@ -1274,7 +1301,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
+/* harmony import */ var _components_IframesVideos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/IframesVideos */ "./src/components/IframesVideos.jsx");
+
+
 
 
 
@@ -1291,15 +1322,15 @@ var Videos = function Videos() {
     "class": "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    href: "/"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+    to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
     width: "50px",
     alt: "Flecha para regresar a la p\xE1gina anterior"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "GALER\xCDA DE VIDEOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En la galer\xEDa de videos de ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "GALER\xCDA DE VIDEOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En la galer\xEDa de videos de", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php"
   }, "LachFilms"), " podr\xE1s ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "encontrar nuestros mejores trabajos, ve nuestra experiencia y todo lo que te podemos ofrecer!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes en mente alguna idea? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " Nuestros expertos en fotograf\xEDa y video pueden ayudarte a llevar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " tu idea a la realidad. Deja que volar la creatividad. Incrementa el valor de tu negocio. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "../index.php#about-us"
@@ -1307,70 +1338,15 @@ var Videos = function Videos() {
     "class": "container-mosaico"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     "class": "mosaico-row m-video m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
+    width: "760",
+    height: "515",
+    src: "https://www.youtube.com/embed/videoseries?list=PLXZ6sO1TY9PvCfE39_lOXbMezijg85wlu",
+    title: "YouTube video player",
     frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
     allowfullscreen: true
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-item m-i-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: "https://player.vimeo.com/video/582235772",
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  })))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    id: "create"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://create-it.com.mx",
-    target: "_blank"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Create It.")))));
+  }))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_2__.default, null)));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Videos);
@@ -10506,7 +10482,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_8___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:flex-start;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 30px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"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","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:flex-start;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 30px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"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","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12530,6 +12506,265 @@ var scroll = shortcut('scroll');
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ($);
 
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/api/sendPost.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/emailjs-com/es/api/sendPost.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "sendPost": () => (/* binding */ sendPost)
+/* harmony export */ });
+/* harmony import */ var _models_EmailJSResponseStatus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../models/EmailJSResponseStatus */ "./node_modules/emailjs-com/es/models/EmailJSResponseStatus.js");
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store/store */ "./node_modules/emailjs-com/es/store/store.js");
+
+
+const sendPost = (url, data, headers = {}) => {
+    return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener('load', ({ target }) => {
+            const responseStatus = new _models_EmailJSResponseStatus__WEBPACK_IMPORTED_MODULE_0__.EmailJSResponseStatus(target);
+            if (responseStatus.status === 200 || responseStatus.text === 'OK') {
+                resolve(responseStatus);
+            }
+            else {
+                reject(responseStatus);
+            }
+        });
+        xhr.addEventListener('error', ({ target }) => {
+            reject(new _models_EmailJSResponseStatus__WEBPACK_IMPORTED_MODULE_0__.EmailJSResponseStatus(target));
+        });
+        xhr.open('POST', _store_store__WEBPACK_IMPORTED_MODULE_1__.store._origin + url, true);
+        Object.keys(headers).forEach((key) => {
+            xhr.setRequestHeader(key, headers[key]);
+        });
+        xhr.send(data);
+    });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/emailjs-com/es/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "init": () => (/* reexport safe */ _methods_init_init__WEBPACK_IMPORTED_MODULE_0__.init),
+/* harmony export */   "send": () => (/* reexport safe */ _methods_send_send__WEBPACK_IMPORTED_MODULE_1__.send),
+/* harmony export */   "sendForm": () => (/* reexport safe */ _methods_sendForm_sendForm__WEBPACK_IMPORTED_MODULE_2__.sendForm),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _methods_init_init__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./methods/init/init */ "./node_modules/emailjs-com/es/methods/init/init.js");
+/* harmony import */ var _methods_send_send__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./methods/send/send */ "./node_modules/emailjs-com/es/methods/send/send.js");
+/* harmony import */ var _methods_sendForm_sendForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./methods/sendForm/sendForm */ "./node_modules/emailjs-com/es/methods/sendForm/sendForm.js");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    init: _methods_init_init__WEBPACK_IMPORTED_MODULE_0__.init,
+    send: _methods_send_send__WEBPACK_IMPORTED_MODULE_1__.send,
+    sendForm: _methods_sendForm_sendForm__WEBPACK_IMPORTED_MODULE_2__.sendForm,
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/methods/init/init.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/emailjs-com/es/methods/init/init.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "init": () => (/* binding */ init)
+/* harmony export */ });
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../store/store */ "./node_modules/emailjs-com/es/store/store.js");
+
+/**
+ * Initiation
+ * @param {string} userID - set the EmailJS user ID
+ * @param {string} origin - set the EmailJS origin
+ */
+const init = (userID, origin = 'https://api.emailjs.com') => {
+    _store_store__WEBPACK_IMPORTED_MODULE_0__.store._userID = userID;
+    _store_store__WEBPACK_IMPORTED_MODULE_0__.store._origin = origin;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/methods/sendForm/sendForm.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/emailjs-com/es/methods/sendForm/sendForm.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "sendForm": () => (/* binding */ sendForm)
+/* harmony export */ });
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../store/store */ "./node_modules/emailjs-com/es/store/store.js");
+/* harmony import */ var _utils_validateParams__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/validateParams */ "./node_modules/emailjs-com/es/utils/validateParams.js");
+/* harmony import */ var _api_sendPost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/sendPost */ "./node_modules/emailjs-com/es/api/sendPost.js");
+
+
+
+const findHTMLForm = (form) => {
+    let currentForm;
+    if (typeof form === 'string') {
+        currentForm = document.querySelector(form);
+    }
+    else {
+        currentForm = form;
+    }
+    if (!currentForm || currentForm.nodeName !== 'FORM') {
+        throw 'The 3rd parameter is expected to be the HTML form element or the style selector of form';
+    }
+    return currentForm;
+};
+/**
+ * Send a form the specific EmailJS service
+ * @param {string} serviceID - the EmailJS service ID
+ * @param {string} templateID - the EmailJS template ID
+ * @param {string | HTMLFormElement} form - the form element or selector
+ * @param {string} userID - the EmailJS user ID
+ * @returns {Promise<EmailJSResponseStatus>}
+ */
+const sendForm = (serviceID, templateID, form, userID) => {
+    const uID = userID || _store_store__WEBPACK_IMPORTED_MODULE_0__.store._userID;
+    const currentForm = findHTMLForm(form);
+    (0,_utils_validateParams__WEBPACK_IMPORTED_MODULE_1__.validateParams)(uID, serviceID, templateID);
+    const formData = new FormData(currentForm);
+    formData.append('lib_version', '3.2.0');
+    formData.append('service_id', serviceID);
+    formData.append('template_id', templateID);
+    formData.append('user_id', uID);
+    return (0,_api_sendPost__WEBPACK_IMPORTED_MODULE_2__.sendPost)('/api/v1.0/email/send-form', formData);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/methods/send/send.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/emailjs-com/es/methods/send/send.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "send": () => (/* binding */ send)
+/* harmony export */ });
+/* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../store/store */ "./node_modules/emailjs-com/es/store/store.js");
+/* harmony import */ var _utils_validateParams__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/validateParams */ "./node_modules/emailjs-com/es/utils/validateParams.js");
+/* harmony import */ var _api_sendPost__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/sendPost */ "./node_modules/emailjs-com/es/api/sendPost.js");
+
+
+
+/**
+ * Send a template to the specific EmailJS service
+ * @param {string} serviceID - the EmailJS service ID
+ * @param {string} templateID - the EmailJS template ID
+ * @param {object} templatePrams - the template params, what will be set to the EmailJS template
+ * @param {string} userID - the EmailJS user ID
+ * @returns {Promise<EmailJSResponseStatus>}
+ */
+const send = (serviceID, templateID, templatePrams, userID) => {
+    const uID = userID || _store_store__WEBPACK_IMPORTED_MODULE_0__.store._userID;
+    (0,_utils_validateParams__WEBPACK_IMPORTED_MODULE_1__.validateParams)(uID, serviceID, templateID);
+    const params = {
+        lib_version: '3.2.0',
+        user_id: uID,
+        service_id: serviceID,
+        template_id: templateID,
+        template_params: templatePrams,
+    };
+    return (0,_api_sendPost__WEBPACK_IMPORTED_MODULE_2__.sendPost)('/api/v1.0/email/send', JSON.stringify(params), {
+        'Content-type': 'application/json',
+    });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/models/EmailJSResponseStatus.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/emailjs-com/es/models/EmailJSResponseStatus.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "EmailJSResponseStatus": () => (/* binding */ EmailJSResponseStatus)
+/* harmony export */ });
+class EmailJSResponseStatus {
+    constructor(httpResponse) {
+        this.status = httpResponse.status;
+        this.text = httpResponse.responseText;
+    }
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/store/store.js":
+/*!****************************************************!*\
+  !*** ./node_modules/emailjs-com/es/store/store.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "store": () => (/* binding */ store)
+/* harmony export */ });
+const store = {
+    _origin: 'https://api.emailjs.com',
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/emailjs-com/es/utils/validateParams.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/emailjs-com/es/utils/validateParams.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "validateParams": () => (/* binding */ validateParams)
+/* harmony export */ });
+const validateParams = (userID, serviceID, templateID) => {
+    if (!userID) {
+        throw 'The user ID is required. Visit https://dashboard.emailjs.com/admin/integration';
+    }
+    if (!serviceID) {
+        throw 'The service ID is required. Visit https://dashboard.emailjs.com/admin';
+    }
+    if (!templateID) {
+        throw 'The template ID is required. Visit https://dashboard.emailjs.com/admin/templates';
+    }
+    return true;
+};
 
 
 /***/ }),
@@ -47744,6 +47979,244 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./node_modules/swiper/esm/components/autoplay/autoplay.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/swiper/esm/components/autoplay/autoplay.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
+/* harmony import */ var _utils_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/utils */ "./node_modules/swiper/esm/utils/utils.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+/* eslint no-underscore-dangle: "off" */
+
+
+var Autoplay = {
+  run: function run() {
+    var swiper = this;
+    var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
+    var delay = swiper.params.autoplay.delay;
+
+    if ($activeSlideEl.attr('data-swiper-autoplay')) {
+      delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
+    }
+
+    clearTimeout(swiper.autoplay.timeout);
+    swiper.autoplay.timeout = (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.nextTick)(function () {
+      var autoplayResult;
+
+      if (swiper.params.autoplay.reverseDirection) {
+        if (swiper.params.loop) {
+          swiper.loopFix();
+          autoplayResult = swiper.slidePrev(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.isBeginning) {
+          autoplayResult = swiper.slidePrev(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.params.autoplay.stopOnLastSlide) {
+          autoplayResult = swiper.slideTo(swiper.slides.length - 1, swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else {
+          swiper.autoplay.stop();
+        }
+      } else if (swiper.params.loop) {
+        swiper.loopFix();
+        autoplayResult = swiper.slideNext(swiper.params.speed, true, true);
+        swiper.emit('autoplay');
+      } else if (!swiper.isEnd) {
+        autoplayResult = swiper.slideNext(swiper.params.speed, true, true);
+        swiper.emit('autoplay');
+      } else if (!swiper.params.autoplay.stopOnLastSlide) {
+        autoplayResult = swiper.slideTo(0, swiper.params.speed, true, true);
+        swiper.emit('autoplay');
+      } else {
+        swiper.autoplay.stop();
+      }
+
+      if (swiper.params.cssMode && swiper.autoplay.running) swiper.autoplay.run();else if (autoplayResult === false) {
+        swiper.autoplay.run();
+      }
+    }, delay);
+  },
+  start: function start() {
+    var swiper = this;
+    if (typeof swiper.autoplay.timeout !== 'undefined') return false;
+    if (swiper.autoplay.running) return false;
+    swiper.autoplay.running = true;
+    swiper.emit('autoplayStart');
+    swiper.autoplay.run();
+    return true;
+  },
+  stop: function stop() {
+    var swiper = this;
+    if (!swiper.autoplay.running) return false;
+    if (typeof swiper.autoplay.timeout === 'undefined') return false;
+
+    if (swiper.autoplay.timeout) {
+      clearTimeout(swiper.autoplay.timeout);
+      swiper.autoplay.timeout = undefined;
+    }
+
+    swiper.autoplay.running = false;
+    swiper.emit('autoplayStop');
+    return true;
+  },
+  pause: function pause(speed) {
+    var swiper = this;
+    if (!swiper.autoplay.running) return;
+    if (swiper.autoplay.paused) return;
+    if (swiper.autoplay.timeout) clearTimeout(swiper.autoplay.timeout);
+    swiper.autoplay.paused = true;
+
+    if (speed === 0 || !swiper.params.autoplay.waitForTransition) {
+      swiper.autoplay.paused = false;
+      swiper.autoplay.run();
+    } else {
+      ['transitionend', 'webkitTransitionEnd'].forEach(function (event) {
+        swiper.$wrapperEl[0].addEventListener(event, swiper.autoplay.onTransitionEnd);
+      });
+    }
+  },
+  onVisibilityChange: function onVisibilityChange() {
+    var swiper = this;
+    var document = (0,ssr_window__WEBPACK_IMPORTED_MODULE_0__.getDocument)();
+
+    if (document.visibilityState === 'hidden' && swiper.autoplay.running) {
+      swiper.autoplay.pause();
+    }
+
+    if (document.visibilityState === 'visible' && swiper.autoplay.paused) {
+      swiper.autoplay.run();
+      swiper.autoplay.paused = false;
+    }
+  },
+  onTransitionEnd: function onTransitionEnd(e) {
+    var swiper = this;
+    if (!swiper || swiper.destroyed || !swiper.$wrapperEl) return;
+    if (e.target !== swiper.$wrapperEl[0]) return;
+    ['transitionend', 'webkitTransitionEnd'].forEach(function (event) {
+      swiper.$wrapperEl[0].removeEventListener(event, swiper.autoplay.onTransitionEnd);
+    });
+    swiper.autoplay.paused = false;
+
+    if (!swiper.autoplay.running) {
+      swiper.autoplay.stop();
+    } else {
+      swiper.autoplay.run();
+    }
+  },
+  onMouseEnter: function onMouseEnter() {
+    var swiper = this;
+
+    if (swiper.params.autoplay.disableOnInteraction) {
+      swiper.autoplay.stop();
+    } else {
+      swiper.autoplay.pause();
+    }
+
+    ['transitionend', 'webkitTransitionEnd'].forEach(function (event) {
+      swiper.$wrapperEl[0].removeEventListener(event, swiper.autoplay.onTransitionEnd);
+    });
+  },
+  onMouseLeave: function onMouseLeave() {
+    var swiper = this;
+
+    if (swiper.params.autoplay.disableOnInteraction) {
+      return;
+    }
+
+    swiper.autoplay.paused = false;
+    swiper.autoplay.run();
+  },
+  attachMouseEvents: function attachMouseEvents() {
+    var swiper = this;
+
+    if (swiper.params.autoplay.pauseOnMouseEnter) {
+      swiper.$el.on('mouseenter', swiper.autoplay.onMouseEnter);
+      swiper.$el.on('mouseleave', swiper.autoplay.onMouseLeave);
+    }
+  },
+  detachMouseEvents: function detachMouseEvents() {
+    var swiper = this;
+    swiper.$el.off('mouseenter', swiper.autoplay.onMouseEnter);
+    swiper.$el.off('mouseleave', swiper.autoplay.onMouseLeave);
+  }
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'autoplay',
+  params: {
+    autoplay: {
+      enabled: false,
+      delay: 3000,
+      waitForTransition: true,
+      disableOnInteraction: true,
+      stopOnLastSlide: false,
+      reverseDirection: false,
+      pauseOnMouseEnter: false
+    }
+  },
+  create: function create() {
+    var swiper = this;
+    (0,_utils_utils__WEBPACK_IMPORTED_MODULE_1__.bindModuleMethods)(swiper, {
+      autoplay: _extends({}, Autoplay, {
+        running: false,
+        paused: false
+      })
+    });
+  },
+  on: {
+    init: function init(swiper) {
+      if (swiper.params.autoplay.enabled) {
+        swiper.autoplay.start();
+        var document = (0,ssr_window__WEBPACK_IMPORTED_MODULE_0__.getDocument)();
+        document.addEventListener('visibilitychange', swiper.autoplay.onVisibilityChange);
+        swiper.autoplay.attachMouseEvents();
+      }
+    },
+    beforeTransitionStart: function beforeTransitionStart(swiper, speed, internal) {
+      if (swiper.autoplay.running) {
+        if (internal || !swiper.params.autoplay.disableOnInteraction) {
+          swiper.autoplay.pause(speed);
+        } else {
+          swiper.autoplay.stop();
+        }
+      }
+    },
+    sliderFirstMove: function sliderFirstMove(swiper) {
+      if (swiper.autoplay.running) {
+        if (swiper.params.autoplay.disableOnInteraction) {
+          swiper.autoplay.stop();
+        } else {
+          swiper.autoplay.pause();
+        }
+      }
+    },
+    touchEnd: function touchEnd(swiper) {
+      if (swiper.params.cssMode && swiper.autoplay.paused && !swiper.params.autoplay.disableOnInteraction) {
+        swiper.autoplay.run();
+      }
+    },
+    destroy: function destroy(swiper) {
+      swiper.autoplay.detachMouseEvents();
+
+      if (swiper.autoplay.running) {
+        swiper.autoplay.stop();
+      }
+
+      var document = (0,ssr_window__WEBPACK_IMPORTED_MODULE_0__.getDocument)();
+      document.removeEventListener('visibilitychange', swiper.autoplay.onVisibilityChange);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/swiper/esm/components/core/breakpoints/getBreakpoint.js":
 /*!******************************************************************************!*\
   !*** ./node_modules/swiper/esm/components/core/breakpoints/getBreakpoint.js ***!
@@ -56310,86 +56783,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById("root")); // btn__menu_nav.addEventListener("click", function () {
-//     $(".toggle").on("click", function () {
-//         if ($(".item").hasClass("active")) {
-//             $(".item").removeClass("active");
-//             $(this).find("a").html("<i class='fas fa-bars'></i>");
-//         } else {
-//             $(".item").addClass("active");
-//             $(this).find("a").html("<i class='fas fa-times'></i>");
-//         }
-//     });
-// });
-// var x = document.getElementById("go__up");
-// window.onscroll = function () {
-//     "use strict";
-//     if (window.pageYOffset >= 200) {
-//         x.style.display = "block";
-//     } else {
-//         x.style.display = "none";
-//     }
-// };
-// x.onclick = function () {
-//     "use strict";
-//     window.scrollTo(0, 0);
-// };
-// function delay(n) {
-//     n = n || 2000;
-//     return new Promise((done) => {
-//         setTimeout(() => {
-//             done();
-//         }, n);
-//     });
-// }
-// function pageTransition() {
-//     var tl = gsap.timeline();
-//     tl.to(".loading-screen", {
-//         duration: 1.2,
-//         width: "100%",
-//         left: "0%",
-//         ease: "Expo.easeInOut",
-//     });
-//     tl.to(".loading-screen", {
-//         duration: 1,
-//         width: "100%",
-//         left: "100%",
-//         ease: "Expo.easeInOut",
-//         delay: 0.3,
-//     });
-//     tl.set(".loading-screen", { left: "-100%" });
-// }
-// function contentAnimation() {
-//     var tl = gsap.timeline();
-//     tl.from(".animate-this", {
-//         duration: 1,
-//         y: 30,
-//         opacity: 0,
-//         stagger: 0.4,
-//         delay: 0.2,
-//     });
-// }
-// $(function () {
-//     barba.init({
-//         sync: true,
-//         transitions: [
-//             {
-//                 async leave(data) {
-//                     const done = this.async();
-//                     pageTransition();
-//                     await delay(1000);
-//                     done();
-//                 },
-//                 async enter(data) {
-//                     contentAnimation();
-//                 },
-//                 async once(data) {
-//                     contentAnimation();
-//                 },
-//             },
-//         ],
-//     });
-// });
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__.default, null), document.getElementById("root"));
 })();
 
 /******/ })()

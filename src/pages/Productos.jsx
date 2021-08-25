@@ -18,7 +18,7 @@ const Productos = () => (
                 <div class="container-img">
                     <h2>PRODUCTOS</h2>
                     <span>
-                        <a href="../index.php">LachFilms</a> te ofrece servicios
+                        En <a href="../index.php">LachFilms</a> te ofrece servicios
                         de fotografía y video.
                         <br />
                         ¿Quieres capturar la esencia de tus productos? <br />{" "}

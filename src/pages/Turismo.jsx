@@ -9,8 +9,9 @@ import Mosaico from '../components/Mosaico';
 import DivCreate from '../components/DivCreate';
 import IconBack from '../components/IconBack';
 
-const Turismo = ()=>(
-    <>
+const Turismo = ()=>{
+    return(
+        <>
             <div class="load-container">
             <div class="loading-screen"></div>
         </div>
@@ -44,6 +45,7 @@ const Turismo = ()=>(
             <DivCreate/>
         </main>
     </>
-);
+    )
+};
 
 export default Turismo;

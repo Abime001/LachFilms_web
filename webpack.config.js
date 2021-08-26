@@ -35,6 +35,13 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/i,
             },
             {
+                test: /\.(otf|pdf)$/,
+                loader: "file-loader",
+                options: {
+                    name: "images/[hash]-[name].[ext]",
+                },
+            },
+            {
                 test: /\.mp4$/,
                 use: [
                     {

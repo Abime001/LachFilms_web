@@ -6,7 +6,6 @@ import Productos from './pages/Productos';
 import Social from './pages/Social';
 import Inicio from './pages/Inicio';
 import Videos from './pages/Videos';
-import Panel from './pages/Panel';
 
 const App = ()=>(
     <Router>

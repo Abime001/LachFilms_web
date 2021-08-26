@@ -88,7 +88,7 @@
     font-size: 3rem;
     padding-top: 50px;
     text-align: center;
-    font-family: Gotham-black;
+    font-family: RobotoCondensed;
     letter-spacing: 20px;
     margin: 0;
 }
@@ -104,7 +104,7 @@
 
 .container-img span a {
     color: #ffff;
-    font-weight: 700;
+    font-weight: 400;
     font-family: RobotoCondensed;
 }
 
@@ -220,13 +220,13 @@
 
 
 * {
-    font-family: Gotham;
+    font-family:RobotoCondensed;
     box-sizing: border-box;
 }
 
 a {
     text-decoration: none;
-    font-family: Gotham-black;
+    font-family: RobotoCondensed;
 }
 
 .padre {
@@ -299,7 +299,7 @@ ul {
 .item.lach {
     order: 2;
     color: #3d3d3d;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 20px;
 }
 .item {
@@ -367,7 +367,7 @@ html {
     border-radius: 10px;
     padding: 5px;
     background-color: #c5c5c5d0;
-    font-weight: 900;
+    font-weight: 400;
 }
 
 a.animated-button.thar-three {
@@ -475,20 +475,20 @@ a {
     background-size: cover;
 }
 .portafolio-container .d-social {
-    background-image: url(../images/calabera.png);
+    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/calabera.png);
 }
 .portafolio-container .d-producto {
-    background-image: url(../images/producto.png);
+    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/producto.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-aereo {
-    background-image: url(../images/aereo.png);
+    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/aereo.png);
     height: 50%;
     position: relative;
 }
 .portafolio-container .d-turismo {
-    background-image: url(../images/globo.png);
+    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/globo.png);
 }
 
 .filtro-aereo,
@@ -610,7 +610,7 @@ a {
     color: gray;
     letter-spacing: 0;
     line-height: 1.02;
-    font-family: Gotham;
+    font-family:RobotoCondensed;
     font-size: small;
     font-weight: 400;
     text-align: justify;
@@ -627,7 +627,7 @@ a {
 .formulario span,
 .formulario label,
 .formulario textarea {
-    font-family: Gotham;
+    font-family: RobotoCondensed;
     display: inline-block;
     border: none;
     font-size: small;
@@ -640,7 +640,7 @@ input.question,
 textarea.question {
     color: #ffff;
     font-size: 15px;
-    font-weight: 300;
+    font-weight: 400;
     border-radius: 2px;
     margin: 0;
     border: none;
@@ -682,14 +682,14 @@ input.question:valid + label > span {
     top: -30px;
     font-size: 10px;
     color: #333;
-    font-weight: 700;
+    font-weight: 400;
 }
 textarea.question:focus + label > span,
 textarea.question:valid + label > span {
     top: -50px;
     font-size: 10px;
     color: #333;
-    font-weight: 700;
+    font-weight: 400;
 }
 input.question:valid + label,
 textarea.question:valid + label {
@@ -730,17 +730,19 @@ button {
 button:hover {
     background-color: #ffff;
     color: #000;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 #create {
     background-color: #d9dcdf;
-    color: rgba(0, 0, 0, 0.5);
+    padding: 3px 0;
     text-align: center;
 }
-#create > label {
-    font-family: Gotham;
-    font-weight: 600;
+#create a {
+    font-family: RobotoCondensed;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    font-weight: 400;
     font-size: 12px;
 }
 

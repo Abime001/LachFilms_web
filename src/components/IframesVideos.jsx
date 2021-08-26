@@ -1,7 +1,7 @@
 import React from "react";
 
 const IframesVideos = ({url}) => (
-    <div class="m-i-1">
+    <div className="m-i-1">
         <iframe
             src={url}
             width="100%"

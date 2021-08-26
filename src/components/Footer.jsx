@@ -1,8 +1,8 @@
 import React from "react";
-import WhatsAppICON from '../images/icons/whatsapp.png';
-import FacebookICON from '../images/icons/facebook.png';
-import YTICON from '../images/icons/youtube.png';
-import InstagramICON from '../images/icons/instagram.png';
+import WhatsAppICON from '../images/img-no-modificar/icons/whatsapp.png';
+import FacebookICON from '../images/img-no-modificar/icons/facebook.png';
+import YtIcon from '../images/img-no-modificar/icons/youtube.png';
+import InstagramICON from '../images/img-no-modificar/icons/instagram.png';
 import FormFooter from "./FormFooter";
 import DivCreate from "./DivCreate";
 import IconFooter from "./IconFooter";
@@ -37,10 +37,10 @@ const Footer = () => (
                 </div>
                 <label>Follow Us</label>
                 <div className="social-media">
-                    <IconFooter icon={WhatsAppICON} url={"https://api.whatsapp.com/send?phone=2212209419"} title={"Whatsapp de lachfilms"}/>
-                    <IconFooter icon={FacebookICON} url={"https://www.facebook.com/lachfilms"} title={"Facebook de LachFilms"}/>
-                    <IconFooter icon={YTICON} url={"https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured"} title={"Canal de YouTube de Lach Films"}/>
-                    <IconFooter icon={InstagramICON} url={"https://www.instagram.com/lachfilms/"} title={"Instagram de Lach Films"}/>
+                    <IconFooter icon={WhatsAppICON} url="https://api.whatsapp.com/send?phone=2212209419" title="Whatsapp de lachfilms"/>
+                    <IconFooter icon={FacebookICON} url="https://www.facebook.com/lachfilms" title="Facebook de LachFilms"/>
+                    <IconFooter icon={YtIcon} url="https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured" title="Canal de YouTube de Lach Films"/>
+                    <IconFooter icon={InstagramICON} url="https://www.instagram.com/lachfilms/" title="Instagram de Lach Films"/>
                 </div>
             </div>
             <div className="footer__item" id="f-f">

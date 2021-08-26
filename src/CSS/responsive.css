@@ -30,24 +30,24 @@
     }
 
     .portafolio-container .d-social {
-        background-image: url(../images/social_responsive.png);
+        background-image: url(../images/img-no-modificar/img_responsive/social_responsive.png);
         background-size: cover;
         background-repeat: no-repeat;
     }
     .portafolio-container .d-producto {
-        background-image: url(../images/producto_responsive.png);
+        background-image: url(../images/img-no-modificar/img_responsive/producto_responsive.png);
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
     }
     .portafolio-container .d-aereo {
-        background-image: url(../images/aereo_responsive.png);
+        background-image: url(../images/img-no-modificar/img_responsive/aereo_responsive.png);
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
     }
     .portafolio-container .d-turismo {
-        background-image: url(../images/turismo_responsive.png);
+        background-image: url(../images/img-no-modificar/img_responsive/turismo_responsive.png);
         background-size: cover;
         background-repeat: no-repeat;
     }

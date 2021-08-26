@@ -1,27 +1,28 @@
 import React from "react";
-import aereoImg1 from "../images/img_aereo/a-img-1.jpg";
-import aereoImg2 from "../images/img_aereo/a-img-2.jpg";
-import aereoImg3 from "../images/img_aereo/a-img-3.jpg";
-import aereoImg4 from "../images/img_aereo/a-img-4.jpg";
-import aereoImg5 from "../images/img_aereo/a-img-5.png";
-import aereoImg6 from "../images/img_aereo/a-img-6.jpg";
+import aereoImg1 from "../images/pagina_aereo/a-img-1.jpg";
+import aereoImg2 from "../images/pagina_aereo/a-img-2.jpg";
+import aereoImg3 from "../images/pagina_aereo/a-img-3.jpg";
+import aereoImg4 from "../images/pagina_aereo/a-img-4.jpg";
+import aereoImg5 from "../images/pagina_aereo/a-img-5.jpg";
+import aereoImg6 from "../images/pagina_aereo/a-img-6.jpg";
 import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
+import {Link} from 'react-router-dom';
 
 const Aerero = () => (
     <>
-        <div class="load-container">
-            <div class="loading-screen"></div>
+        <div className="load-container">
+            <div className="loading-screen"></div>
         </div>
 
         <main data-barba="container" data-barba-namespace="about-section">
-            <div class="header">
+            <div className="header">
                 <IconBack/>
-                <div class="container-img">
+                <div className="container-img">
                     <h2>AEREO</h2>
                     <span>
-                        En <a href="../index.php">LachFilms</a> entendemos a
+                        En <Link to="/">LachFilms</Link> entendemos a
                         nuestros clientes y sus necesidades.
                         <br />
                         Ponemos a su dispoción nuestros drones para tomas

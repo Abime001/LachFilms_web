@@ -1,9 +1,9 @@
 import React from "react";
-import BackICON from '../images/icons/back.svg';
+import BackICON from '../images/img-no-modificar/icons/back.svg';
 import {Link} from 'react-router-dom';
 
 const IconBack = () => (
-    <div class="animate-this btn-back">
+    <div className="animate-this btn-back">
         <Link to="/">
             <img
                 src={BackICON}

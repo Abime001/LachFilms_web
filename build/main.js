@@ -52,16 +52,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Aereo */ "./src/pages/Aereo.jsx");
 /* harmony import */ var _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Turismo */ "./src/pages/Turismo.jsx");
 /* harmony import */ var _pages_Productos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Productos */ "./src/pages/Productos.jsx");
 /* harmony import */ var _pages_Social__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Social */ "./src/pages/Social.jsx");
 /* harmony import */ var _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Inicio */ "./src/pages/Inicio.jsx");
 /* harmony import */ var _pages_Videos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Videos */ "./src/pages/Videos.jsx");
-/* harmony import */ var _pages_Panel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/Panel */ "./src/pages/Panel.jsx");
-
 
 
 
@@ -72,34 +70,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/",
     component: _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/aereo",
     component: _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/producto",
     component: _pages_Productos__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/social",
     component: _pages_Social__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/turismo",
     component: _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
     exact: true,
     path: "/videos_lachfilms",
     component: _pages_Videos__WEBPACK_IMPORTED_MODULE_6__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
-    exact: true,
-    path: "/panel",
-    component: _pages_Panel__WEBPACK_IMPORTED_MODULE_7__.default
   })));
 };
 
@@ -192,10 +186,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/whatsapp.png */ "./src/images/icons/whatsapp.png");
-/* harmony import */ var _images_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/icons/facebook.png */ "./src/images/icons/facebook.png");
-/* harmony import */ var _images_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/icons/youtube.png */ "./src/images/icons/youtube.png");
-/* harmony import */ var _images_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/icons/instagram.png */ "./src/images/icons/instagram.png");
+/* harmony import */ var _images_img_no_modificar_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img-no-modificar/icons/whatsapp.png */ "./src/images/img-no-modificar/icons/whatsapp.png");
+/* harmony import */ var _images_img_no_modificar_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img-no-modificar/icons/facebook.png */ "./src/images/img-no-modificar/icons/facebook.png");
+/* harmony import */ var _images_img_no_modificar_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img-no-modificar/icons/youtube.png */ "./src/images/img-no-modificar/icons/youtube.png");
+/* harmony import */ var _images_img_no_modificar_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img-no-modificar/icons/instagram.png */ "./src/images/img-no-modificar/icons/instagram.png");
 /* harmony import */ var _FormFooter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./FormFooter */ "./src/components/FormFooter.jsx");
 /* harmony import */ var _DivCreate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _IconFooter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./IconFooter */ "./src/components/IconFooter.jsx");
@@ -237,19 +231,19 @@ var Footer = function Footer() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "LACH FILMS es una productora enfocada a la realizaci\xF3n de proyectos fotogr\xE1ficos y audiovisuales, la cual cuenta con la capacidad y experiencia de nuestros productores y directores.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Follow Us"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "social-media"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
-    icon: _images_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__,
+    icon: _images_img_no_modificar_icons_whatsapp_png__WEBPACK_IMPORTED_MODULE_1__,
     url: "https://api.whatsapp.com/send?phone=2212209419",
     title: "Whatsapp de lachfilms"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
-    icon: _images_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__,
+    icon: _images_img_no_modificar_icons_facebook_png__WEBPACK_IMPORTED_MODULE_2__,
     url: "https://www.facebook.com/lachfilms",
     title: "Facebook de LachFilms"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
-    icon: _images_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__,
+    icon: _images_img_no_modificar_icons_youtube_png__WEBPACK_IMPORTED_MODULE_3__,
     url: "https://www.youtube.com/channel/UCV2mYmmNksyvRG295p3IcRg/featured",
     title: "Canal de YouTube de Lach Films"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_IconFooter__WEBPACK_IMPORTED_MODULE_7__.default, {
-    icon: _images_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__,
+    icon: _images_img_no_modificar_icons_instagram_png__WEBPACK_IMPORTED_MODULE_4__,
     url: "https://www.instagram.com/lachfilms/",
     title: "Instagram de Lach Films"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -396,7 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
+/* harmony import */ var _images_img_no_modificar_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img-no-modificar/icons/back.svg */ "./src/images/img-no-modificar/icons/back.svg");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
@@ -404,11 +398,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var IconBack = function IconBack() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
+    className: "animate-this btn-back"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
+    src: _images_img_no_modificar_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
     width: "50px",
     alt: "Flecha para regresar a la p\xE1gina anterior"
   })));
@@ -449,38 +443,6 @@ var IconFooter = function IconFooter(_ref) {
 
 /***/ }),
 
-/***/ "./src/components/IframesVideos.jsx":
-/*!******************************************!*\
-  !*** ./src/components/IframesVideos.jsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var IframesVideos = function IframesVideos(_ref) {
-  var url = _ref.url;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "m-i-1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    src: url,
-    width: "100%",
-    height: "100%",
-    frameborder: "0",
-    allow: "autoplay; fullscreen; picture-in-picture",
-    allowfullscreen: true
-  }));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IframesVideos);
-
-/***/ }),
-
 /***/ "./src/components/Mosaico.jsx":
 /*!************************************!*\
   !*** ./src/components/Mosaico.jsx ***!
@@ -509,7 +471,7 @@ var Mosaico = function Mosaico(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-1.jpg",
+    href: img1,
     download: "lachfilm-turismo-imagen1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -524,7 +486,7 @@ var Mosaico = function Mosaico(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-2.jpg",
+    href: img2,
     download: "lachfilm-turismo-imagen2"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -541,7 +503,7 @@ var Mosaico = function Mosaico(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-3.jpg",
+    href: img3,
     download: "lachfilm-turismo-imagen3"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -556,7 +518,7 @@ var Mosaico = function Mosaico(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-4.jpg",
+    href: img4,
     download: "lachfilm-turismo-imagen4"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -573,7 +535,7 @@ var Mosaico = function Mosaico(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-5.jpg",
+    href: img5,
     download: "lachfilm-turismo-imagen5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -588,7 +550,7 @@ var Mosaico = function Mosaico(_ref) {
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../images/img_turismo/t-img-6.jpg",
+    href: img6,
     download: "lachfilm-turismo-imagen6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "fm-img-m"
@@ -619,7 +581,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/lach_logo.png */ "./src/images/lach_logo.png");
+/* harmony import */ var _images_img_no_modificar_icons_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img-no-modificar/icons/lach_logo.png */ "./src/images/img-no-modificar/icons/lach_logo.png");
 
 
 
@@ -632,7 +594,7 @@ var Nav = function Nav() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#menu"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__,
+    src: _images_img_no_modificar_icons_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__,
     width: "50",
     height: "50",
     alt: "Logo de Lach Films, productora fotogr\xE1fica y audiovisual",
@@ -648,7 +610,7 @@ var Nav = function Nav() {
   }, "Portafolio")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
     className: "item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "#trav"
+    href: "#travel"
   }, "Travel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
     className: "item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -786,10 +748,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper.js");
 /* harmony import */ var swiper_react__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! swiper/react */ "./node_modules/swiper/esm/react/swiper-slide.js");
 /* harmony import */ var swiper_swiper_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/swiper.min.css */ "./node_modules/swiper/swiper.min.css");
-/* harmony import */ var _images_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/slider/aereo.jpg */ "./src/images/slider/aereo.jpg");
-/* harmony import */ var _images_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/slider/social.jpg */ "./src/images/slider/social.jpg");
-/* harmony import */ var _images_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/slider/turismo.jpg */ "./src/images/slider/turismo.jpg");
-/* harmony import */ var _images_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/slider/productos.jpg */ "./src/images/slider/productos.jpg");
+/* harmony import */ var _images_img_no_modificar_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img-no-modificar/slider/aereo.jpg */ "./src/images/img-no-modificar/slider/aereo.jpg");
+/* harmony import */ var _images_img_no_modificar_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img-no-modificar/slider/social.jpg */ "./src/images/img-no-modificar/slider/social.jpg");
+/* harmony import */ var _images_img_no_modificar_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img-no-modificar/slider/turismo.jpg */ "./src/images/img-no-modificar/slider/turismo.jpg");
+/* harmony import */ var _images_img_no_modificar_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img-no-modificar/slider/productos.jpg */ "./src/images/img-no-modificar/slider/productos.jpg");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/core/core-class.js");
 /* harmony import */ var swiper_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! swiper/core */ "./node_modules/swiper/esm/components/navigation/navigation.js");
@@ -828,16 +790,16 @@ var Travel = function Travel() {
     },
     className: "mySwiper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    src: _images_img_no_modificar_slider_social_jpg__WEBPACK_IMPORTED_MODULE_3__,
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    src: _images_img_no_modificar_slider_turismo_jpg__WEBPACK_IMPORTED_MODULE_4__,
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    src: _images_img_no_modificar_slider_aereo_jpg__WEBPACK_IMPORTED_MODULE_2__,
     alt: ""
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(swiper_react__WEBPACK_IMPORTED_MODULE_14__.SwiperSlide, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    src: _images_img_no_modificar_slider_productos_jpg__WEBPACK_IMPORTED_MODULE_5__,
     alt: ""
   })))));
 };
@@ -906,15 +868,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_img_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_aereo/a-img-1.jpg */ "./src/images/img_aereo/a-img-1.jpg");
-/* harmony import */ var _images_img_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_aereo/a-img-2.jpg */ "./src/images/img_aereo/a-img-2.jpg");
-/* harmony import */ var _images_img_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_aereo/a-img-3.jpg */ "./src/images/img_aereo/a-img-3.jpg");
-/* harmony import */ var _images_img_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_aereo/a-img-4.jpg */ "./src/images/img_aereo/a-img-4.jpg");
-/* harmony import */ var _images_img_aereo_a_img_5_png__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_aereo/a-img-5.png */ "./src/images/img_aereo/a-img-5.png");
-/* harmony import */ var _images_img_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_aereo/a-img-6.jpg */ "./src/images/img_aereo/a-img-6.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-1.jpg */ "./src/images/pagina_aereo/a-img-1.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-2.jpg */ "./src/images/pagina_aereo/a-img-2.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-3.jpg */ "./src/images/pagina_aereo/a-img-3.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-4.jpg */ "./src/images/pagina_aereo/a-img-4.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-5.jpg */ "./src/images/pagina_aereo/a-img-5.jpg");
+/* harmony import */ var _images_pagina_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/pagina_aereo/a-img-6.jpg */ "./src/images/pagina_aereo/a-img-6.jpg");
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -928,18 +892,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var Aerero = function Aerero() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "load-container"
+    className: "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "loading-screen"
+    className: "loading-screen"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     "data-barba": "container",
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "header"
+    className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php"
+    className: "container-img"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+    to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes y sus necesidades.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Ponemos a su dispoci\xF3n nuestros drones para tomas aereas!.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres fotograf\xEDas o videos desde las alturas? No importa el lugar del que requieras una toma aerea.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Puede ser para publicidad, venta, eventos masivos o peque\xF1os. Nosotros podemos encargarnos,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -948,12 +912,12 @@ var Aerero = function Aerero() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), "En Lachfilms entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
-    img1: _images_img_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
-    img2: _images_img_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    img3: _images_img_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    img4: _images_img_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    img5: _images_img_aereo_a_img_5_png__WEBPACK_IMPORTED_MODULE_5__,
-    img6: _images_img_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+    img1: _images_pagina_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_pagina_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_pagina_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_pagina_aereo_a_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_pagina_aereo_a_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_pagina_aereo_a_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null)));
 };
 
@@ -997,101 +961,6 @@ var Inicio = function Inicio() {
 
 /***/ }),
 
-/***/ "./src/pages/Panel.jsx":
-/*!*****************************!*\
-  !*** ./src/pages/Panel.jsx ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-var Panel = function Panel() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
-      _useState2 = _slicedToArray(_useState, 2),
-      clave = _useState2[0],
-      setClave = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      loagedo = _useState4[0],
-      setLoageado = _useState4[1];
-
-  var handleInput = function handleInput(e) {
-    setClave(e.target.value);
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
-
-  var onSubmit = function onSubmit(e) {
-    e.preventDefault();
-
-    if (clave == "lach2021") {
-      setLoageado(true);
-    } else {
-      setLoageado(false);
-    }
-  };
-
-  var imgSubmit = function imgSubmit(e) {
-    e.preventDefault();
-    var archivo = e.target.files[0];
-
-    if (!archivo) {
-      return;
-    }
-
-    var lector = new FileReader();
-
-    lector.onload = function (e) {
-      var contenido = e.target.result;
-      mostrarContenido(contenido);
-    };
-
-    ;
-    lector.readAsText(archivo);
-    mostrarContenido();
-  };
-
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, loagedo ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: imgSubmit,
-    action: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    type: "file",
-    name: "",
-    id: "file-input"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Cargar img"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
-    onSubmit: onSubmit,
-    action: ""
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
-    htmlFor: ""
-  }, "Escribe el c\xF3digo de accesos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
-    onChange: handleInput,
-    type: "text"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", null, "Entrar")));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Panel);
-
-/***/ }),
-
 /***/ "./src/pages/Productos.jsx":
 /*!*********************************!*\
   !*** ./src/pages/Productos.jsx ***!
@@ -1104,12 +973,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_products/p-img-1.jpg */ "./src/images/img_products/p-img-1.jpg");
-/* harmony import */ var _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_products/p-img-2.jpg */ "./src/images/img_products/p-img-2.jpg");
-/* harmony import */ var _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_products/p-img-3.jpg */ "./src/images/img_products/p-img-3.jpg");
+/* harmony import */ var _images_pagina_productos_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/pagina_productos/p-img-1.jpg */ "./src/images/pagina_productos/p-img-1.jpg");
+/* harmony import */ var _images_pagina_productos_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/pagina_productos/p-img-2.jpg */ "./src/images/pagina_productos/p-img-2.jpg");
+/* harmony import */ var _images_pagina_productos_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/pagina_productos/p-img-3.jpg */ "./src/images/pagina_productos/p-img-3.jpg");
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -1120,18 +991,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var Productos = function Productos() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "load-container"
+    className: "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "loading-screen"
+    className: "loading-screen"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     "data-barba": "container",
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "header"
+    className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php"
+    className: "container-img"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+    to: "/"
   }, "LachFilms"), " te ofrece servicios de fotograf\xEDa y video.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres capturar la esencia de tus productos? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "Nuestros expertos en fotograf\xEDa de producto pueden ayudarte a mostrar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " la mejor cara de tus productos. Deja volar la creatividad. Incrementa el valor de tu negocio ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "con estas increibles fotograf\xEDas.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -1140,12 +1011,12 @@ var Productos = function Productos() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_4__.default, {
-    img1: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
-    img2: _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    img3: _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    img4: _images_img_products_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
-    img5: _images_img_products_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    img6: _images_img_products_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__
+    img1: _images_pagina_productos_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_pagina_productos_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_pagina_productos_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_pagina_productos_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img5: _images_pagina_productos_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img6: _images_pagina_productos_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_5__.default, null)));
 };
 
@@ -1165,15 +1036,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_social/s-img-1.jpg */ "./src/images/img_social/s-img-1.jpg");
-/* harmony import */ var _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_social/s-img-2.jpg */ "./src/images/img_social/s-img-2.jpg");
-/* harmony import */ var _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_social/s-img-3.jpg */ "./src/images/img_social/s-img-3.jpg");
-/* harmony import */ var _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_social/s-img-4.jpg */ "./src/images/img_social/s-img-4.jpg");
-/* harmony import */ var _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_social/s-img-5.jpg */ "./src/images/img_social/s-img-5.jpg");
-/* harmony import */ var _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_social/s-img-6.jpg */ "./src/images/img_social/s-img-6.jpg");
+/* harmony import */ var _images_pagina_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/pagina_social/s-img-1.jpg */ "./src/images/pagina_social/s-img-1.jpg");
+/* harmony import */ var _images_pagina_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/pagina_social/s-img-2.jpg */ "./src/images/pagina_social/s-img-2.jpg");
+/* harmony import */ var _images_pagina_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/pagina_social/s-img-3.jpg */ "./src/images/pagina_social/s-img-3.jpg");
+/* harmony import */ var _images_pagina_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/pagina_social/s-img-4.jpg */ "./src/images/pagina_social/s-img-4.jpg");
+/* harmony import */ var _images_pagina_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/pagina_social/s-img-5.jpg */ "./src/images/pagina_social/s-img-5.jpg");
+/* harmony import */ var _images_pagina_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/pagina_social/s-img-6.jpg */ "./src/images/pagina_social/s-img-6.jpg");
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 
 
 
@@ -1187,18 +1060,18 @@ __webpack_require__.r(__webpack_exports__);
 
 var Social = function Social() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "load-container"
+    className: "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "loading-screen"
+    className: "loading-screen"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     "data-barba": "container",
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "header"
+    className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php"
+    className: "container-img"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+    to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Es por eso que ofrecemos nuestros servicios de fotograf\xEDa y video, para capturar juntos tus momentos especiales.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Conf\xEDa en nosotros para cubrir tu evento y disfruta de la mejor manera, conservando un bello recuerdo.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Visita nuestras redes sociales para ver nuestro trabajo o", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -1207,12 +1080,12 @@ var Social = function Social() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
-    img1: _images_img_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
-    img2: _images_img_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    img3: _images_img_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    img4: _images_img_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    img5: _images_img_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
-    img6: _images_img_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+    img1: _images_pagina_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_pagina_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_pagina_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_pagina_social_s_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_pagina_social_s_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_pagina_social_s_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null))));
 };
 
@@ -1232,15 +1105,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_img_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img_turismo/t-img-1.jpg */ "./src/images/img_turismo/t-img-1.jpg");
-/* harmony import */ var _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/img_turismo/t-img-2.jpg */ "./src/images/img_turismo/t-img-2.jpg");
-/* harmony import */ var _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/img_turismo/t-img-3.jpg */ "./src/images/img_turismo/t-img-3.jpg");
-/* harmony import */ var _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/img_turismo/t-img-4.jpg */ "./src/images/img_turismo/t-img-4.jpg");
-/* harmony import */ var _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/img_turismo/t-img-5.jpg */ "./src/images/img_turismo/t-img-5.jpg");
-/* harmony import */ var _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/img_turismo/t-img-6.jpg */ "./src/images/img_turismo/t-img-6.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-1.jpg */ "./src/images/pagina_turismo/t-img-1.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-2.jpg */ "./src/images/pagina_turismo/t-img-2.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-3.jpg */ "./src/images/pagina_turismo/t-img-3.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-4.jpg */ "./src/images/pagina_turismo/t-img-4.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-5.jpg */ "./src/images/pagina_turismo/t-img-5.jpg");
+/* harmony import */ var _images_pagina_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../images/pagina_turismo/t-img-6.jpg */ "./src/images/pagina_turismo/t-img-6.jpg");
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -1251,22 +1125,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var variable = "1X6L8AylqOvHQlPdfJc4OrxDihv5Gfg-e";
+
 
 var Turismo = function Turismo() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "load-container"
+    className: "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "loading-screen"
+    className: "loading-screen"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     "data-barba": "container",
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "header"
+    className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php"
+    className: "container-img"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+    to: "/"
   }, "LachFilms"), " nos gusta complacer a nuestros clientes, por eso ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "ofrecemos este servicio de turismo. \xBFtienes alguna duda?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
@@ -1275,12 +1149,12 @@ var Turismo = function Turismo() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
-    img1: "https://drive.google.com/uc?export=downloads&id=".concat(variable),
-    img2: _images_img_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
-    img3: _images_img_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
-    img4: _images_img_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
-    img5: _images_img_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
-    img6: _images_img_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
+    img1: _images_pagina_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
+    img2: _images_pagina_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
+    img3: _images_pagina_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
+    img4: _images_pagina_turismo_t_img_4_jpg__WEBPACK_IMPORTED_MODULE_4__,
+    img5: _images_pagina_turismo_t_img_5_jpg__WEBPACK_IMPORTED_MODULE_5__,
+    img6: _images_pagina_turismo_t_img_6_jpg__WEBPACK_IMPORTED_MODULE_6__
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_DivCreate__WEBPACK_IMPORTED_MODULE_8__.default, null)));
 };
 
@@ -1300,11 +1174,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/icons/back.svg */ "./src/images/icons/back.svg");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
-/* harmony import */ var _components_IframesVideos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/IframesVideos */ "./src/components/IframesVideos.jsx");
-
 
 
 
@@ -1312,32 +1184,24 @@ __webpack_require__.r(__webpack_exports__);
 
 var Videos = function Videos() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "load-container"
+    className: "load-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "loading-screen"
+    className: "loading-screen"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("main", {
     "data-barba": "container",
     "data-barba-namespace": "about-section"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "header"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "animate-this btn-back"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+    className: "header"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "container-img"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "GALER\xCDA DE VIDEOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En la galer\xEDa de videos de", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
     to: "/"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    src: _images_icons_back_svg__WEBPACK_IMPORTED_MODULE_1__,
-    width: "50px",
-    alt: "Flecha para regresar a la p\xE1gina anterior"
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "GALER\xCDA DE VIDEOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En la galer\xEDa de videos de", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php"
-  }, "LachFilms"), " podr\xE1s ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "encontrar nuestros mejores trabajos, ve nuestra experiencia y todo lo que te podemos ofrecer!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes en mente alguna idea? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " Nuestros expertos en fotograf\xEDa y video pueden ayudarte a llevar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " tu idea a la realidad. Deja que volar la creatividad. Incrementa el valor de tu negocio. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../index.php#about-us"
+  }, "LachFilms"), " podr\xE1s ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "encontrar nuestros mejores trabajos, ve nuestra experiencia y todo lo que te podemos ofrecer!", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes en mente alguna idea? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " Nuestros expertos en fotograf\xEDa y video pueden ayudarte a llevar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " tu idea a la realidad. Deja que volar la creatividad. Incrementa el valor de tu negocio. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+    to: "/#about-us"
   }, "\xA1Escr\xEDbenos!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "container-mosaico"
+    className: "container-mosaico"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    "class": "mosaico-row m-video m"
+    className: "mosaico-row m-video m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
     width: "760",
     height: "515",
@@ -10467,10 +10331,10 @@ var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require
 var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/Roboto/RobotoCondensed-Bold.ttf */ "./src/fonts/Roboto/RobotoCondensed-Bold.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/Roboto/RobotoCondensed-BoldItalic.ttf */ "./src/fonts/Roboto/RobotoCondensed-BoldItalic.ttf"), __webpack_require__.b);
 var ___CSS_LOADER_URL_IMPORT_4___ = new URL(/* asset import */ __webpack_require__(/*! ../fonts/Roboto/RobotoCondensed-Regular.ttf */ "./src/fonts/Roboto/RobotoCondensed-Regular.ttf"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../images/calabera.png */ "./src/images/calabera.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_6___ = new URL(/* asset import */ __webpack_require__(/*! ../images/producto.png */ "./src/images/producto.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_7___ = new URL(/* asset import */ __webpack_require__(/*! ../images/aereo.png */ "./src/images/aereo.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_8___ = new URL(/* asset import */ __webpack_require__(/*! ../images/globo.png */ "./src/images/globo.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_5___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/Mosaico-Porttafolio/calabera.png */ "./src/images/img-no-modificar/Mosaico-Porttafolio/calabera.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_6___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/Mosaico-Porttafolio/producto.png */ "./src/images/img-no-modificar/Mosaico-Porttafolio/producto.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_7___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/Mosaico-Porttafolio/aereo.png */ "./src/images/img-no-modificar/Mosaico-Porttafolio/aereo.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_8___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/Mosaico-Porttafolio/globo.png */ "./src/images/img-no-modificar/Mosaico-Porttafolio/globo.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
@@ -10482,7 +10346,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_8___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"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","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: Gotham-black;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 700;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family: Gotham;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: Gotham-black;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 900;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family: Gotham;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: Gotham;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 300;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 700;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 600;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    text-align: center;\r\n}\r\n#create > label {\r\n    font-family: Gotham;\r\n    font-weight: 600;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"AAAA,gBAAgB;AAChB;IACI,mBAAmB;IACnB,4CAAqC;IACrC,kBAAkB;AACtB;AACA;IACI,yBAAyB;IACzB,4CAAqC;IACrC,kBAAkB;AACtB;AACA;IACI,4BAA4B;IAC5B,4CAAoD;IACpD,4CAA0D;IAC1D,4CAAuD;IACvD,kBAAkB;AACtB;;AAEA,WAAW;AACX;IACI,WAAW;IACX,aAAa;AACjB;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,eAAe;IACf,uBAAuB;IACvB,iCAAiC;IACjC,oBAAoB;IACpB,oBAAoB;IACpB,qBAAqB;IACrB,aAAa;IACb,wBAAwB;IACxB,qBAAqB;IACrB,+BAA+B;IAC/B,uBAAuB;IACvB,yBAAyB;IACzB,sBAAsB;IACtB,2BAA2B;IAC3B,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,eAAe;AACnB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,YAAY;IACZ,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA,eAAe;;;AAGf,6BAA6B;;AAE7B;IACI,mBAAmB;AACvB;;AAEA;IACI,eAAe;IACf,SAAS;IACT,WAAW;AACf;;AAEA;IACI,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,kBAAkB;IAClB,4BAA4B;IAC5B,oBAAoB;IACpB,SAAS;AACb;;AAEA;IACI,kBAAkB;IAClB,cAAc;IACd,iBAAiB;IACjB,iBAAiB;IACjB,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,4BAA4B;AAChC;;AAEA;IACI,UAAU;IACV,gBAAgB;AACpB;AACA;IACI,gCAAgC;IAChC,YAAY;AAChB;AACA;IACI,aAAa;AACjB;;;AAGA;IACI,qBAAqB;IACrB,WAAW;IACX,mBAAmB;AACvB;;AAEA;IACI,iBAAiB;IACjB,WAAW;IACX,mBAAmB;IACnB,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,gBAAgB;IAChB,WAAW;IACX,mBAAmB;IACnB,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,aAAa;IACb,YAAY;IACZ,sBAAsB;IACtB,iBAAiB;IACjB,wBAAwB;AAC5B;;AAEA;IACI,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,iBAAiB;AACrB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,UAAU;IACV,aAAa;IACb,8BAA8B;IAC9B,UAAU;IACV,+BAA+B;AACnC;;AAEA;IACI,+BAA+B;IAC/B,UAAU;AACd;;AAEA;IACI,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,UAAU;AACd;AACA;IACI,UAAU;AACd;AACA;IACI,oBAAoB;AACxB;;AAEA,4BAA4B;AAC5B;IACI,kBAAkB;IAClB,eAAe;IACf,gBAAgB;IAChB,cAAc;IACd,yBAAyB;IACzB,SAAS;IACT,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,MAAM;IACN,OAAO;IACP,WAAW;IACX,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,oBAAoB;AACxB;;;;AAIA;IACI,2BAA2B;IAC3B,sBAAsB;AAC1B;;AAEA;IACI,qBAAqB;IACrB,4BAA4B;AAChC;;AAEA;IACI,aAAa;IACb,wBAAwB;AAC5B;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;IACjB,aAAa;IACb,gBAAgB;AACpB;AACA;IACI,qBAAqB;AACzB;;AAEA;IACI,UAAU;IACV,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,cAAc;IACd,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,qBAAqB;IACrB,4BAA4B;AAChC;AACA;IACI,cAAc;IACd,gCAAgC;IAChC,4BAA4B;AAChC;;AAEA;IACI,eAAe;IACf,iBAAiB;IACjB,mBAAmB;IACnB,SAAS;AACb;AACA;IACI,eAAe;IACf,cAAc;IACd,qBAAqB;AACzB;;AAEA,gBAAgB;AAChB;IACI,aAAa;IACb,eAAe;IACf,8BAA8B;IAC9B,mBAAmB;IACnB,eAAe;IACf,kBAAkB;AACtB;AACA;IACI,QAAQ;AACZ;AACA;IACI,QAAQ;IACR,cAAc;IACd,gBAAgB;IAChB,eAAe;AACnB;AACA;IACI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,aAAa;AACjB;AACA;IACI,cAAc;AAClB;;AAEA;IACI,cAAc;IACd,UAAU;IACV,WAAW;IACX,0BAA0B;IAC1B,yBAAyB;IACzB,gBAAgB;IAChB,eAAe;IACf,YAAY;IACZ,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;IACf,aAAa;IACb,aAAa;IACb,UAAU;IACV,eAAe;AACnB;;AAEA;IACI,uBAAuB;AAC3B;;AAEA,SAAS;AACT;IACI,uBAAuB;IACvB,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;IACnB,kBAAkB;IAClB,aAAa;IACb,YAAY;IACZ,YAAY;IACZ,sBAAsB;IACtB,aAAa;IACb,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,SAAS;IACT,iBAAiB;AACrB;AACA;IACI,cAAc;IACd,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,cAAc;IACd,kBAAkB;IAClB,cAAc;IACd,kBAAkB;IAClB,mBAAmB;IACnB,YAAY;IACZ,2BAA2B;IAC3B,gBAAgB;AACpB;;AAEA;IACI,cAAc;IACd,eAAe;IACf,cAAc;IACd,kBAAkB;IAClB,mBAAmB;IACnB,yBAAyB;IACzB,mDAAmD;IACnD,4BAA4B;IAC5B,qBAAqB;AACzB;AACA;IACI,yBAAyB;IACzB,yBAAyB;IACzB,yBAAyB;AAC7B;AACA,aAAa;;AAEb;IACI,eAAe;IACf,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,oBAAoB;IACpB,YAAY;AAChB;;AAEA;IACI,mBAAmB;IACnB,iBAAiB;IACjB,cAAc;IACd,YAAY;AAChB;;AAEA;IACI,qBAAqB;AACzB;;AAEA,mBAAmB;AACnB;IACI,gBAAgB;IAChB,WAAW;IACX,mBAAmB;AACvB;AACA;IACI,YAAY;AAChB;;AAEA,kBAAkB;AAClB;IACI,cAAc;IACd,cAAc;AAClB;AACA;IACI,gBAAgB;IAChB,aAAa;AACjB;AACA;IACI,kBAAkB;IAClB,aAAa;IACb,gBAAgB;IAChB,cAAc;IACd,kBAAkB;AACtB;;AAEA;IACI,UAAU;IACV,kBAAkB;AACtB;;AAEA,uBAAuB;AACvB;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;IACnB,mBAAmB;IACnB,iBAAiB;AACrB;AACA;IACI,cAAc;IACd,mBAAmB;IACnB,gCAAgC;AACpC;;AAEA;IACI,aAAa;AACjB;AACA;IACI,YAAY;IACZ,aAAa;IACb,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,sBAAsB;AAC1B;AACA;IACI,yDAAkF;AACtF;AACA;IACI,yDAAkF;IAClF,WAAW;IACX,kBAAkB;AACtB;AACA;IACI,yDAA+E;IAC/E,WAAW;IACX,kBAAkB;AACtB;AACA;IACI,yDAA+E;AACnF;;AAEA;;;;IAII,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,8BAA8B;IAC9B,UAAU;IACV,oCAAoC;AACxC;;AAEA;IACI,UAAU;AACd;AACA;IACI,UAAU;AACd;AACA;IACI,UAAU;AACd;AACA;IACI,UAAU;AACd;;AAEA;IACI,UAAU;IACV,2BAA2B;IAC3B,wBAAwB;IACxB,mBAAmB;IACnB,YAAY;AAChB;;AAEA;IACI,UAAU;IACV,aAAa;IACb,gCAAgC;IAChC,oBAAoB;AACxB;;AAEA;IACI,UAAU;IACV,aAAa;IACb,gCAAgC;AACpC;;AAEA;IACI,UAAU;IACV,aAAa;IACb,gCAAgC;AACpC;;AAEA;IACI,UAAU;IACV,aAAa;IACb,gCAAgC;AACpC;;AAEA,WAAW;;AAEX;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,6BAA6B;IAC7B,mBAAmB;IACnB,uBAAuB;AAC3B;AACA;;;IAGI,eAAe;IACf,kBAAkB;AACtB;AACA;IACI,uBAAuB;IACvB,kBAAkB;AACtB;AACA;IACI,YAAY;IACZ,YAAY;AAChB;;AAEA;IACI,UAAU;IACV,WAAW;AACf;;AAEA;IACI,aAAa;IACb,mBAAmB;AACvB;AACA;IACI,gBAAgB;IAChB,cAAc;IACd,WAAW;IACX,kBAAkB;AACtB;AACA;IACI,QAAQ;IACR,cAAc;IACd,gBAAgB;IAChB,YAAY;IACZ,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;IAChB,gBAAgB;AACpB;AACA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;AAChB;AACA;IACI,WAAW;IACX,iBAAiB;IACjB,iBAAiB;IACjB,2BAA2B;IAC3B,gBAAgB;IAChB,gBAAgB;IAChB,mBAAmB;AACvB;AACA;IACI,eAAe;AACnB;AACA;IACI,cAAc;AAClB;;AAEA,sBAAsB;AACtB;;;;IAII,4BAA4B;IAC5B,qBAAqB;IACrB,YAAY;IACZ,gBAAgB;AACpB;AACA;;IAEI,UAAU;AACd;AACA;;IAEI,YAAY;IACZ,eAAe;IACf,gBAAgB;IAChB,kBAAkB;IAClB,SAAS;IACT,YAAY;IACZ,WAAW;IACX,4BAA4B;IAC5B,uDAAuD;IACvD,kBAAkB;AACtB;AACA;IACI,eAAe;AACnB;AACA;;IAEI,cAAc;IACd,kBAAkB;IAClB,mBAAmB;IACnB,UAAU;IACV,SAAS;IACT,UAAU;IACV,sCAAsC;IACtC,2BAA2B;IAC3B,WAAW;IACX,kBAAkB;AACtB;AACA;;IAEI,WAAW;AACf;AACA;;IAEI,gBAAgB;AACpB;AACA;;IAEI,gBAAgB;AACpB;AACA;;IAEI,UAAU;IACV,eAAe;IACf,WAAW;IACX,gBAAgB;AACpB;AACA;;IAEI,UAAU;IACV,eAAe;IACf,WAAW;IACX,gBAAgB;AACpB;AACA;;IAEI,mBAAmB;AACvB;AACA;;IAEI,gBAAgB;AACpB;;AAEA;;IAEI,SAAS;IACT,kBAAkB;IAClB,YAAY;IACZ,eAAe;IACf,WAAW;IACX,SAAS;IACT,+DAA+D;AACnE;AACA;IACI,SAAS;AACb;;AAEA;IACI,mDAAmD;IACnD,cAAc;IACd,UAAU;IACV,SAAS;IACT,YAAY;IACZ,eAAe;IACf,WAAW;IACX,6BAA6B;IAC7B,YAAY;IACZ,uBAAuB;IACvB,kBAAkB;AACtB;AACA;IACI,uBAAuB;IACvB,WAAW;IACX,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;IACzB,cAAc;IACd,kBAAkB;AACtB;AACA;IACI,4BAA4B;IAC5B,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,eAAe;AACnB;;AAEA,kBAAkB;AAClB;IACI,aAAa;IACb,WAAW;IACX,wBAAwB;IACxB,aAAa;IACb,oBAAoB;AACxB;AACA;IACI,uBAAuB;IACvB,qBAAqB;IACrB,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,SAAS;IACT,YAAY;AAChB;AACA;IACI,cAAc;AAClB","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10537,17 +10401,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../images/social_responsive.png */ "./src/images/social_responsive.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../images/producto_responsive.png */ "./src/images/producto_responsive.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../images/aereo_responsive.png */ "./src/images/aereo_responsive.png"), __webpack_require__.b);
-var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../images/turismo_responsive.png */ "./src/images/turismo_responsive.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_0___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/img_responsive/social_responsive.png */ "./src/images/img-no-modificar/img_responsive/social_responsive.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_1___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/img_responsive/producto_responsive.png */ "./src/images/img-no-modificar/img_responsive/producto_responsive.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_2___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/img_responsive/aereo_responsive.png */ "./src/images/img-no-modificar/img_responsive/aereo_responsive.png"), __webpack_require__.b);
+var ___CSS_LOADER_URL_IMPORT_3___ = new URL(/* asset import */ __webpack_require__(/*! ../images/img-no-modificar/img_responsive/turismo_responsive.png */ "./src/images/img-no-modificar/img_responsive/turismo_responsive.png"), __webpack_require__.b);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_0___);
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/responsive.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAElB,eAAe;AACf;IACI;QACI,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;QACI,iBAAiB;IACrB;;IAEA;QACI,kBAAkB;QAClB,eAAe;QACf,cAAc;IAClB;IACA;QACI,YAAY;QACZ,aAAa;QACb,QAAQ;IACZ;;IAEA;QACI,kBAAkB;QAClB,YAAY;QACZ,aAAa;QACb,sBAAsB;IAC1B;;IAEA;QACI,yDAAsD;QACtD,sBAAsB;QACtB,4BAA4B;IAChC;IACA;QACI,yDAAwD;QACxD,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAqD;QACrD,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAuD;QACvD,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;;;;QAII,kBAAkB;QAClB,WAAW;QACX,YAAY;QACZ,8BAA8B;QAC9B,UAAU;IACd;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA;IACI;QACI,eAAe;QACf,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,YAAY;QACZ,QAAQ;IACZ;IACA;QACI,cAAc;QACd,iBAAiB;QACjB,cAAc;IAClB;;IAEA;QACI,cAAc;QACd,eAAe;IACnB;;IAEA;QACI,4BAA4B;QAC5B,eAAe;IACnB;;IAEA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,mBAAmB;IACvB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,WAAW;QACX,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;AACJ;;AAEA;IACI;QACI,aAAa;IACjB;IACA;QACI,iBAAiB;IACrB;IACA;QACI,eAAe;QACf,oBAAoB;IACxB;;IAEA;QACI,YAAY;QACZ,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,eAAe;IACnB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;IACA;QACI,iBAAiB;QACjB,mBAAmB;IACvB;AACJ;;AAEA,gBAAgB;AAChB;IACI;QACI,uBAAuB;IAC3B;IACA;QACI,OAAO;IACX;IACA;QACI,OAAO;QACP,iBAAiB;IACrB;IACA;QACI,WAAW;QACX,QAAQ;QACR,cAAc;IAClB;IACA;QACI,QAAQ;IACZ;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA,iBAAiB;AACjB;IACI;QACI,cAAc;QACd,WAAW;IACf;IACA;QACI,aAAa;IACjB;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,iBAAiB;IACrB;AACJ","sourcesContent":["/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(../images/social_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(../images/producto_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(../images/aereo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(../images/turismo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/responsive.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAElB,eAAe;AACf;IACI;QACI,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;QACI,iBAAiB;IACrB;;IAEA;QACI,kBAAkB;QAClB,eAAe;QACf,cAAc;IAClB;IACA;QACI,YAAY;QACZ,aAAa;QACb,QAAQ;IACZ;;IAEA;QACI,kBAAkB;QAClB,YAAY;QACZ,aAAa;QACb,sBAAsB;IAC1B;;IAEA;QACI,yDAAsF;QACtF,sBAAsB;QACtB,4BAA4B;IAChC;IACA;QACI,yDAAwF;QACxF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAqF;QACrF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAuF;QACvF,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;;;;QAII,kBAAkB;QAClB,WAAW;QACX,YAAY;QACZ,8BAA8B;QAC9B,UAAU;IACd;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA;IACI;QACI,eAAe;QACf,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,YAAY;QACZ,QAAQ;IACZ;IACA;QACI,cAAc;QACd,iBAAiB;QACjB,cAAc;IAClB;;IAEA;QACI,cAAc;QACd,eAAe;IACnB;;IAEA;QACI,4BAA4B;QAC5B,eAAe;IACnB;;IAEA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,mBAAmB;IACvB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,WAAW;QACX,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;AACJ;;AAEA;IACI;QACI,aAAa;IACjB;IACA;QACI,iBAAiB;IACrB;IACA;QACI,eAAe;QACf,oBAAoB;IACxB;;IAEA;QACI,YAAY;QACZ,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,eAAe;IACnB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;IACA;QACI,iBAAiB;QACjB,mBAAmB;IACvB;AACJ;;AAEA,gBAAgB;AAChB;IACI;QACI,uBAAuB;IAC3B;IACA;QACI,OAAO;IACX;IACA;QACI,OAAO;QACP,iBAAiB;IACrB;IACA;QACI,WAAW;QACX,QAAQ;QACR,cAAc;IAClB;IACA;QACI,QAAQ;IACZ;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA,iBAAiB;AACjB;IACI;QACI,cAAc;QACd,WAAW;IACf;IACA;QACI,aAAa;IACjB;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,iBAAiB;IACrB;AACJ","sourcesContent":["/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(../images/img-no-modificar/img_responsive/social_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(../images/img-no-modificar/img_responsive/producto_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/aereo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/turismo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56034,7 +55898,7 @@ module.exports = "data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAA
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "baf91e98ccf3c25ac253.otf";
+module.exports = __webpack_require__.p + "9f9510899dabfce1d745.otf";
 
 /***/ }),
 
@@ -56045,7 +55909,7 @@ module.exports = __webpack_require__.p + "baf91e98ccf3c25ac253.otf";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "df38f0bfbbd796768b84.otf";
+module.exports = __webpack_require__.p + "2e1406eaffaf34cd06a7.otf";
 
 /***/ }),
 
@@ -56082,10 +55946,10 @@ module.exports = __webpack_require__.p + "db6d916952fb988edac1.ttf";
 
 /***/ }),
 
-/***/ "./src/images/aereo.png":
-/*!******************************!*\
-  !*** ./src/images/aereo.png ***!
-  \******************************/
+/***/ "./src/images/img-no-modificar/Mosaico-Porttafolio/aereo.png":
+/*!*******************************************************************!*\
+  !*** ./src/images/img-no-modificar/Mosaico-Porttafolio/aereo.png ***!
+  \*******************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56093,21 +55957,10 @@ module.exports = __webpack_require__.p + "cd678d6fcd7ad40cc18d.png";
 
 /***/ }),
 
-/***/ "./src/images/aereo_responsive.png":
-/*!*****************************************!*\
-  !*** ./src/images/aereo_responsive.png ***!
-  \*****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "b8d9c80d06ebd86318a0.png";
-
-/***/ }),
-
-/***/ "./src/images/calabera.png":
-/*!*********************************!*\
-  !*** ./src/images/calabera.png ***!
-  \*********************************/
+/***/ "./src/images/img-no-modificar/Mosaico-Porttafolio/calabera.png":
+/*!**********************************************************************!*\
+  !*** ./src/images/img-no-modificar/Mosaico-Porttafolio/calabera.png ***!
+  \**********************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56115,10 +55968,10 @@ module.exports = __webpack_require__.p + "29e764b3b5a5587871b3.png";
 
 /***/ }),
 
-/***/ "./src/images/globo.png":
-/*!******************************!*\
-  !*** ./src/images/globo.png ***!
-  \******************************/
+/***/ "./src/images/img-no-modificar/Mosaico-Porttafolio/globo.png":
+/*!*******************************************************************!*\
+  !*** ./src/images/img-no-modificar/Mosaico-Porttafolio/globo.png ***!
+  \*******************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56126,307 +55979,10 @@ module.exports = __webpack_require__.p + "6a4b10eb4eea289249e7.png";
 
 /***/ }),
 
-/***/ "./src/images/icons/back.svg":
-/*!***********************************!*\
-  !*** ./src/images/icons/back.svg ***!
-  \***********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "76faac0737c760bbc45e.svg";
-
-/***/ }),
-
-/***/ "./src/images/icons/facebook.png":
-/*!***************************************!*\
-  !*** ./src/images/icons/facebook.png ***!
-  \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "0d2d2a51ed0fb618f1d4.png";
-
-/***/ }),
-
-/***/ "./src/images/icons/instagram.png":
-/*!****************************************!*\
-  !*** ./src/images/icons/instagram.png ***!
-  \****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "ce1193f64503ae00bba0.png";
-
-/***/ }),
-
-/***/ "./src/images/icons/whatsapp.png":
-/*!***************************************!*\
-  !*** ./src/images/icons/whatsapp.png ***!
-  \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "61c75079940bc8d37d69.png";
-
-/***/ }),
-
-/***/ "./src/images/icons/youtube.png":
-/*!**************************************!*\
-  !*** ./src/images/icons/youtube.png ***!
-  \**************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "0262b4e7bb765bd6a8b1.png";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-1.jpg":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-1.jpg ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "76d7098f0ffa87237d3d.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-2.jpg":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-2.jpg ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "670a5fbd89928c6e3faa.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-3.jpg":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-3.jpg ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "a0b0c2bc123ceca9ac1c.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-4.jpg":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-4.jpg ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "702d65347b1ecb8f0f19.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-5.png":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-5.png ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "35ed7ddced8fdd775c28.png";
-
-/***/ }),
-
-/***/ "./src/images/img_aereo/a-img-6.jpg":
-/*!******************************************!*\
-  !*** ./src/images/img_aereo/a-img-6.jpg ***!
-  \******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "d6874e640209fbe47660.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_products/p-img-1.jpg":
-/*!*********************************************!*\
-  !*** ./src/images/img_products/p-img-1.jpg ***!
-  \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "f3a3bc8d95e90ad60c74.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_products/p-img-2.jpg":
-/*!*********************************************!*\
-  !*** ./src/images/img_products/p-img-2.jpg ***!
-  \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "f75d001f1ac4612d2b53.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_products/p-img-3.jpg":
-/*!*********************************************!*\
-  !*** ./src/images/img_products/p-img-3.jpg ***!
-  \*********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "a1cc2ccf6f2f7f61fe9d.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-1.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-1.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "a309a556383610a3d1f8.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-2.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-2.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "12beb9a1b8cfdf5a03ef.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-3.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-3.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "74403df6d9085ad3eab9.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-4.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-4.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "72dc07ea56f6ee7fc784.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-5.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-5.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "013e9b3464647bc57cb6.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_social/s-img-6.jpg":
-/*!*******************************************!*\
-  !*** ./src/images/img_social/s-img-6.jpg ***!
-  \*******************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "cee7473438b3eda9a4cc.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-1.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-1.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "02b295f160213ad028ae.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-2.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-2.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "c2699728bee2eb8975cd.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-3.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-3.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "3c5d709946c8a4f26c15.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-4.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-4.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "647c468ff8b89664658a.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-5.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-5.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "12545215ad57ec739757.jpg";
-
-/***/ }),
-
-/***/ "./src/images/img_turismo/t-img-6.jpg":
-/*!********************************************!*\
-  !*** ./src/images/img_turismo/t-img-6.jpg ***!
-  \********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "0835bde69f0f72f45303.jpg";
-
-/***/ }),
-
-/***/ "./src/images/lach_logo.png":
-/*!**********************************!*\
-  !*** ./src/images/lach_logo.png ***!
-  \**********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "9b339e5dfb72d9d05e21.png";
-
-/***/ }),
-
-/***/ "./src/images/producto.png":
-/*!*********************************!*\
-  !*** ./src/images/producto.png ***!
-  \*********************************/
+/***/ "./src/images/img-no-modificar/Mosaico-Porttafolio/producto.png":
+/*!**********************************************************************!*\
+  !*** ./src/images/img-no-modificar/Mosaico-Porttafolio/producto.png ***!
+  \**********************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56434,10 +55990,87 @@ module.exports = __webpack_require__.p + "6d19878392142a0957a7.png";
 
 /***/ }),
 
-/***/ "./src/images/producto_responsive.png":
-/*!********************************************!*\
-  !*** ./src/images/producto_responsive.png ***!
-  \********************************************/
+/***/ "./src/images/img-no-modificar/icons/back.svg":
+/*!****************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/back.svg ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "76faac0737c760bbc45e.svg";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/icons/facebook.png":
+/*!********************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/facebook.png ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "0d2d2a51ed0fb618f1d4.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/icons/instagram.png":
+/*!*********************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/instagram.png ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "ce1193f64503ae00bba0.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/icons/lach_logo.png":
+/*!*********************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/lach_logo.png ***!
+  \*********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "9b339e5dfb72d9d05e21.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/icons/whatsapp.png":
+/*!********************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/whatsapp.png ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "61c75079940bc8d37d69.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/icons/youtube.png":
+/*!*******************************************************!*\
+  !*** ./src/images/img-no-modificar/icons/youtube.png ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "0262b4e7bb765bd6a8b1.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/img_responsive/aereo_responsive.png":
+/*!*************************************************************************!*\
+  !*** ./src/images/img-no-modificar/img_responsive/aereo_responsive.png ***!
+  \*************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "b8d9c80d06ebd86318a0.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/img_responsive/producto_responsive.png":
+/*!****************************************************************************!*\
+  !*** ./src/images/img-no-modificar/img_responsive/producto_responsive.png ***!
+  \****************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56445,54 +56078,10 @@ module.exports = __webpack_require__.p + "485cd0285db66b155392.png";
 
 /***/ }),
 
-/***/ "./src/images/slider/aereo.jpg":
-/*!*************************************!*\
-  !*** ./src/images/slider/aereo.jpg ***!
-  \*************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "2d69ce28bafb64f75efe.jpg";
-
-/***/ }),
-
-/***/ "./src/images/slider/productos.jpg":
-/*!*****************************************!*\
-  !*** ./src/images/slider/productos.jpg ***!
-  \*****************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "d3a65af143c6bb59ab7d.jpg";
-
-/***/ }),
-
-/***/ "./src/images/slider/social.jpg":
-/*!**************************************!*\
-  !*** ./src/images/slider/social.jpg ***!
-  \**************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "51d17b771a531a253fc4.jpg";
-
-/***/ }),
-
-/***/ "./src/images/slider/turismo.jpg":
-/*!***************************************!*\
-  !*** ./src/images/slider/turismo.jpg ***!
-  \***************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-"use strict";
-module.exports = __webpack_require__.p + "ac195d9a42ea5b5f5bde.jpg";
-
-/***/ }),
-
-/***/ "./src/images/social_responsive.png":
-/*!******************************************!*\
-  !*** ./src/images/social_responsive.png ***!
-  \******************************************/
+/***/ "./src/images/img-no-modificar/img_responsive/social_responsive.png":
+/*!**************************************************************************!*\
+  !*** ./src/images/img-no-modificar/img_responsive/social_responsive.png ***!
+  \**************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -56500,14 +56089,289 @@ module.exports = __webpack_require__.p + "9252817d63ec3deded45.png";
 
 /***/ }),
 
-/***/ "./src/images/turismo_responsive.png":
-/*!*******************************************!*\
-  !*** ./src/images/turismo_responsive.png ***!
-  \*******************************************/
+/***/ "./src/images/img-no-modificar/img_responsive/turismo_responsive.png":
+/*!***************************************************************************!*\
+  !*** ./src/images/img-no-modificar/img_responsive/turismo_responsive.png ***!
+  \***************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 module.exports = __webpack_require__.p + "a8514f402a171b5395fe.png";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/slider/aereo.jpg":
+/*!******************************************************!*\
+  !*** ./src/images/img-no-modificar/slider/aereo.jpg ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "2d69ce28bafb64f75efe.jpg";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/slider/productos.jpg":
+/*!**********************************************************!*\
+  !*** ./src/images/img-no-modificar/slider/productos.jpg ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "d3a65af143c6bb59ab7d.jpg";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/slider/social.jpg":
+/*!*******************************************************!*\
+  !*** ./src/images/img-no-modificar/slider/social.jpg ***!
+  \*******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "51d17b771a531a253fc4.jpg";
+
+/***/ }),
+
+/***/ "./src/images/img-no-modificar/slider/turismo.jpg":
+/*!********************************************************!*\
+  !*** ./src/images/img-no-modificar/slider/turismo.jpg ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "ac195d9a42ea5b5f5bde.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-1.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-1.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "76d7098f0ffa87237d3d.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-2.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-2.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "670a5fbd89928c6e3faa.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-3.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-3.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "a0b0c2bc123ceca9ac1c.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-4.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-4.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "702d65347b1ecb8f0f19.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-5.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-5.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "35ed7ddced8fdd775c28.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_aereo/a-img-6.jpg":
+/*!*********************************************!*\
+  !*** ./src/images/pagina_aereo/a-img-6.jpg ***!
+  \*********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "d6874e640209fbe47660.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_productos/p-img-1.jpg":
+/*!*************************************************!*\
+  !*** ./src/images/pagina_productos/p-img-1.jpg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "f3a3bc8d95e90ad60c74.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_productos/p-img-2.jpg":
+/*!*************************************************!*\
+  !*** ./src/images/pagina_productos/p-img-2.jpg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "f75d001f1ac4612d2b53.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_productos/p-img-3.jpg":
+/*!*************************************************!*\
+  !*** ./src/images/pagina_productos/p-img-3.jpg ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "a1cc2ccf6f2f7f61fe9d.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-1.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-1.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "a309a556383610a3d1f8.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-2.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-2.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "12beb9a1b8cfdf5a03ef.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-3.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-3.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "74403df6d9085ad3eab9.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-4.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-4.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "72dc07ea56f6ee7fc784.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-5.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-5.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "013e9b3464647bc57cb6.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_social/s-img-6.jpg":
+/*!**********************************************!*\
+  !*** ./src/images/pagina_social/s-img-6.jpg ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "cee7473438b3eda9a4cc.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-1.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-1.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "02b295f160213ad028ae.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-2.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-2.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "c2699728bee2eb8975cd.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-3.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-3.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "3c5d709946c8a4f26c15.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-4.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-4.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "647c468ff8b89664658a.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-5.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-5.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "12545215ad57ec739757.jpg";
+
+/***/ }),
+
+/***/ "./src/images/pagina_turismo/t-img-6.jpg":
+/*!***********************************************!*\
+  !*** ./src/images/pagina_turismo/t-img-6.jpg ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+module.exports = __webpack_require__.p + "0835bde69f0f72f45303.jpg";
 
 /***/ }),
 

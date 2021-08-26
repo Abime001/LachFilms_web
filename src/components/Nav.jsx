@@ -1,5 +1,5 @@
 import React from "react";
-import LogoIMG from '../images/lach_logo.png';
+import LogoIMG from '../images/img-no-modificar/icons/lach_logo.png';
 
 const Nav = () => (
     <nav>
@@ -23,7 +23,7 @@ const Nav = () => (
                 <a href="#portafolio">Portafolio</a>
             </li>
             <li className="item">
-                <a href="#trav">Travel</a>
+                <a href="#travel">Travel</a>
             </li>
             <li className="item">
                 <a href="#about-us">Nosotros</a>

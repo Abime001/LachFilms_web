@@ -7,7 +7,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
         <div className="mosaico-row">
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-1.jpg"
+                    href={img1}
                     download="lachfilm-turismo-imagen1">
                     <div className="fm-img-m">
                         <img
@@ -25,7 +25,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
             </div>
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-2.jpg"
+                    href={img2}
                     download="lachfilm-turismo-imagen2">
                     <div className="fm-img-m">
                         <img
@@ -45,7 +45,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
         <div className="mosaico-row">
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-3.jpg"
+                    href={img3}
                     download="lachfilm-turismo-imagen3">
                     <div className="fm-img-m">
                         <img
@@ -63,7 +63,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
             </div>
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-4.jpg"
+                    href={img4}
                     download="lachfilm-turismo-imagen4">
                     <div className="fm-img-m">
                         <img
@@ -83,7 +83,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
         <div className="mosaico-row">
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-5.jpg"
+                    href={img5}
                     download="lachfilm-turismo-imagen5">
                     <div className="fm-img-m">
                         <img
@@ -101,7 +101,7 @@ const Mosaico = ({img1, img2, img3, img4, img5, img6}) => (
             </div>
             <div className="f-m">
                 <a
-                    href="../images/img_turismo/t-img-6.jpg"
+                    href={img6}
                     download="lachfilm-turismo-imagen6">
                     <div className="fm-img-m">
                         <img

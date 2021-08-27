@@ -30,7 +30,7 @@ const Turismo = ()=>{
                          ofrecemos este servicio de turismo. ¿tienes alguna duda?
                         <a href="https://www.lachfilms.com/#about-us">¡Escríbenos!</a>
                         <br/>
-                        <a href="../descargas/img_turismo.rar" download="lachfilm - pack turismo.rar"><p id="anuncio"><i>Puedes descargar nuestras imágenes totalmente gratis</i></p></a>
+                        <a href="../descargas/pagina_turismo.rar" download="lachfilm - pack turismo.rar"><p id="anuncio"><i>Puedes descargar nuestras imágenes totalmente gratis</i></p></a>
                     </span>
                     <hr />
                     <Mosaico

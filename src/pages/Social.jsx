@@ -40,7 +40,7 @@ const Social = () => {
                             </a>
                             <br />
                             <a
-                                href="../descargas/img_social.rar"
+                                href="../descargas/pagina_social.rar"
                                 download="lachfilm - pack social.rar">
                                 <p id="anuncio">
                                     <i>

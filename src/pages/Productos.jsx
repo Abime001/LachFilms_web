@@ -33,7 +33,7 @@ const Productos = () => (
                         </a>
                         <br />
                         <a
-                            href="../descargas/img_products.rar"
+                            href="../descargas/pagina_products.rar"
                             download="lachfilm - pack products.rar">
                             <p id="anuncio">
                                 <i>

@@ -38,7 +38,7 @@ const Aerero = () => (
                         </a>
                         <br />
                         <a
-                            href="../descargas/img_aereo.rar"
+                            href="../descargas/pagina_aereo.rar"
                             download="lachfilm - pack aereo.rar">
                             <p id="anuncio">
                                 <i>

@@ -6,6 +6,7 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
+import ProductosRar from '../descargas/pagina_products.rar';
 
 const Productos = () => (
     <>
@@ -33,7 +34,7 @@ const Productos = () => (
                         </a>
                         <br />
                         <a
-                            href="../descargas/pagina_products.rar"
+                            href={ProductosRar}
                             download="lachfilm - pack products.rar">
                             <p id="anuncio">
                                 <i>

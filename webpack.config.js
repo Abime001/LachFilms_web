@@ -35,7 +35,7 @@ module.exports = {
                 test: /\.(png|svg|jpg|gif)$/i,
             },
             {
-                test: /\.(otf|pdf)$/,
+                test: /\.(otf|pdf|rar)$/,
                 loader: "file-loader",
                 options: {
                     name: "images/[hash]-[name].[ext]",

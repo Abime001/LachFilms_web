@@ -455,7 +455,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
- // import urlIcon from '``';``
+
 
 var Mosaico = function Mosaico(_ref) {
   var img1 = _ref.img1,
@@ -907,7 +907,7 @@ var Aerero = function Aerero() {
   }, "LachFilms"), " entendemos a nuestros clientes y sus necesidades.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Ponemos a su dispoci\xF3n nuestros drones para tomas aereas!.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres fotograf\xEDas o videos desde las alturas? No importa el lugar del que requieras una toma aerea.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Puede ser para publicidad, venta, eventos masivos o peque\xF1os. Nosotros podemos encargarnos,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/img_aereo.rar",
+    href: "../descargas/pagina_aereo.rar",
     download: "lachfilm - pack aereo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -1006,7 +1006,7 @@ var Productos = function Productos() {
   }, "LachFilms"), " te ofrece servicios de fotograf\xEDa y video.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres capturar la esencia de tus productos? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "Nuestros expertos en fotograf\xEDa de producto pueden ayudarte a mostrar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " la mejor cara de tus productos. Deja volar la creatividad. Incrementa el valor de tu negocio ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "con estas increibles fotograf\xEDas.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/img_products.rar",
+    href: "../descargas/pagina_products.rar",
     download: "lachfilm - pack products.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -1075,7 +1075,7 @@ var Social = function Social() {
   }, "LachFilms"), " entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Es por eso que ofrecemos nuestros servicios de fotograf\xEDa y video, para capturar juntos tus momentos especiales.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Conf\xEDa en nosotros para cubrir tu evento y disfruta de la mejor manera, conservando un bello recuerdo.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Visita nuestras redes sociales para ver nuestro trabajo o", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/img_social.rar",
+    href: "../descargas/pagina_social.rar",
     download: "lachfilm - pack social.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -1144,7 +1144,7 @@ var Turismo = function Turismo() {
   }, "LachFilms"), " nos gusta complacer a nuestros clientes, por eso ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "ofrecemos este servicio de turismo. \xBFtienes alguna duda?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/img_turismo.rar",
+    href: "../descargas/pagina_turismo.rar",
     download: "lachfilm - pack turismo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"

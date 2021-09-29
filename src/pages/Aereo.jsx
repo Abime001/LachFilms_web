@@ -9,6 +9,7 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
+import AereoRar from '../descargas/pagina_aereo.rar';
 
 const Aerero = () => (
     <>
@@ -38,7 +39,7 @@ const Aerero = () => (
                         </a>
                         <br />
                         <a
-                            href="../descargas/pagina_aereo.rar"
+                            href={AereoRar}
                             download="lachfilm - pack aereo.rar">
                             <p id="anuncio">
                                 <i>

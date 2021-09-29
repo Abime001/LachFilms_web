@@ -9,6 +9,7 @@ import Mosaico from '../components/Mosaico';
 import DivCreate from '../components/DivCreate';
 import IconBack from '../components/IconBack';
 import {Link} from 'react-router-dom';
+import TurismoRar from '../descargas/pagina_turismo.rar';
 
 const Turismo = ()=>{
     return(
@@ -30,7 +31,7 @@ const Turismo = ()=>{
                          ofrecemos este servicio de turismo. ¿tienes alguna duda?
                         <a href="https://www.lachfilms.com/#about-us">¡Escríbenos!</a>
                         <br/>
-                        <a href="../descargas/pagina_turismo.rar" download="lachfilm - pack turismo.rar"><p id="anuncio"><i>Puedes descargar nuestras imágenes totalmente gratis</i></p></a>
+                        <a href={TurismoRar} download="lachfilm - pack turismo.rar"><p id="anuncio"><i>Puedes descargar nuestras imágenes totalmente gratis</i></p></a>
                     </span>
                     <hr />
                     <Mosaico

@@ -714,7 +714,7 @@ textarea.question + label > span {
     top: -3em;
 }
 
-button {
+button, .btn-codigo {
     transition: opacity 0.3s ease, background 0.3s ease;
     display: block;
     opacity: 1;
@@ -726,8 +726,9 @@ button {
     color: #ffff;
     border: 1px solid white;
     border-radius: 3px;
+    margin-bottom: 20px;
 }
-button:hover {
+button:hover, .btn-codigo:hover {
     background-color: #ffff;
     color: #000;
     font-weight: 400;
@@ -767,4 +768,12 @@ button:hover {
 }
 #nosotros-titulo {
     font-size: 2em;
+}
+
+.form-error{
+    color: rgb(216, 55, 55);
+}
+
+.link-cliente{
+    color: white;
 }

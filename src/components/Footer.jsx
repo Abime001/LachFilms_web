@@ -6,6 +6,7 @@ import InstagramICON from '../images/img-no-modificar/icons/instagram.png';
 import FormFooter from "./FormFooter";
 import DivCreate from "./DivCreate";
 import IconFooter from "./IconFooter";
+import CodigoCliente from "./CodigoCliente";
 
 const Footer = () => (
     <>
@@ -47,6 +48,9 @@ const Footer = () => (
                 <label>Escribenos!</label> <br />
                 <span className="footer__span">Puedes cotizar $ precios $</span>
                 <FormFooter/>
+            </div>
+            <div className="footer__item">
+                <CodigoCliente/>
             </div>
         </footer>
         <DivCreate/>

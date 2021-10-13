@@ -877,7 +877,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _descargas_pagina_aereo_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_aereo.rar */ "./src/descargas/pagina_aereo.rar");
+
 
 
 
@@ -902,12 +904,12 @@ var Aerero = function Aerero() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
     to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes y sus necesidades.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Ponemos a su dispoci\xF3n nuestros drones para tomas aereas!.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres fotograf\xEDas o videos desde las alturas? No importa el lugar del que requieras una toma aerea.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Puede ser para publicidad, venta, eventos masivos o peque\xF1os. Nosotros podemos encargarnos,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/pagina_aereo.rar",
+    href: _descargas_pagina_aereo_rar__WEBPACK_IMPORTED_MODULE_10__.default,
     download: "lachfilm - pack aereo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -979,7 +981,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _descargas_pagina_products_rar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../descargas/pagina_products.rar */ "./src/descargas/pagina_products.rar");
+
 
 
 
@@ -1001,12 +1005,12 @@ var Productos = function Productos() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
     to: "/"
   }, "LachFilms"), " te ofrece servicios de fotograf\xEDa y video.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres capturar la esencia de tus productos? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "Nuestros expertos en fotograf\xEDa de producto pueden ayudarte a mostrar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " la mejor cara de tus productos. Deja volar la creatividad. Incrementa el valor de tu negocio ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "con estas increibles fotograf\xEDas.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/pagina_products.rar",
+    href: _descargas_pagina_products_rar__WEBPACK_IMPORTED_MODULE_7__.default,
     download: "lachfilm - pack products.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -1045,7 +1049,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _descargas_pagina_social_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_social.rar */ "./src/descargas/pagina_social.rar");
+
 
 
 
@@ -1070,12 +1076,12 @@ var Social = function Social() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
     to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Es por eso que ofrecemos nuestros servicios de fotograf\xEDa y video, para capturar juntos tus momentos especiales.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Conf\xEDa en nosotros para cubrir tu evento y disfruta de la mejor manera, conservando un bello recuerdo.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Visita nuestras redes sociales para ver nuestro trabajo o", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/pagina_social.rar",
+    href: _descargas_pagina_social_rar__WEBPACK_IMPORTED_MODULE_10__.default,
     download: "lachfilm - pack social.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -1114,7 +1120,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _descargas_pagina_turismo_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_turismo.rar */ "./src/descargas/pagina_turismo.rar");
+
 
 
 
@@ -1139,12 +1147,12 @@ var Turismo = function Turismo() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
     to: "/"
   }, "LachFilms"), " nos gusta complacer a nuestros clientes, por eso ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "ofrecemos este servicio de turismo. \xBFtienes alguna duda?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "https://www.lachfilms.com/#about-us"
   }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "../descargas/pagina_turismo.rar",
+    href: _descargas_pagina_turismo_rar__WEBPACK_IMPORTED_MODULE_10__.default,
     download: "lachfilm - pack turismo.rar"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
     id: "anuncio"
@@ -12630,6 +12638,66 @@ const validateParams = (userID, serviceID, templateID) => {
     return true;
 };
 
+
+/***/ }),
+
+/***/ "./src/descargas/pagina_aereo.rar":
+/*!****************************************!*\
+  !*** ./src/descargas/pagina_aereo.rar ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/f9ae1fe81496ee388a544d92b04df60b-pagina_aereo.rar");
+
+/***/ }),
+
+/***/ "./src/descargas/pagina_products.rar":
+/*!*******************************************!*\
+  !*** ./src/descargas/pagina_products.rar ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/09636483b05724e8061e6a6900d638a1-pagina_products.rar");
+
+/***/ }),
+
+/***/ "./src/descargas/pagina_social.rar":
+/*!*****************************************!*\
+  !*** ./src/descargas/pagina_social.rar ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/7553c82a0b7d467245dc9163efcd9907-pagina_social.rar");
+
+/***/ }),
+
+/***/ "./src/descargas/pagina_turismo.rar":
+/*!******************************************!*\
+  !*** ./src/descargas/pagina_turismo.rar ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/d31cfde8c1dca1d1b006f42f77487481-pagina_turismo.rar");
 
 /***/ }),
 
@@ -56151,7 +56219,7 @@ module.exports = __webpack_require__.p + "ac195d9a42ea5b5f5bde.jpg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-module.exports = __webpack_require__.p + "034fe9629028c46f03c8.jpg";
+module.exports = __webpack_require__.p + "cad499a0a9427f300da3.jpg";
 
 /***/ }),
 

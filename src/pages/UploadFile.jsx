@@ -49,40 +49,45 @@ const UploadFile = () => {
     return (
         <div className="page-upload">
             <div className="page-upload-label">
-                <label>Ingrese el link del archivo</label>
+                <label>Registra el código y el link de descarga</label>
                 <form action="" method="post">
                     <input
                         onChange={handleChange}
-                        id="input-code"
+                        className="input-code"
+                        id="ic-code"
                         name="codigo"
                         type="text"
-                        placeholder="Ingresa el codigo correspondiente"
+                        placeholder="Ingresa Código"
                         pattern="LF+-+[0-9]*"
                         title="LF-..."
                     />
                     <input
                         onChange={handleChange}
-                        id="input-code"
+                        className="input-code"
+                        id="ic-url"
                         type="text"
                         name="link"
-                        placeholder="Ingresa el link del archivo"
+                        placeholder="Ingresa Link"
                         pattern="LF+-+[0-9]*"
                         title="LF-..."
                     />
-                    <p>{controlers.empty? 'El campo esta vacio': null}</p>
+                    {controlers.empty? <script>function myFunction() {
+                        alert("Debes de llenar todos los datos")
+                    }</script>: null}
+                    {/* <p>{controlers.empty? 'El campo esta vacio': null}</p> */}
                     <button type="submit" onClick={handleSubmit}>
                         Subir link
                     </button>
                     {controlers.schow ? <p>{dato.codigo}</p>: null}
                 </form>
-                <div>
-                    <label htmlFor="">Borrar código y archivo</label>
-                    <input type="text" onChange={changeDelete} placeholder="Digite el código a borrar"/>
+                <div id="label-del">
+                    <label  htmlFor="">Borrar código y archivo</label><br />
+                    <input className="input-code" id="ic-del" type="text" onChange={changeDelete} placeholder="Digite el código a borrar"/>
                     <button onClick={handleDelete}>Borrar</button>
                 </div>
                 <div>
                     {datos.map( d => 
-                        <p key={d.id}>{d.codigo}</p>    
+                        <p key={d.id} id="datos-map">{d.codigo}</p>    
                     )}
                 </div>
             </div>

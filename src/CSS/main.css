@@ -450,7 +450,7 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 90px;
+    margin-bottom: 30px;
     padding-top: 20px;
 }
 #portafolio h2 {
@@ -777,7 +777,7 @@ button:hover, .btn-codigo:hover {
 .link-cliente{
     color: white;
 }
-
+/*css UploadFile*/
 .page-upload{
     background: black;
     width: 100%;
@@ -790,10 +790,83 @@ button:hover, .btn-codigo:hover {
 .page-upload label{
     color: white;
     text-align: center;
-    margin-bottom: 10px;
+    line-height: 2;
+    font-size: 30px;
 }
 
 .page-upload-label{
     display: flex;
     flex-direction: column;
 }
+
+.input-code{
+    margin-bottom: 5px;
+    height: 30px;
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+#ic-code{
+    border-radius: 5px 0 0 5px ;
+    width: 30%;
+    margin-right: 6px;
+}
+#ic-url{
+    border-radius: 0 5px 5px 0 ;
+    width: 68%;
+}
+#ic-del{
+    border-radius: 5px 5px 5px 5px ;
+    width: 100%;
+}
+#label-del{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*css LinksFooter Inicio*/
+.davs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    height: 200px;
+}
+#label-down{
+    text-align: center;
+    color: #3d3d3d;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+#ic-down{
+    border-radius: 5px 5px 5px 5px ;
+    width: 19%;
+    height: 50px;
+    font-size: 25px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+#a-download{
+    font-size: 1.3em;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    display: block;
+    opacity: 1;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    width: 30%;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#a-download:hover{
+    background-color: #000;
+    color: #fff;
+    font-weight: 400;
+}
+

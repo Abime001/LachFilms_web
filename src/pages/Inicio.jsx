@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonUp from "../components/ButtonUp";
 import Footer from "../components/Footer";
+import LinksFooter from "../components/LinksFooter";
 import Nav from "../components/Nav";
 import Portafolio from "../components/Portafolio";
 import Somos from "../components/Somos";
@@ -15,6 +16,7 @@ const Inicio = () => (
         <Somos/>
         <Travel/>
         <Portafolio/>
+        <LinksFooter/>
         <Footer/>
     </div>
 );

@@ -24,14 +24,17 @@ const LinksFooter = () => {
     };
 
     return (
-        <div className="">
-            <label>¡¡Descarga tus IMG/VIDEOS!!</label>
+        <div className="davs">
+            <label id="label-down">CANJEA TU CÓDIGO DE CLIENTE PARA PODER DESCARGAR TU SET</label>
             <input
+                className="input-code"
+                id="ic-down"
                 type="text"
                 onChange={handleChange}
-                placeholder="Ingresa tú código cliente"
+                placeholder="Ingresa tu código cliente"
             />
-            {download.status ? <a href={download.link} target="_blank">Descargar</a> : null}
+            
+            {download.status ? <a id="a-download" href={download.link} target="_blank">¡Presiona aquí para descargar tu set!</a> : null}
         </div>
     );
 };

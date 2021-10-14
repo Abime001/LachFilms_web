@@ -50,9 +50,9 @@ const Footer = () => (
                 <span className="footer__span">Puedes cotizar $ precios $</span>
                 <FormFooter/>
             </div>
-            <div className="footer__item">
+            {/* <div className="footer__item">
                 <LinksFooter/>
-            </div>
+            </div> */}
         </footer>
         <DivCreate/>
     </>

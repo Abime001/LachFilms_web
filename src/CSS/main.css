@@ -777,3 +777,23 @@ button:hover, .btn-codigo:hover {
 .link-cliente{
     color: white;
 }
+
+.page-upload{
+    background: black;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-upload label{
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.page-upload-label{
+    display: flex;
+    flex-direction: column;
+}

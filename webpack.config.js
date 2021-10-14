@@ -10,7 +10,7 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, "build"),
         compress: true,
-        port: 3000,
+        port: 4000,
         open: true,
         watchContentBase: true,
         historyApiFallback: true

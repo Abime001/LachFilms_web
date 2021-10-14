@@ -6,6 +6,7 @@ import Productos from './pages/Productos';
 import Social from './pages/Social';
 import Inicio from './pages/Inicio';
 import Videos from './pages/Videos';
+import UploadFile from './pages/UploadFile';
 
 const App = ()=>(
     <Router>
@@ -16,6 +17,7 @@ const App = ()=>(
             <Route exact path="/social" component={Social}/>
             <Route exact path="/turismo" component={Turismo}/>
             <Route exact path="/videos_lachfilms" component={Videos}/>
+            <Route exact path="/uploadFile" component={UploadFile} />
         </Switch>
     </Router>
 );

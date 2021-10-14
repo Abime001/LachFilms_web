@@ -6,7 +6,8 @@
     "scripts": {
         "start": "webpack serve --mode=development",
         "build": "webpack",
-        "api": "nodemon backend/index.js --exec babel-node"
+        "api": "nodemon backend/index.js --exec babel-node",
+        "server": "json-server -p3000 --watch db.json"
     },
     "repository": {
         "type": "git",
@@ -34,6 +35,7 @@
         "webpack-dev-server": "^3.11.2"
     },
     "dependencies": {
+        "axios": "^0.23.0",
         "buffer": "^6.0.3",
         "emailjs-com": "^3.2.0",
         "react": "^17.0.2",

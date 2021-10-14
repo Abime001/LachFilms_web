@@ -7,6 +7,7 @@ import FormFooter from "./FormFooter";
 import DivCreate from "./DivCreate";
 import IconFooter from "./IconFooter";
 import CodigoCliente from "./CodigoCliente";
+import LinksFooter from "./LinksFooter";
 
 const Footer = () => (
     <>
@@ -50,7 +51,7 @@ const Footer = () => (
                 <FormFooter/>
             </div>
             <div className="footer__item">
-                <CodigoCliente/>
+                <LinksFooter/>
             </div>
         </footer>
         <DivCreate/>

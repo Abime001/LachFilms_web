@@ -37,8 +37,7 @@ const Aerero = () => (
                         <a href="https://www.lachfilms.com/#about-us">
                             ¡Escríbenos!
                         </a>
-                        <br />
-                        <a
+                        {/* <a
                             href={AereoRar}
                             download="lachfilm - pack aereo.rar">
                             <p id="anuncio">
@@ -47,9 +46,9 @@ const Aerero = () => (
                                     totalmente gratis
                                 </i>
                             </p>
-                        </a>
+                        </a> */}
                     </span>
-                    En Lachfilms entendemos a nuestros clientes.
+                    
                     <hr />
                     <Mosaico
                         img1={aereoImg1}

@@ -33,7 +33,7 @@ const Productos = () => (
                             ¡Escríbenos!
                         </a>
                         <br />
-                        <a
+                        {/* <a
                             href={ProductosRar}
                             download="lachfilm - pack products.rar">
                             <p id="anuncio">
@@ -42,7 +42,7 @@ const Productos = () => (
                                     totalmente gratis
                                 </i>
                             </p>
-                        </a>
+                        </a> */}
                     </span>
                     <hr />
                     <Mosaico

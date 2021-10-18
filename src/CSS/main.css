@@ -167,21 +167,6 @@
     height: fit-content;
 }
 
-.fm-img-m{
-    position: absolute;
-    width: 100%;
-    opacity: 0;
-    height: 500px;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    transition: all .3s ease-in-out;
-}
-
-.fm-img-m:hover{
-    transition: all .3s ease-in-out;
-    opacity: 1;
-}
-
 .i-a{
     position: absolute;
     top: 40%;

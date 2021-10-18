@@ -40,7 +40,7 @@ const Social = () => {
                                 ¡Escríbenos!
                             </a>
                             <br />
-                            <a
+                            {/* <a
                                 href={SocialRar}
                                 download="lachfilm - pack social.rar">
                                 <p id="anuncio">
@@ -49,7 +49,7 @@ const Social = () => {
                                         totalmente gratis
                                     </i>
                                 </p>
-                            </a>
+                            </a> */}
                         </span>
                         <hr />
                         <Mosaico

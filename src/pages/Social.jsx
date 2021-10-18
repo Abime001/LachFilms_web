@@ -9,7 +9,7 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
-import SocialRar from '../descargas/pagina_social.rar';
+
 
 const Social = () => {
     return (
@@ -36,20 +36,10 @@ const Social = () => {
                             <br />
                             Visita nuestras redes sociales para ver nuestro
                             trabajo o
-                            <a href="https://www.lachfilms.com/#about-us">
+                            <a href="/#about-us">
                                 ¡Escríbenos!
                             </a>
                             <br />
-                            {/* <a
-                                href={SocialRar}
-                                download="lachfilm - pack social.rar">
-                                <p id="anuncio">
-                                    <i>
-                                        Puedes descargar nuestras imágenes
-                                        totalmente gratis
-                                    </i>
-                                </p>
-                            </a> */}
                         </span>
                         <hr />
                         <Mosaico

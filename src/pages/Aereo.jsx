@@ -9,7 +9,7 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
-import AereoRar from '../descargas/pagina_aereo.rar';
+
 
 const Aerero = () => (
     <>
@@ -34,19 +34,9 @@ const Aerero = () => (
                         <br />
                         Puede ser para publicidad, venta, eventos masivos o
                         pequeños. Nosotros podemos encargarnos,
-                        <a href="https://www.lachfilms.com/#about-us">
+                        <a href="/#about-us">
                             ¡Escríbenos!
                         </a>
-                        {/* <a
-                            href={AereoRar}
-                            download="lachfilm - pack aereo.rar">
-                            <p id="anuncio">
-                                <i>
-                                    Puedes descargar nuestras imágenes
-                                    totalmente gratis
-                                </i>
-                            </p>
-                        </a> */}
                     </span>
                     
                     <hr />

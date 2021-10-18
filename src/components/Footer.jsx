@@ -6,8 +6,6 @@ import InstagramICON from '../images/img-no-modificar/icons/instagram.png';
 import FormFooter from "./FormFooter";
 import DivCreate from "./DivCreate";
 import IconFooter from "./IconFooter";
-import CodigoCliente from "./CodigoCliente";
-import LinksFooter from "./LinksFooter";
 
 const Footer = () => (
     <>

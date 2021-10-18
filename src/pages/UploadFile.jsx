@@ -15,7 +15,7 @@ const UploadFile = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get("http://localhost:3000/data");
+            const res = await axios.get("https://lachfilms-api.herokuapp.com/api/codigo");
             setDatos(res.data);
         })();
     }, []);
@@ -31,8 +31,8 @@ const UploadFile = () => {
         e.preventDefault();
         if (dato.link !== "" && dato.codigo !== "") {
             (async ()=>{
-                const res = await axios.post("http://localhost:3000/data", dato);
-                console.log(res);
+                await axios.post("https://lachfilms-api.herokuapp.com/api/codigo", dato);
+                window.location.href = '/Uploadfile';
             })();
         } else {
             setControlers({...controlers, empty: true});
@@ -40,9 +40,10 @@ const UploadFile = () => {
     };
 
     const handleDelete = ()=>{
-        const del = datos.find( d => d.codigo === datDele ? d.id : null);
+        const del = datos.find( d => d.codigo === datDele ? d._id : null);
         (async () =>{
-            await axios.delete(`http://localhost:3000/data/${del.id}`);
+            await axios.delete(`https://lachfilms-api.herokuapp.com/api/codigo/${del._id}`);
+            window.location.href = '/Uploadfile';
         })();
     };
 
@@ -58,8 +59,6 @@ const UploadFile = () => {
                         name="codigo"
                         type="text"
                         placeholder="Ingresa Código"
-                        pattern="LF+-+[0-9]*"
-                        title="LF-..."
                     />
                     <input
                         onChange={handleChange}
@@ -68,13 +67,10 @@ const UploadFile = () => {
                         type="text"
                         name="link"
                         placeholder="Ingresa Link"
-                        pattern="LF+-+[0-9]*"
-                        title="LF-..."
                     />
                     {controlers.empty? <script>function myFunction() {
                         alert("Debes de llenar todos los datos")
                     }</script>: null}
-                    {/* <p>{controlers.empty? 'El campo esta vacio': null}</p> */}
                     <button type="submit" onClick={handleSubmit}>
                         Subir link
                     </button>
@@ -84,11 +80,6 @@ const UploadFile = () => {
                     <label  htmlFor="">Borrar código y archivo</label><br />
                     <input className="input-code" id="ic-del" type="text" onChange={changeDelete} placeholder="Digite el código a borrar"/>
                     <button onClick={handleDelete}>Borrar</button>
-                </div>
-                <div>
-                    {datos.map( d => 
-                        <p key={d.id} id="datos-map">{d.codigo}</p>    
-                    )}
                 </div>
             </div>
         </div>

@@ -10,7 +10,7 @@ const LinksFooter = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get("https://lachfilms-api.herokuapp.com/");
+            const res = await axios.get("https://lachfilms-api.herokuapp.com/api/codigo");
             setDatos(res.data);
         })();
     }, []);

@@ -10,7 +10,7 @@ const LinksFooter = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get("http://localhost:3000/data");
+            const res = await axios.get("https://lachfilms-api.herokuapp.com/");
             setDatos(res.data);
         })();
     }, []);
@@ -22,7 +22,6 @@ const LinksFooter = () => {
                 : setDownload({ ...download, status: false, link: "" })
         );
     };
-
     return (
         <div className="davs">
             <label id="label-down">CANJEA TU CÓDIGO DE CLIENTE PARA PODER DESCARGAR TU SET</label>

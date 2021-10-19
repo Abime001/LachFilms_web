@@ -21,18 +21,17 @@ const Nav = () => {
                     <label>LACH FILMS</label>
                 </a>
             </li>
-            {showItem ?
                 <>
-                <li className="item">
+                <li className={showItem ? 'item': 'item toggle-show'}>
                 <a href="#home">Home</a>
             </li>
-            <li className="item">
+            <li className={showItem ? 'item': 'item toggle-show'}>
                 <a href="#portafolio">Portafolio</a>
             </li>
-            <li className="item">
+            <li className={showItem ? 'item': 'item toggle-show'}>
                 <a href="#travel">Travel</a>
             </li>
-            <li className="item">
+            <li className={showItem ? 'item': 'item toggle-show'}>
                 <a href="#about-us">Nosotros</a>
             </li>
             <li className="toggle">
@@ -41,12 +40,6 @@ const Nav = () => {
                 </a>
             </li>
                 </>
-                :<li className="toggle">
-                <a id="btn__menu_nav" href="#">
-                    <i className="fas fa-bars" onClick={handleToggle}></i>
-                </a>
-            </li>
-            }
         </ul>
     </nav>
     )

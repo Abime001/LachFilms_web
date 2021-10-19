@@ -40,6 +40,2151 @@ __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerat
 
 /***/ }),
 
+/***/ "./node_modules/axios/index.js":
+/*!*************************************!*\
+  !*** ./node_modules/axios/index.js ***!
+  \*************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! ./lib/axios */ "./node_modules/axios/lib/axios.js");
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/adapters/xhr.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/adapters/xhr.js ***!
+  \************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var settle = __webpack_require__(/*! ./../core/settle */ "./node_modules/axios/lib/core/settle.js");
+var cookies = __webpack_require__(/*! ./../helpers/cookies */ "./node_modules/axios/lib/helpers/cookies.js");
+var buildURL = __webpack_require__(/*! ./../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var buildFullPath = __webpack_require__(/*! ../core/buildFullPath */ "./node_modules/axios/lib/core/buildFullPath.js");
+var parseHeaders = __webpack_require__(/*! ./../helpers/parseHeaders */ "./node_modules/axios/lib/helpers/parseHeaders.js");
+var isURLSameOrigin = __webpack_require__(/*! ./../helpers/isURLSameOrigin */ "./node_modules/axios/lib/helpers/isURLSameOrigin.js");
+var createError = __webpack_require__(/*! ../core/createError */ "./node_modules/axios/lib/core/createError.js");
+var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
+var Cancel = __webpack_require__(/*! ../cancel/Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+    var responseType = config.responseType;
+    var onCanceled;
+    function done() {
+      if (config.cancelToken) {
+        config.cancelToken.unsubscribe(onCanceled);
+      }
+
+      if (config.signal) {
+        config.signal.removeEventListener('abort', onCanceled);
+      }
+    }
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password ? unescape(encodeURIComponent(config.auth.password)) : '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    var fullPath = buildFullPath(config.baseURL, config.url);
+    request.open(config.method.toUpperCase(), buildURL(fullPath, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    function onloadend() {
+      if (!request) {
+        return;
+      }
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !responseType || responseType === 'text' ||  responseType === 'json' ?
+        request.responseText : request.response;
+      var response = {
+        data: responseData,
+        status: request.status,
+        statusText: request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(function _resolve(value) {
+        resolve(value);
+        done();
+      }, function _reject(err) {
+        reject(err);
+        done();
+      }, response);
+
+      // Clean up request
+      request = null;
+    }
+
+    if ('onloadend' in request) {
+      // Use onloadend if available
+      request.onloadend = onloadend;
+    } else {
+      // Listen for ready state to emulate onloadend
+      request.onreadystatechange = function handleLoad() {
+        if (!request || request.readyState !== 4) {
+          return;
+        }
+
+        // The request errored out and we didn't get a response, this will be
+        // handled by onerror instead
+        // With one exception: request that using file: protocol, most browsers
+        // will return status as 0 even though it's a successful request
+        if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+          return;
+        }
+        // readystate handler is calling before onerror or ontimeout handlers,
+        // so we should call onloadend on the next 'tick'
+        setTimeout(onloadend);
+      };
+    }
+
+    // Handle browser request cancellation (as opposed to a manual cancellation)
+    request.onabort = function handleAbort() {
+      if (!request) {
+        return;
+      }
+
+      reject(createError('Request aborted', config, 'ECONNABORTED', request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      var timeoutErrorMessage = config.timeout ? 'timeout of ' + config.timeout + 'ms exceeded' : 'timeout exceeded';
+      var transitional = config.transitional || defaults.transitional;
+      if (config.timeoutErrorMessage) {
+        timeoutErrorMessage = config.timeoutErrorMessage;
+      }
+      reject(createError(
+        timeoutErrorMessage,
+        config,
+        transitional.clarifyTimeoutError ? 'ETIMEDOUT' : 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(fullPath)) && config.xsrfCookieName ?
+        cookies.read(config.xsrfCookieName) :
+        undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (!utils.isUndefined(config.withCredentials)) {
+      request.withCredentials = !!config.withCredentials;
+    }
+
+    // Add responseType to request if needed
+    if (responseType && responseType !== 'json') {
+      request.responseType = config.responseType;
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken || config.signal) {
+      // Handle cancellation
+      // eslint-disable-next-line func-names
+      onCanceled = function(cancel) {
+        if (!request) {
+          return;
+        }
+        reject(!cancel || (cancel && cancel.type) ? new Cancel('canceled') : cancel);
+        request.abort();
+        request = null;
+      };
+
+      config.cancelToken && config.cancelToken.subscribe(onCanceled);
+      if (config.signal) {
+        config.signal.aborted ? onCanceled() : config.signal.addEventListener('abort', onCanceled);
+      }
+    }
+
+    if (!requestData) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/axios.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/axios.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+var Axios = __webpack_require__(/*! ./core/Axios */ "./node_modules/axios/lib/core/Axios.js");
+var mergeConfig = __webpack_require__(/*! ./core/mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
+var defaults = __webpack_require__(/*! ./defaults */ "./node_modules/axios/lib/defaults.js");
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  // Factory for creating new instances
+  instance.create = function create(instanceConfig) {
+    return createInstance(mergeConfig(defaultConfig, instanceConfig));
+  };
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(/*! ./cancel/Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+axios.CancelToken = __webpack_require__(/*! ./cancel/CancelToken */ "./node_modules/axios/lib/cancel/CancelToken.js");
+axios.isCancel = __webpack_require__(/*! ./cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+axios.VERSION = __webpack_require__(/*! ./env/data */ "./node_modules/axios/lib/env/data.js").version;
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(/*! ./helpers/spread */ "./node_modules/axios/lib/helpers/spread.js");
+
+// Expose isAxiosError
+axios.isAxiosError = __webpack_require__(/*! ./helpers/isAxiosError */ "./node_modules/axios/lib/helpers/isAxiosError.js");
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/Cancel.js":
+/*!*************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/Cancel.js ***!
+  \*************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * A `Cancel` is an object that is thrown when an operation is canceled.
+ *
+ * @class
+ * @param {string=} message The message.
+ */
+function Cancel(message) {
+  this.message = message;
+}
+
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
+};
+
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/CancelToken.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/CancelToken.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(/*! ./Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+
+  // eslint-disable-next-line func-names
+  this.promise.then(function(cancel) {
+    if (!token._listeners) return;
+
+    var i;
+    var l = token._listeners.length;
+
+    for (i = 0; i < l; i++) {
+      token._listeners[i](cancel);
+    }
+    token._listeners = null;
+  });
+
+  // eslint-disable-next-line func-names
+  this.promise.then = function(onfulfilled) {
+    var _resolve;
+    // eslint-disable-next-line func-names
+    var promise = new Promise(function(resolve) {
+      token.subscribe(resolve);
+      _resolve = resolve;
+    }).then(onfulfilled);
+
+    promise.cancel = function reject() {
+      token.unsubscribe(_resolve);
+    };
+
+    return promise;
+  };
+
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Subscribe to the cancel signal
+ */
+
+CancelToken.prototype.subscribe = function subscribe(listener) {
+  if (this.reason) {
+    listener(this.reason);
+    return;
+  }
+
+  if (this._listeners) {
+    this._listeners.push(listener);
+  } else {
+    this._listeners = [listener];
+  }
+};
+
+/**
+ * Unsubscribe from the cancel signal
+ */
+
+CancelToken.prototype.unsubscribe = function unsubscribe(listener) {
+  if (!this._listeners) {
+    return;
+  }
+  var index = this._listeners.indexOf(listener);
+  if (index !== -1) {
+    this._listeners.splice(index, 1);
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/cancel/isCancel.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/cancel/isCancel.js ***!
+  \***************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/Axios.js":
+/*!**********************************************!*\
+  !*** ./node_modules/axios/lib/core/Axios.js ***!
+  \**********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var buildURL = __webpack_require__(/*! ../helpers/buildURL */ "./node_modules/axios/lib/helpers/buildURL.js");
+var InterceptorManager = __webpack_require__(/*! ./InterceptorManager */ "./node_modules/axios/lib/core/InterceptorManager.js");
+var dispatchRequest = __webpack_require__(/*! ./dispatchRequest */ "./node_modules/axios/lib/core/dispatchRequest.js");
+var mergeConfig = __webpack_require__(/*! ./mergeConfig */ "./node_modules/axios/lib/core/mergeConfig.js");
+var validator = __webpack_require__(/*! ../helpers/validator */ "./node_modules/axios/lib/helpers/validator.js");
+
+var validators = validator.validators;
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = arguments[1] || {};
+    config.url = arguments[0];
+  } else {
+    config = config || {};
+  }
+
+  config = mergeConfig(this.defaults, config);
+
+  // Set config.method
+  if (config.method) {
+    config.method = config.method.toLowerCase();
+  } else if (this.defaults.method) {
+    config.method = this.defaults.method.toLowerCase();
+  } else {
+    config.method = 'get';
+  }
+
+  var transitional = config.transitional;
+
+  if (transitional !== undefined) {
+    validator.assertOptions(transitional, {
+      silentJSONParsing: validators.transitional(validators.boolean),
+      forcedJSONParsing: validators.transitional(validators.boolean),
+      clarifyTimeoutError: validators.transitional(validators.boolean)
+    }, false);
+  }
+
+  // filter out skipped interceptors
+  var requestInterceptorChain = [];
+  var synchronousRequestInterceptors = true;
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    if (typeof interceptor.runWhen === 'function' && interceptor.runWhen(config) === false) {
+      return;
+    }
+
+    synchronousRequestInterceptors = synchronousRequestInterceptors && interceptor.synchronous;
+
+    requestInterceptorChain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  var responseInterceptorChain = [];
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    responseInterceptorChain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  var promise;
+
+  if (!synchronousRequestInterceptors) {
+    var chain = [dispatchRequest, undefined];
+
+    Array.prototype.unshift.apply(chain, requestInterceptorChain);
+    chain = chain.concat(responseInterceptorChain);
+
+    promise = Promise.resolve(config);
+    while (chain.length) {
+      promise = promise.then(chain.shift(), chain.shift());
+    }
+
+    return promise;
+  }
+
+
+  var newConfig = config;
+  while (requestInterceptorChain.length) {
+    var onFulfilled = requestInterceptorChain.shift();
+    var onRejected = requestInterceptorChain.shift();
+    try {
+      newConfig = onFulfilled(newConfig);
+    } catch (error) {
+      onRejected(error);
+      break;
+    }
+  }
+
+  try {
+    promise = dispatchRequest(newConfig);
+  } catch (error) {
+    return Promise.reject(error);
+  }
+
+  while (responseInterceptorChain.length) {
+    promise = promise.then(responseInterceptorChain.shift(), responseInterceptorChain.shift());
+  }
+
+  return promise;
+};
+
+Axios.prototype.getUri = function getUri(config) {
+  config = mergeConfig(this.defaults, config);
+  return buildURL(config.url, config.params, config.paramsSerializer).replace(/^\?/, '');
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(mergeConfig(config || {}, {
+      method: method,
+      url: url,
+      data: (config || {}).data
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(mergeConfig(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/InterceptorManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/core/InterceptorManager.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected, options) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected,
+    synchronous: options ? options.synchronous : false,
+    runWhen: options ? options.runWhen : null
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/buildFullPath.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/buildFullPath.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isAbsoluteURL = __webpack_require__(/*! ../helpers/isAbsoluteURL */ "./node_modules/axios/lib/helpers/isAbsoluteURL.js");
+var combineURLs = __webpack_require__(/*! ../helpers/combineURLs */ "./node_modules/axios/lib/helpers/combineURLs.js");
+
+/**
+ * Creates a new URL by combining the baseURL with the requestedURL,
+ * only when the requestedURL is not already an absolute URL.
+ * If the requestURL is absolute, this function returns the requestedURL untouched.
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} requestedURL Absolute or relative URL to combine
+ * @returns {string} The combined full path
+ */
+module.exports = function buildFullPath(baseURL, requestedURL) {
+  if (baseURL && !isAbsoluteURL(requestedURL)) {
+    return combineURLs(baseURL, requestedURL);
+  }
+  return requestedURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/createError.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/createError.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(/*! ./enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/dispatchRequest.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/core/dispatchRequest.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var transformData = __webpack_require__(/*! ./transformData */ "./node_modules/axios/lib/core/transformData.js");
+var isCancel = __webpack_require__(/*! ../cancel/isCancel */ "./node_modules/axios/lib/cancel/isCancel.js");
+var defaults = __webpack_require__(/*! ../defaults */ "./node_modules/axios/lib/defaults.js");
+var Cancel = __webpack_require__(/*! ../cancel/Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+
+  if (config.signal && config.signal.aborted) {
+    throw new Cancel('canceled');
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData.call(
+    config,
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData.call(
+      config,
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData.call(
+          config,
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/enhanceError.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/core/enhanceError.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+
+  error.request = request;
+  error.response = response;
+  error.isAxiosError = true;
+
+  error.toJSON = function toJSON() {
+    return {
+      // Standard
+      message: this.message,
+      name: this.name,
+      // Microsoft
+      description: this.description,
+      number: this.number,
+      // Mozilla
+      fileName: this.fileName,
+      lineNumber: this.lineNumber,
+      columnNumber: this.columnNumber,
+      stack: this.stack,
+      // Axios
+      config: this.config,
+      code: this.code,
+      status: this.response && this.response.status ? this.response.status : null
+    };
+  };
+  return error;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/mergeConfig.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/core/mergeConfig.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
+
+/**
+ * Config-specific merge-function which creates a new config-object
+ * by merging two configuration objects together.
+ *
+ * @param {Object} config1
+ * @param {Object} config2
+ * @returns {Object} New object resulting from merging config2 to config1
+ */
+module.exports = function mergeConfig(config1, config2) {
+  // eslint-disable-next-line no-param-reassign
+  config2 = config2 || {};
+  var config = {};
+
+  function getMergedValue(target, source) {
+    if (utils.isPlainObject(target) && utils.isPlainObject(source)) {
+      return utils.merge(target, source);
+    } else if (utils.isPlainObject(source)) {
+      return utils.merge({}, source);
+    } else if (utils.isArray(source)) {
+      return source.slice();
+    }
+    return source;
+  }
+
+  // eslint-disable-next-line consistent-return
+  function mergeDeepProperties(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      return getMergedValue(config1[prop], config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function valueFromConfig2(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      return getMergedValue(undefined, config2[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function defaultToConfig2(prop) {
+    if (!utils.isUndefined(config2[prop])) {
+      return getMergedValue(undefined, config2[prop]);
+    } else if (!utils.isUndefined(config1[prop])) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  // eslint-disable-next-line consistent-return
+  function mergeDirectKeys(prop) {
+    if (prop in config2) {
+      return getMergedValue(config1[prop], config2[prop]);
+    } else if (prop in config1) {
+      return getMergedValue(undefined, config1[prop]);
+    }
+  }
+
+  var mergeMap = {
+    'url': valueFromConfig2,
+    'method': valueFromConfig2,
+    'data': valueFromConfig2,
+    'baseURL': defaultToConfig2,
+    'transformRequest': defaultToConfig2,
+    'transformResponse': defaultToConfig2,
+    'paramsSerializer': defaultToConfig2,
+    'timeout': defaultToConfig2,
+    'timeoutMessage': defaultToConfig2,
+    'withCredentials': defaultToConfig2,
+    'adapter': defaultToConfig2,
+    'responseType': defaultToConfig2,
+    'xsrfCookieName': defaultToConfig2,
+    'xsrfHeaderName': defaultToConfig2,
+    'onUploadProgress': defaultToConfig2,
+    'onDownloadProgress': defaultToConfig2,
+    'decompress': defaultToConfig2,
+    'maxContentLength': defaultToConfig2,
+    'maxBodyLength': defaultToConfig2,
+    'transport': defaultToConfig2,
+    'httpAgent': defaultToConfig2,
+    'httpsAgent': defaultToConfig2,
+    'cancelToken': defaultToConfig2,
+    'socketPath': defaultToConfig2,
+    'responseEncoding': defaultToConfig2,
+    'validateStatus': mergeDirectKeys
+  };
+
+  utils.forEach(Object.keys(config1).concat(Object.keys(config2)), function computeConfigValue(prop) {
+    var merge = mergeMap[prop] || mergeDeepProperties;
+    var configValue = merge(prop);
+    (utils.isUndefined(configValue) && merge !== mergeDirectKeys) || (config[prop] = configValue);
+  });
+
+  return config;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/settle.js":
+/*!***********************************************!*\
+  !*** ./node_modules/axios/lib/core/settle.js ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var createError = __webpack_require__(/*! ./createError */ "./node_modules/axios/lib/core/createError.js");
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/core/transformData.js":
+/*!******************************************************!*\
+  !*** ./node_modules/axios/lib/core/transformData.js ***!
+  \******************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+var defaults = __webpack_require__(/*! ./../defaults */ "./node_modules/axios/lib/defaults.js");
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  var context = this || defaults;
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn.call(context, data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/defaults.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/defaults.js ***!
+  \********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./utils */ "./node_modules/axios/lib/utils.js");
+var normalizeHeaderName = __webpack_require__(/*! ./helpers/normalizeHeaderName */ "./node_modules/axios/lib/helpers/normalizeHeaderName.js");
+var enhanceError = __webpack_require__(/*! ./core/enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
+
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
+};
+
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
+}
+
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(/*! ./adapters/xhr */ "./node_modules/axios/lib/adapters/xhr.js");
+  } else if (typeof process !== 'undefined' && Object.prototype.toString.call(process) === '[object process]') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(/*! ./adapters/http */ "./node_modules/axios/lib/adapters/xhr.js");
+  }
+  return adapter;
+}
+
+function stringifySafely(rawValue, parser, encoder) {
+  if (utils.isString(rawValue)) {
+    try {
+      (parser || JSON.parse)(rawValue);
+      return utils.trim(rawValue);
+    } catch (e) {
+      if (e.name !== 'SyntaxError') {
+        throw e;
+      }
+    }
+  }
+
+  return (encoder || JSON.stringify)(rawValue);
+}
+
+var defaults = {
+
+  transitional: {
+    silentJSONParsing: true,
+    forcedJSONParsing: true,
+    clarifyTimeoutError: false
+  },
+
+  adapter: getDefaultAdapter(),
+
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Accept');
+    normalizeHeaderName(headers, 'Content-Type');
+
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data) || (headers && headers['Content-Type'] === 'application/json')) {
+      setContentTypeIfUnset(headers, 'application/json');
+      return stringifySafely(data);
+    }
+    return data;
+  }],
+
+  transformResponse: [function transformResponse(data) {
+    var transitional = this.transitional || defaults.transitional;
+    var silentJSONParsing = transitional && transitional.silentJSONParsing;
+    var forcedJSONParsing = transitional && transitional.forcedJSONParsing;
+    var strictJSONParsing = !silentJSONParsing && this.responseType === 'json';
+
+    if (strictJSONParsing || (forcedJSONParsing && utils.isString(data) && data.length)) {
+      try {
+        return JSON.parse(data);
+      } catch (e) {
+        if (strictJSONParsing) {
+          if (e.name === 'SyntaxError') {
+            throw enhanceError(e, this, 'E_JSON_PARSE');
+          }
+          throw e;
+        }
+      }
+    }
+
+    return data;
+  }],
+
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+  maxContentLength: -1,
+  maxBodyLength: -1,
+
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  },
+
+  headers: {
+    common: {
+      'Accept': 'application/json, text/plain, */*'
+    }
+  }
+};
+
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
+
+module.exports = defaults;
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/env/data.js":
+/*!********************************************!*\
+  !*** ./node_modules/axios/lib/env/data.js ***!
+  \********************************************/
+/***/ ((module) => {
+
+module.exports = {
+  "version": "0.23.0"
+};
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/bind.js":
+/*!************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/bind.js ***!
+  \************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/buildURL.js":
+/*!****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/buildURL.js ***!
+  \****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    var hashmarkIndex = url.indexOf('#');
+    if (hashmarkIndex !== -1) {
+      url = url.slice(0, hashmarkIndex);
+    }
+
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/combineURLs.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/combineURLs.js ***!
+  \*******************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/cookies.js":
+/*!***************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/cookies.js ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+    (function standardBrowserEnv() {
+      return {
+        write: function write(name, value, expires, path, domain, secure) {
+          var cookie = [];
+          cookie.push(name + '=' + encodeURIComponent(value));
+
+          if (utils.isNumber(expires)) {
+            cookie.push('expires=' + new Date(expires).toGMTString());
+          }
+
+          if (utils.isString(path)) {
+            cookie.push('path=' + path);
+          }
+
+          if (utils.isString(domain)) {
+            cookie.push('domain=' + domain);
+          }
+
+          if (secure === true) {
+            cookie.push('secure');
+          }
+
+          document.cookie = cookie.join('; ');
+        },
+
+        read: function read(name) {
+          var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+          return (match ? decodeURIComponent(match[3]) : null);
+        },
+
+        remove: function remove(name) {
+          this.write(name, '', Date.now() - 86400000);
+        }
+      };
+    })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return {
+        write: function write() {},
+        read: function read() { return null; },
+        remove: function remove() {}
+      };
+    })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAbsoluteURL.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAbsoluteURL.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isAxiosError.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isAxiosError.js ***!
+  \********************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Determines whether the payload is an error thrown by Axios
+ *
+ * @param {*} payload The value to test
+ * @returns {boolean} True if the payload is an error thrown by Axios, otherwise false
+ */
+module.exports = function isAxiosError(payload) {
+  return (typeof payload === 'object') && (payload.isAxiosError === true);
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/isURLSameOrigin.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/isURLSameOrigin.js ***!
+  \***********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+    (function standardBrowserEnv() {
+      var msie = /(msie|trident)/i.test(navigator.userAgent);
+      var urlParsingNode = document.createElement('a');
+      var originURL;
+
+      /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+      function resolveURL(url) {
+        var href = url;
+
+        if (msie) {
+        // IE needs attribute set twice to normalize properties
+          urlParsingNode.setAttribute('href', href);
+          href = urlParsingNode.href;
+        }
+
+        urlParsingNode.setAttribute('href', href);
+
+        // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+        return {
+          href: urlParsingNode.href,
+          protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+          host: urlParsingNode.host,
+          search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+          hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+          hostname: urlParsingNode.hostname,
+          port: urlParsingNode.port,
+          pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+            urlParsingNode.pathname :
+            '/' + urlParsingNode.pathname
+        };
+      }
+
+      originURL = resolveURL(window.location.href);
+
+      /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+      return function isURLSameOrigin(requestURL) {
+        var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+        return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+      };
+    })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+    (function nonStandardBrowserEnv() {
+      return function isURLSameOrigin() {
+        return true;
+      };
+    })()
+);
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/normalizeHeaderName.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/normalizeHeaderName.js ***!
+  \***************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ../utils */ "./node_modules/axios/lib/utils.js");
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/parseHeaders.js":
+/*!********************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/parseHeaders.js ***!
+  \********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/spread.js":
+/*!**************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/spread.js ***!
+  \**************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/helpers/validator.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/axios/lib/helpers/validator.js ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var VERSION = __webpack_require__(/*! ../env/data */ "./node_modules/axios/lib/env/data.js").version;
+
+var validators = {};
+
+// eslint-disable-next-line func-names
+['object', 'boolean', 'number', 'function', 'string', 'symbol'].forEach(function(type, i) {
+  validators[type] = function validator(thing) {
+    return typeof thing === type || 'a' + (i < 1 ? 'n ' : ' ') + type;
+  };
+});
+
+var deprecatedWarnings = {};
+
+/**
+ * Transitional option validator
+ * @param {function|boolean?} validator - set to false if the transitional option has been removed
+ * @param {string?} version - deprecated version / removed since version
+ * @param {string?} message - some message with additional info
+ * @returns {function}
+ */
+validators.transitional = function transitional(validator, version, message) {
+  function formatMessage(opt, desc) {
+    return '[Axios v' + VERSION + '] Transitional option \'' + opt + '\'' + desc + (message ? '. ' + message : '');
+  }
+
+  // eslint-disable-next-line func-names
+  return function(value, opt, opts) {
+    if (validator === false) {
+      throw new Error(formatMessage(opt, ' has been removed' + (version ? ' in ' + version : '')));
+    }
+
+    if (version && !deprecatedWarnings[opt]) {
+      deprecatedWarnings[opt] = true;
+      // eslint-disable-next-line no-console
+      console.warn(
+        formatMessage(
+          opt,
+          ' has been deprecated since v' + version + ' and will be removed in the near future'
+        )
+      );
+    }
+
+    return validator ? validator(value, opt, opts) : true;
+  };
+};
+
+/**
+ * Assert object's properties type
+ * @param {object} options
+ * @param {object} schema
+ * @param {boolean?} allowUnknown
+ */
+
+function assertOptions(options, schema, allowUnknown) {
+  if (typeof options !== 'object') {
+    throw new TypeError('options must be an object');
+  }
+  var keys = Object.keys(options);
+  var i = keys.length;
+  while (i-- > 0) {
+    var opt = keys[i];
+    var validator = schema[opt];
+    if (validator) {
+      var value = options[opt];
+      var result = value === undefined || validator(value, opt, options);
+      if (result !== true) {
+        throw new TypeError('option ' + opt + ' must be ' + result);
+      }
+      continue;
+    }
+    if (allowUnknown !== true) {
+      throw Error('Unknown option ' + opt);
+    }
+  }
+}
+
+module.exports = {
+  assertOptions: assertOptions,
+  validators: validators
+};
+
+
+/***/ }),
+
+/***/ "./node_modules/axios/lib/utils.js":
+/*!*****************************************!*\
+  !*** ./node_modules/axios/lib/utils.js ***!
+  \*****************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
+
+/**
+ * Determine if a value is an Array
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
+ */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
+
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
+
+/**
+ * Determine if a value is a Buffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Buffer, otherwise false
+ */
+function isBuffer(val) {
+  return val !== null && !isUndefined(val) && val.constructor !== null && !isUndefined(val.constructor)
+    && typeof val.constructor.isBuffer === 'function' && val.constructor.isBuffer(val);
+}
+
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
+
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
+  } else {
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+  }
+  return result;
+}
+
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
+
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
+
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
+
+/**
+ * Determine if a value is a plain Object
+ *
+ * @param {Object} val The value to test
+ * @return {boolean} True if value is a plain Object, otherwise false
+ */
+function isPlainObject(val) {
+  if (toString.call(val) !== '[object Object]') {
+    return false;
+  }
+
+  var prototype = Object.getPrototypeOf(val);
+  return prototype === null || prototype === Object.prototype;
+}
+
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
+
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
+
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
+
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
+
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
+
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
+
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
+}
+
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ * nativescript
+ *  navigator.product -> 'NativeScript' or 'NS'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+                                           navigator.product === 'NativeScript' ||
+                                           navigator.product === 'NS')) {
+    return false;
+  }
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
+
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
+
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
+      }
+    }
+  }
+}
+
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (isPlainObject(result[key]) && isPlainObject(val)) {
+      result[key] = merge(result[key], val);
+    } else if (isPlainObject(val)) {
+      result[key] = merge({}, val);
+    } else if (isArray(val)) {
+      result[key] = val.slice();
+    } else {
+      result[key] = val;
+    }
+  }
+
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
+
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
+  });
+  return a;
+}
+
+/**
+ * Remove byte order marker. This catches EF BB BF (the UTF-8 BOM)
+ *
+ * @param {string} content with BOM
+ * @return {string} content value without BOM
+ */
+function stripBOM(content) {
+  if (content.charCodeAt(0) === 0xFEFF) {
+    content = content.slice(1);
+  }
+  return content;
+}
+
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isPlainObject: isPlainObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim,
+  stripBOM: stripBOM
+};
+
+
+/***/ }),
+
 /***/ "./src/App.js":
 /*!********************!*\
   !*** ./src/App.js ***!
@@ -52,14 +2197,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
 /* harmony import */ var _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Aereo */ "./src/pages/Aereo.jsx");
 /* harmony import */ var _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Turismo */ "./src/pages/Turismo.jsx");
 /* harmony import */ var _pages_Productos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Productos */ "./src/pages/Productos.jsx");
 /* harmony import */ var _pages_Social__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Social */ "./src/pages/Social.jsx");
 /* harmony import */ var _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Inicio */ "./src/pages/Inicio.jsx");
 /* harmony import */ var _pages_Videos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/Videos */ "./src/pages/Videos.jsx");
+/* harmony import */ var _pages_UploadFile__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/UploadFile */ "./src/pages/UploadFile.jsx");
+
 
 
 
@@ -70,30 +2217,34 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Switch, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/",
     component: _pages_Inicio__WEBPACK_IMPORTED_MODULE_5__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/aereo",
     component: _pages_Aereo__WEBPACK_IMPORTED_MODULE_1__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/producto",
     component: _pages_Productos__WEBPACK_IMPORTED_MODULE_3__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/social",
     component: _pages_Social__WEBPACK_IMPORTED_MODULE_4__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/turismo",
     component: _pages_Turismo__WEBPACK_IMPORTED_MODULE_2__.default
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Route, {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
     exact: true,
     path: "/videos_lachfilms",
     component: _pages_Videos__WEBPACK_IMPORTED_MODULE_6__.default
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+    exact: true,
+    path: "/uploadFile",
+    component: _pages_UploadFile__WEBPACK_IMPORTED_MODULE_7__.default
   })));
 };
 
@@ -443,6 +2594,115 @@ var IconFooter = function IconFooter(_ref) {
 
 /***/ }),
 
+/***/ "./src/components/LinksFooter.jsx":
+/*!****************************************!*\
+  !*** ./src/components/LinksFooter.jsx ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var LinksFooter = function LinksFooter() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      datos = _useState2[0],
+      setDatos = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    status: false,
+    link: ""
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      download = _useState4[0],
+      setDownload = _useState4[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var res;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://lachfilms-api.herokuapp.com/api/codigo");
+
+            case 2:
+              res = _context.sent;
+              setDatos(res.data);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }, []);
+
+  var handleChange = function handleChange(e) {
+    datos.find(function (d) {
+      return d.codigo === e.target.value ? setDownload(_objectSpread(_objectSpread({}, download), {}, {
+        status: true,
+        link: d.link
+      })) : setDownload(_objectSpread(_objectSpread({}, download), {}, {
+        status: false,
+        link: ""
+      }));
+    });
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "davs"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    id: "label-down"
+  }, "CANJEA TU C\xD3DIGO DE CLIENTE PARA PODER DESCARGAR TU SET"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    className: "input-code",
+    id: "ic-down",
+    type: "text",
+    onChange: handleChange,
+    placeholder: "Ingresa tu c\xF3digo cliente"
+  }), download.status ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+    id: "a-download",
+    href: download.link,
+    target: "_blank"
+  }, "\xA1Presiona aqu\xED para descargar tu set!") : null);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LinksFooter);
+
+/***/ }),
+
 /***/ "./src/components/Mosaico.jsx":
 /*!************************************!*\
   !*** ./src/components/Mosaico.jsx ***!
@@ -470,30 +2730,14 @@ var Mosaico = function Mosaico(_ref) {
     className: "mosaico-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img1,
-    download: "lachfilm-turismo-imagen1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img1,
     alt: "Imagen de la secci\xF3n turismo - 1",
     title: "Imagen de la secci\xF3n turismo - 1"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img2,
-    download: "lachfilm-turismo-imagen2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img2,
     alt: "Imagen de la secci\xF3n turismo - 2",
@@ -502,30 +2746,14 @@ var Mosaico = function Mosaico(_ref) {
     className: "mosaico-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img3,
-    download: "lachfilm-turismo-imagen3"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img3,
     alt: "Imagen de la secci\xF3n turismo - 3",
     title: "Imagen de la secci\xF3n turismo - 3"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img4,
-    download: "lachfilm-turismo-imagen4"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img4,
     alt: "Imagen de la secci\xF3n turismo - 4",
@@ -534,30 +2762,14 @@ var Mosaico = function Mosaico(_ref) {
     className: "mosaico-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img5,
-    download: "lachfilm-turismo-imagen5"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img5,
     alt: "Imagen de la secci\xF3n turismo - 5",
     title: "Imagen de la secci\xF3n turismo - 5"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "f-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: img6,
-    download: "lachfilm-turismo-imagen6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "fm-img-m"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-    className: "i-a",
-    src: "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxnPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgoJPGc+CgkJPHBhdGggZD0iTTQ3MiwzMTN2MTM5YzAsMTEuMDI4LTguOTcyLDIwLTIwLDIwSDYwYy0xMS4wMjgsMC0yMC04Ljk3Mi0yMC0yMFYzMTNIMHYxMzljMCwzMy4wODQsMjYuOTE2LDYwLDYwLDYwaDM5MiAgICBjMzMuMDg0LDAsNjAtMjYuOTE2LDYwLTYwVjMxM0g0NzJ6IiBmaWxsPSIjZmZmZmZmIiBkYXRhLW9yaWdpbmFsPSIjMDAwMDAwIiBzdHlsZT0iIj48L3BhdGg+Cgk8L2c+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxnPgoJCTxwb2x5Z29uIHBvaW50cz0iMzUyLDIzNS43MTYgMjc2LDMxMS43MTYgMjc2LDAgMjM2LDAgMjM2LDMxMS43MTYgMTYwLDIzNS43MTYgMTMxLjcxNiwyNjQgMjU2LDM4OC4yODQgMzgwLjI4NCwyNjQgICAiIGZpbGw9IiNmZmZmZmYiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiPjwvcG9seWdvbj4KCTwvZz4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     className: "img-m",
     src: img6,
     alt: "Imagen de la secci\xF3n turismo - 6",
@@ -582,47 +2794,69 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _images_img_no_modificar_icons_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../images/img-no-modificar/icons/lach_logo.png */ "./src/images/img-no-modificar/icons/lach_logo.png");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
 var Nav = function Nav() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showItem = _useState2[0],
+      setShowItem = _useState2[1];
+
+  var handleToggle = function handleToggle() {
+    return setShowItem(!showItem);
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("nav", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
     className: "menu",
     id: "menu"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
     className: "logo"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#menu"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
     src: _images_img_no_modificar_icons_lach_logo_png__WEBPACK_IMPORTED_MODULE_1__,
     width: "50",
     height: "50",
     alt: "Logo de Lach Films, productora fotogr\xE1fica y audiovisual",
     title: "Logo de Lach Films, productora fotogr\xE1fica y audiovisual"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "LACH FILMS"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    className: "item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "LACH FILMS"), " "), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    className: showItem ? 'item' : 'item toggle-show'
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#home"
-  }, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    className: "item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, "Home"), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    className: showItem ? 'item' : 'item toggle-show'
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#portafolio"
-  }, "Portafolio")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    className: "item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, "Portafolio"), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    className: showItem ? 'item' : 'item toggle-show'
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#travel"
-  }, "Travel")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-    className: "item"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, "Travel"), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    className: showItem ? 'item' : 'item toggle-show'
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: "#about-us"
-  }, "Nosotros")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+  }, "Nosotros"), " "), " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
     className: "toggle"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     id: "btn__menu_nav",
     href: "#"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
-    className: "fas fa-bars"
-  })))));
+  }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", {
+    className: "fas fa-bars",
+    onClick: handleToggle
+  }), " "), " "), " "), " "), " ");
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Nav);
@@ -877,9 +3111,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _descargas_pagina_aereo_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_aereo.rar */ "./src/descargas/pagina_aereo.rar");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -904,16 +3136,11 @@ var Aerero = function Aerero() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "AEREO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
     to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes y sus necesidades.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Ponemos a su dispoci\xF3n nuestros drones para tomas aereas!.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres fotograf\xEDas o videos desde las alturas? No importa el lugar del que requieras una toma aerea.", " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Puede ser para publicidad, venta, eventos masivos o peque\xF1os. Nosotros podemos encargarnos,", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://www.lachfilms.com/#about-us"
-  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: _descargas_pagina_aereo_rar__WEBPACK_IMPORTED_MODULE_10__.default,
-    download: "lachfilm - pack aereo.rar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), "En Lachfilms entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    href: "/#about-us"
+  }, "\xA1Escr\xEDbenos!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
     img1: _images_pagina_aereo_a_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
     img2: _images_pagina_aereo_a_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
     img3: _images_pagina_aereo_a_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
@@ -941,11 +3168,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _components_ButtonUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/ButtonUp */ "./src/components/ButtonUp.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Footer */ "./src/components/Footer.jsx");
-/* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Nav */ "./src/components/Nav.jsx");
-/* harmony import */ var _components_Portafolio__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Portafolio */ "./src/components/Portafolio.jsx");
-/* harmony import */ var _components_Somos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Somos */ "./src/components/Somos.jsx");
-/* harmony import */ var _components_Travel__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Travel */ "./src/components/Travel.jsx");
-/* harmony import */ var _components_Video_Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Video_Header */ "./src/components/Video_Header.jsx");
+/* harmony import */ var _components_LinksFooter__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/LinksFooter */ "./src/components/LinksFooter.jsx");
+/* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Nav */ "./src/components/Nav.jsx");
+/* harmony import */ var _components_Portafolio__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Portafolio */ "./src/components/Portafolio.jsx");
+/* harmony import */ var _components_Somos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Somos */ "./src/components/Somos.jsx");
+/* harmony import */ var _components_Travel__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Travel */ "./src/components/Travel.jsx");
+/* harmony import */ var _components_Video_Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Video_Header */ "./src/components/Video_Header.jsx");
+
 
 
 
@@ -956,7 +3185,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Inicio = function Inicio() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ButtonUp__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Video_Header__WEBPACK_IMPORTED_MODULE_7__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Somos__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Travel__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Portafolio__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_2__.default, null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_ButtonUp__WEBPACK_IMPORTED_MODULE_1__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Nav__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Video_Header__WEBPACK_IMPORTED_MODULE_8__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Somos__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Travel__WEBPACK_IMPORTED_MODULE_7__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Portafolio__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_LinksFooter__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Footer__WEBPACK_IMPORTED_MODULE_2__.default, null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Inicio);
@@ -981,9 +3210,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _descargas_pagina_products_rar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../descargas/pagina_products.rar */ "./src/descargas/pagina_products.rar");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -1005,16 +3232,11 @@ var Productos = function Productos() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_6__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "PRODUCTOS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
     to: "/"
   }, "LachFilms"), " te ofrece servicios de fotograf\xEDa y video.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFQuieres capturar la esencia de tus productos? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "Nuestros expertos en fotograf\xEDa de producto pueden ayudarte a mostrar", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " la mejor cara de tus productos. Deja volar la creatividad. Incrementa el valor de tu negocio ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), " ", "con estas increibles fotograf\xEDas.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://www.lachfilms.com/#about-us"
-  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: _descargas_pagina_products_rar__WEBPACK_IMPORTED_MODULE_7__.default,
-    download: "lachfilm - pack products.rar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_4__.default, {
+    href: "/#about-us"
+  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_4__.default, {
     img1: _images_pagina_productos_p_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
     img2: _images_pagina_productos_p_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
     img3: _images_pagina_productos_p_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
@@ -1049,9 +3271,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _descargas_pagina_social_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_social.rar */ "./src/descargas/pagina_social.rar");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -1076,16 +3296,11 @@ var Social = function Social() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "SOCIAL"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "En ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
     to: "/"
   }, "LachFilms"), " entendemos a nuestros clientes.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Es por eso que ofrecemos nuestros servicios de fotograf\xEDa y video, para capturar juntos tus momentos especiales.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Conf\xEDa en nosotros para cubrir tu evento y disfruta de la mejor manera, conservando un bello recuerdo.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "Visita nuestras redes sociales para ver nuestro trabajo o", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://www.lachfilms.com/#about-us"
-  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: _descargas_pagina_social_rar__WEBPACK_IMPORTED_MODULE_10__.default,
-    download: "lachfilm - pack social.rar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    href: "/#about-us"
+  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
     img1: _images_pagina_social_s_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
     img2: _images_pagina_social_s_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
     img3: _images_pagina_social_s_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
@@ -1120,9 +3335,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Mosaico__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/Mosaico */ "./src/components/Mosaico.jsx");
 /* harmony import */ var _components_DivCreate__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/DivCreate */ "./src/components/DivCreate.jsx");
 /* harmony import */ var _components_IconBack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/IconBack */ "./src/components/IconBack.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _descargas_pagina_turismo_rar__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../descargas/pagina_turismo.rar */ "./src/descargas/pagina_turismo.rar");
-
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 
 
@@ -1147,16 +3360,11 @@ var Turismo = function Turismo() {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_IconBack__WEBPACK_IMPORTED_MODULE_9__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "container-img"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Link, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, "TURISMO"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", null, "Deja que vayamos contigo y capturemos los mejores momentos. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "En esta secci\xF3n encontrar\xE1s algunas im\xE1genes de nuestro trabajo. ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "\xBFTienes un evento familiar, vas a salir de vacaciones, necesitas un alb\xFAm de tu aventura por la rep\xFAblica? ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "en ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Link, {
     to: "/"
   }, "LachFilms"), " nos gusta complacer a nuestros clientes, por eso ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "ofrecemos este servicio de turismo. \xBFtienes alguna duda?", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: "https://www.lachfilms.com/#about-us"
-  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
-    href: _descargas_pagina_turismo_rar__WEBPACK_IMPORTED_MODULE_10__.default,
-    download: "lachfilm - pack turismo.rar"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", {
-    id: "anuncio"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("i", null, "Puedes descargar nuestras im\xE1genes totalmente gratis")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
+    href: "/#about-us"
+  }, "\xA1Escr\xEDbenos!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Mosaico__WEBPACK_IMPORTED_MODULE_7__.default, {
     img1: _images_pagina_turismo_t_img_1_jpg__WEBPACK_IMPORTED_MODULE_1__,
     img2: _images_pagina_turismo_t_img_2_jpg__WEBPACK_IMPORTED_MODULE_2__,
     img3: _images_pagina_turismo_t_img_3_jpg__WEBPACK_IMPORTED_MODULE_3__,
@@ -1167,6 +3375,203 @@ var Turismo = function Turismo() {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Turismo);
+
+/***/ }),
+
+/***/ "./src/pages/UploadFile.jsx":
+/*!**********************************!*\
+  !*** ./src/pages/UploadFile.jsx ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var UploadFile = function UploadFile() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      datos = _useState2[0],
+      setDatos = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    codigo: "",
+    link: ""
+  }),
+      _useState4 = _slicedToArray(_useState3, 2),
+      dato = _useState4[0],
+      setDato = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+      _useState6 = _slicedToArray(_useState5, 2),
+      datDele = _useState6[0],
+      setDatDele = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+    empty: false,
+    schow: false
+  }),
+      _useState8 = _slicedToArray(_useState7, 2),
+      controlers = _useState8[0],
+      setControlers = _useState8[1];
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var res;
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("https://lachfilms-api.herokuapp.com/api/codigo");
+
+            case 2:
+              res = _context.sent;
+              setDatos(res.data);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  }, []);
+
+  var handleChange = function handleChange(e) {
+    setDato(_objectSpread(_objectSpread({}, dato), {}, _defineProperty({}, e.target.name, e.target.value)));
+    setControlers(_objectSpread(_objectSpread({}, controlers), {}, {
+      empty: false
+    }));
+  };
+
+  var changeDelete = function changeDelete(e) {
+    return setDatDele(e.target.value);
+  };
+
+  var handleSubmit = function handleSubmit(e) {
+    e.preventDefault();
+
+    if (dato.link !== "" && dato.codigo !== "") {
+      _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default().post("https://lachfilms-api.herokuapp.com/api/codigo", dato);
+
+              case 2:
+                window.location.href = '/Uploadfile';
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }))();
+    } else {
+      setControlers(_objectSpread(_objectSpread({}, controlers), {}, {
+        empty: true
+      }));
+    }
+  };
+
+  var handleDelete = function handleDelete() {
+    var del = datos.find(function (d) {
+      return d.codigo === datDele ? d._id : null;
+    });
+
+    _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+      return regeneratorRuntime.wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().delete("https://lachfilms-api.herokuapp.com/api/codigo/".concat(del._id));
+
+            case 2:
+              window.location.href = '/Uploadfile';
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }))();
+  };
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "page-upload"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "page-upload-label"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", null, "Registra el c\xF3digo y el link de descarga"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("form", {
+    action: "",
+    method: "post"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    onChange: handleChange,
+    className: "input-code",
+    id: "ic-code",
+    name: "codigo",
+    type: "text",
+    placeholder: "Ingresa C\xF3digo"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    onChange: handleChange,
+    className: "input-code",
+    id: "ic-url",
+    type: "text",
+    name: "link",
+    placeholder: "Ingresa Link"
+  }), controlers.empty ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("script", null, "function myFunction() ", alert("Debes de llenar todos los datos")) : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    type: "submit",
+    onClick: handleSubmit
+  }, "Subir link"), controlers.schow ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, dato.codigo) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    id: "label-del"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("label", {
+    htmlFor: ""
+  }, "Borrar c\xF3digo y archivo"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
+    className: "input-code",
+    id: "ic-del",
+    type: "text",
+    onChange: changeDelete,
+    placeholder: "Digite el c\xF3digo a borrar"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    onClick: handleDelete
+  }, "Borrar"))));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UploadFile);
 
 /***/ }),
 
@@ -1211,9 +3616,9 @@ var Videos = function Videos() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "mosaico-row m-video m"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("iframe", {
-    width: "760",
-    height: "515",
-    src: "https://www.youtube.com/embed/videoseries?list=PLXZ6sO1TY9PvCfE39_lOXbMezijg85wlu",
+    width: "560",
+    height: "315",
+    src: "https://www.youtube.com/embed/8fQYmDNbPdA",
     title: "YouTube video player",
     frameborder: "0",
     allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture",
@@ -10354,7 +12759,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_6___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_8___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"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","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.container-mosaico {\r\n    margin-top: 50px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.fm-img-m{\r\n    position: absolute;\r\n    width: 100%;\r\n    opacity: 0;\r\n    height: 500px;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    z-index: 2;\r\n    transition: all .3s ease-in-out;\r\n}\r\n\r\n.fm-img-m:hover{\r\n    transition: all .3s ease-in-out;\r\n    opacity: 1;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n    display: none;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 90px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n}\r\nbutton:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n    src: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 30px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_5___ + ");\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_6___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_7___ + ");\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_8___ + ");\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton, .btn-codigo {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n}\r\nbutton:hover, .btn-codigo:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n\r\n.form-error{\r\n    color: rgb(216, 55, 55);\r\n}\r\n\r\n.link-cliente{\r\n    color: white;\r\n}\r\n/*css UploadFile*/\r\n.page-upload{\r\n    background: black;\r\n    width: 100%;\r\n    height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.page-upload label{\r\n    color: white;\r\n    text-align: center;\r\n    line-height: 2;\r\n    font-size: 30px;\r\n}\r\n\r\n.page-upload-label{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.input-code{\r\n    margin-bottom: 5px;\r\n    height: 30px;\r\n    border: none;\r\n    color: rgba(0, 0, 0, 0.87);\r\n}\r\n#ic-code{\r\n    border-radius: 5px 0 0 5px ;\r\n    width: 30%;\r\n    margin-right: 6px;\r\n}\r\n#ic-url{\r\n    border-radius: 0 5px 5px 0 ;\r\n    width: 68%;\r\n}\r\n#ic-del{\r\n    border-radius: 5px 5px 5px 5px ;\r\n    width: 100%;\r\n}\r\n#label-del{\r\n    margin-top: 20px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n/*css LinksFooter Inicio*/\r\n.davs{\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height: 200px;\r\n}\r\n#label-down{\r\n    text-align: center;\r\n    color: #3d3d3d;\r\n    font-size: 1.9em;\r\n    margin-bottom: 20px;\r\n}\r\n#ic-down{\r\n    border-radius: 5px 5px 5px 5px ;\r\n    width: 19%;\r\n    height: 50px;\r\n    font-size: 25px;\r\n    border: 1px solid #000;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n#a-download{\r\n    font-size: 1.3em;\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 30%;\r\n    background-color: transparent;\r\n    color: #000;\r\n    border: 1px solid #000;\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n}\r\n#a-download:hover{\r\n    background-color: #000;\r\n    color: #fff;\r\n    font-weight: 400;\r\n}\r\n\r\n", "",{"version":3,"sources":["webpack://./src/CSS/main.css"],"names":[],"mappings":"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","sourcesContent":["/* TIPOGRAFIAS */\r\n@font-face {\r\n    font-family: Gotham;\r\n    src: url(\"../fonts/Gotham-Light.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: Gotham-black;\r\n    src: url(\"../fonts/Gotham-Black.otf\");\r\n    font-display: swap;\r\n}\r\n@font-face {\r\n    font-family: RobotoCondensed;\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Bold.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-BoldItalic.ttf\");\r\n    src: url(\"../fonts/Roboto/RobotoCondensed-Regular.ttf\");\r\n    font-display: swap;\r\n}\r\n\r\n/* SWIPER */\r\n.swiper-container {\r\n    width: 100%;\r\n    height: 498px;\r\n}\r\n\r\n.swiper-button-next, .swiper-button-prev{\r\n    z-index: 3;\r\n}\r\n\r\n.swiper-slide {\r\n    text-align: center;\r\n    font-size: 18px;\r\n    background: transparent;\r\n    /* Center slide text vertically */\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: -webkit-flex;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    -webkit-justify-content: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    -webkit-align-items: center;\r\n    align-items: center;\r\n}\r\n\r\n.swiper-slide a{\r\n    width: inherit;\r\n    height: inherit;\r\n}\r\n\r\n.swiper-slide img {\r\n    display: block;\r\n    width: 100%;\r\n    height: 100%;\r\n    object-fit: cover;\r\n}\r\n\r\n.swiper-container {\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n}\r\n\r\n/* FILTRO IMG */\r\n\r\n\r\n/* PAGE SECCTION PORTAFOLIO */\r\n\r\n.header {\r\n    background: #000000;\r\n}\r\n\r\n.btn-back {\r\n    position: fixed;\r\n    top: 50px;\r\n    left: 100px;\r\n}\r\n\r\n.container-img {\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-img h2 {\r\n    color: white;\r\n    font-size: 3rem;\r\n    padding-top: 50px;\r\n    text-align: center;\r\n    font-family: RobotoCondensed;\r\n    letter-spacing: 20px;\r\n    margin: 0;\r\n}\r\n\r\n.container-img span {\r\n    text-align: center;\r\n    color: #808080;\r\n    margin: 40px auto;\r\n    line-height: 30px;\r\n    font-size: 1.5rem;\r\n    display: block;\r\n}\r\n\r\n.container-img span a {\r\n    color: #ffff;\r\n    font-weight: 400;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.container-img hr {\r\n    width: 60%;\r\n    margin-top: 20px;\r\n}\r\n.container-img #anuncio >p{\r\n    color:rgba(255, 255, 255, 0.801);\r\n    size: 0.5rem;\r\n}\r\n.container-img #anuncio:hover{\r\n    color:#589bdf;\r\n}\r\n\r\n\r\n.m-video{\r\n    /* margin-top: 0px; */\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n\r\n.container-mosaico {\r\n    margin-top: 100px;\r\n    width: 100%;\r\n    height: fit-content;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.mosaico-row {\r\n    width: 100%;\r\n    height: 500px;\r\n    display:flex;\r\n    justify-content:center;\r\n    align-items:unset;\r\n    align-content:flex-start;\r\n}\r\n\r\n.f-m {\r\n    width: 50%;\r\n    height: inherit;\r\n}\r\n\r\n.img-m {\r\n    width: 100%;\r\n    height: 500px;\r\n    object-fit: cover;\r\n}\r\n\r\n.f-m a{\r\n    position: relative;\r\n    height: fit-content;\r\n}\r\n\r\n.i-a{\r\n    position: absolute;\r\n    top: 40%;\r\n    left: 45%;\r\n    width: 10%;\r\n}\r\n.m div{\r\n    width: 50%;\r\n}\r\n.m{\r\n    margin-bottom: 100px;\r\n}\r\n\r\n/* ANIMACION ENTRE PÁGINAS */\r\n.loading-screen {\r\n    position: relative;\r\n    padding-left: 0;\r\n    padding-right: 0;\r\n    padding-top: 0;\r\n    background-color: #3d3d3d;\r\n    width: 0%;\r\n    height: 100%;\r\n}\r\n\r\n.load-container {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    width: 100%;\r\n    height: 100vh;\r\n    overflow: hidden;\r\n    z-index: 10;\r\n    pointer-events: none;\r\n}\r\n\r\n\r\n\r\n* {\r\n    font-family:RobotoCondensed;\r\n    box-sizing: border-box;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n    font-family: RobotoCondensed;\r\n}\r\n\r\n.padre {\r\n    display: flex;\r\n    flex-flow: column nowrap;\r\n}\r\n\r\nnav {\r\n    background: #d9dcdf;\r\n    padding: 0px 20px;\r\n    margin-top: 0;\r\n    margin-bottom: 0;\r\n}\r\nul {\r\n    list-style-type: none;\r\n}\r\n\r\n.quienes-somos{\r\n    width: 40%;\r\n    text-align: center;\r\n    margin: 70px auto;\r\n}\r\n\r\n.logo a label{\r\n    color: #232321;\r\n    font-weight: bold;\r\n    margin-left: 5px;\r\n}\r\n\r\n.logo a{\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.item > a {\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n    transition: all 0.3s ease 0s;\r\n}\r\n.item > a:hover {\r\n    color: #5b9cdc;\r\n    border-bottom: 2px solid #5787b9;\r\n    transition: all 0.2s ease 0s;\r\n}\r\n\r\n.menu li {\r\n    font-size: 16px;\r\n    padding: 5px 10px;\r\n    white-space: nowrap;\r\n    margin: 0;\r\n}\r\n.toggle a {\r\n    font-size: 20px;\r\n    color: #3d3d3d;\r\n    text-decoration: none;\r\n}\r\n\r\n/* Mobile menu */\r\n.menu {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    margin-top: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.toggle {\r\n    order: 1;\r\n}\r\n.item.lach {\r\n    order: 2;\r\n    color: #3d3d3d;\r\n    font-weight: 400;\r\n    font-size: 20px;\r\n}\r\n.item {\r\n    width: 100%;\r\n    text-align: center;\r\n    order: 3;\r\n}\r\n.item.active {\r\n    display: block;\r\n}\r\n\r\n#go__up {\r\n    display: block;\r\n    width: 2em;\r\n    height: 2em;\r\n    /* Color queda a opinión */\r\n    background-color: #ffc107;\r\n    color: aliceblue;\r\n    position: fixed;\r\n    bottom: 20px;\r\n    right: 20px;\r\n    border: none;\r\n    border-radius: 5px;\r\n    cursor: pointer;\r\n    display: none;\r\n    outline: none;\r\n    z-index: 8;\r\n    font-size: 20px;\r\n}\r\n\r\nhtml {\r\n    scroll-behavior: smooth;\r\n}\r\n\r\n/* CARD */\r\n.card {\r\n    background: transparent;\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    display: flex;\r\n    height: auto;\r\n    width: 400px;\r\n    flex-direction: column;\r\n    padding: 20px;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    margin-right: 5px;\r\n}\r\n.card-texto {\r\n    color: #589bdf;\r\n    text-align: right;\r\n    font-size: 2em;\r\n}\r\n\r\n.card-description {\r\n    color: #3d3d3d;\r\n    text-align: center;\r\n    line-height: 2;\r\n    margin-bottom: 2em;\r\n    border-radius: 10px;\r\n    padding: 5px;\r\n    background-color: #c5c5c5d0;\r\n    font-weight: 400;\r\n}\r\n\r\na.animated-button.thar-three {\r\n    color: #589bdf;\r\n    cursor: pointer;\r\n    display: block;\r\n    position: relative;\r\n    border-radius: 10px;\r\n    border: 2px solid #589bdf;\r\n    transition: all 0.2s cubic-bezier(0.42, 0, 0.58, 1);\r\n    padding: 10px 20px 10px 20px;\r\n    text-decoration: none;\r\n}\r\na.animated-button.thar-three:hover {\r\n    color: rgb(255, 255, 255);\r\n    background-color: #232321;\r\n    border: 2px solid #232321;\r\n}\r\n/* FIN CARD */\r\n\r\n#h2-portafolio {\r\n    font-size: 2rem;\r\n    letter-spacing: 25px;\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem;\r\n    margin-top: 50px;\r\n    letter-spacing: 10px;\r\n    color: #ffff;\r\n}\r\n\r\n.p-portafolio {\r\n    letter-spacing: 1px;\r\n    line-height: 30px;\r\n    margin: 20px 0;\r\n    color: #ffff;\r\n}\r\n\r\na {\r\n    text-decoration: none;\r\n}\r\n\r\n/* SECCION TRAVEL */\r\n#travel {\r\n    margin-top: 45px;\r\n    width: 100%;\r\n    height: fit-content;\r\n}\r\n#travel h2 {\r\n    color: #ffff;\r\n}\r\n\r\n/* SECCIÓN TITLE */\r\n#portafolio h1 {\r\n    color: #3d3d3d;\r\n    font-size: 3em;\r\n}\r\n#p-t-1 {\r\n    color: #3d3d3dbb;\r\n    margin-top: 0;\r\n}\r\n#p-div-title {\r\n    text-align: center;\r\n    width: 1000px;\r\n    line-height: 1.5;\r\n    color: #3d3d3d;\r\n    margin-bottom: 1em;\r\n}\r\n\r\n.portafolio-info {\r\n    width: 50%;\r\n    text-align: center;\r\n}\r\n\r\n/* SECCION PORTAFOLIO */\r\n#portafolio {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    margin-bottom: 30px;\r\n    padding-top: 20px;\r\n}\r\n#portafolio h2 {\r\n    color: #3d3d3d;\r\n    padding-bottom: 5px;\r\n    border-bottom: 2px solid #747474;\r\n}\r\n\r\n.portafolio-container {\r\n    display: flex;\r\n}\r\n.portafolio-container .d-h {\r\n    width: 516px;\r\n    height: 541px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n.portafolio-container .d-v {\r\n    position: relative;\r\n    width: 304px;\r\n    height: 541px;\r\n    background-size: cover;\r\n}\r\n.portafolio-container .d-social {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/calabera.png);\r\n}\r\n.portafolio-container .d-producto {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/producto.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-aereo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/aereo.png);\r\n    height: 50%;\r\n    position: relative;\r\n}\r\n.portafolio-container .d-turismo {\r\n    background-image: url(../images/img-no-modificar/Mosaico-Porttafolio/globo.png);\r\n}\r\n\r\n.filtro-aereo,\r\n.filtro-social,\r\n.filtro-producto,\r\n.filtro-turismo {\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(0, 0, 0, 0.5);\r\n    opacity: 0;\r\n    transition: opacity 0.3s ease-in-out;\r\n}\r\n\r\n.filtro-aereo:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-social:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-producto:hover {\r\n    opacity: 1;\r\n}\r\n.filtro-turismo:hover {\r\n    opacity: 1;\r\n}\r\n\r\n.info {\r\n    width: 90%;\r\n    height: -webkit-fit-content;\r\n    height: -moz-fit-content;\r\n    height: fit-content;\r\n    margin: auto;\r\n}\r\n\r\n#social {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n    transition-delay: 3s;\r\n}\r\n\r\n#producto {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#aereo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n#turismo {\r\n    opacity: 0;\r\n    display: none;\r\n    transition: all 0.5s ease-in-out;\r\n}\r\n\r\n/* FOOTER */\r\n\r\n.footer {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-items: center;\r\n    background-color: black;\r\n}\r\n#f-u,\r\n#f-f,\r\n#f-s {\r\n    margin-top: 1em;\r\n    margin-bottom: 1em;\r\n}\r\n#f-u {\r\n    justify-content: center;\r\n    text-align: center;\r\n}\r\n#map {\r\n    width: 200px;\r\n    height: auto;\r\n}\r\n\r\n#logo__img {\r\n    width: 5em;\r\n    height: 5em;\r\n}\r\n\r\n.footer__map {\r\n    display: flex;\r\n    margin-bottom: -2em;\r\n}\r\n.footer__span {\r\n    font-size: small;\r\n    line-height: 3;\r\n    color: gray;\r\n    font-style: italic;\r\n}\r\n.footer__item {\r\n    order: 0;\r\n    flex: 0 1 auto;\r\n    align-self: auto;\r\n    height: auto;\r\n    width: 14em;\r\n    color: #ffff;\r\n    text-align: center;\r\n    align-items: center;\r\n    margin: 0px 20px;\r\n    background: #000;\r\n}\r\n.about-us {\r\n    text-align: center;\r\n    width: 14em;\r\n    height: auto;\r\n}\r\n.about-us > p {\r\n    color: gray;\r\n    letter-spacing: 0;\r\n    line-height: 1.02;\r\n    font-family:RobotoCondensed;\r\n    font-size: small;\r\n    font-weight: 400;\r\n    text-align: justify;\r\n}\r\n.social-media {\r\n    margin-top: 1em;\r\n}\r\n.social-media a {\r\n    margin: 0 10px;\r\n}\r\n\r\n/* footer formulario */\r\n.formulario input,\r\n.formulario span,\r\n.formulario label,\r\n.formulario textarea {\r\n    font-family: RobotoCondensed;\r\n    display: inline-block;\r\n    border: none;\r\n    font-size: small;\r\n}\r\n.formulario textarea:focus,\r\n.formulario input:focus {\r\n    outline: 0;\r\n}\r\ninput.question,\r\ntextarea.question {\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    font-weight: 400;\r\n    border-radius: 2px;\r\n    margin: 0;\r\n    border: none;\r\n    width: 100%;\r\n    background: rgba(0, 0, 0, 0);\r\n    transition: padding-top 0.2s ease, margin-top 0.2s ease;\r\n    overflow-x: hidden;\r\n}\r\ntextarea.question {\r\n    font-size: 15px;\r\n}\r\ninput.question + label,\r\ntextarea.question + label {\r\n    display: block;\r\n    position: relative;\r\n    white-space: nowrap;\r\n    padding: 0;\r\n    margin: 0;\r\n    width: 10%;\r\n    border-top: 1px solid rgb(255, 174, 0);\r\n    transition: width 0.4s ease;\r\n    height: 0px;\r\n    margin-bottom: 1em;\r\n}\r\ninput.question:focus + label,\r\ntextarea.question:focus + label {\r\n    width: 100%;\r\n}\r\ninput.question:focus,\r\ninput.question:valid {\r\n    padding-top: 1px;\r\n}\r\ntextarea.question:valid,\r\ntextarea.question:focus {\r\n    margin-top: 10px;\r\n}\r\ninput.question:focus + label > span,\r\ninput.question:valid + label > span {\r\n    top: -30px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ntextarea.question:focus + label > span,\r\ntextarea.question:valid + label > span {\r\n    top: -50px;\r\n    font-size: 10px;\r\n    color: #333;\r\n    font-weight: 400;\r\n}\r\ninput.question:valid + label,\r\ntextarea.question:valid + label {\r\n    border-color: green;\r\n}\r\ninput.question:invalid,\r\ntextarea.question:invalid {\r\n    box-shadow: none;\r\n}\r\n\r\ninput.question + label > span,\r\ntextarea.question + label > span {\r\n    margin: 0;\r\n    position: absolute;\r\n    color: #ffff;\r\n    font-size: 15px;\r\n    top: -1.3em;\r\n    left: 0px;\r\n    transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;\r\n}\r\ntextarea.question + label > span {\r\n    top: -3em;\r\n}\r\n\r\nbutton, .btn-codigo {\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 100%;\r\n    background-color: transparent;\r\n    color: #ffff;\r\n    border: 1px solid white;\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n}\r\nbutton:hover, .btn-codigo:hover {\r\n    background-color: #ffff;\r\n    color: #000;\r\n    font-weight: 400;\r\n}\r\n\r\n#create {\r\n    background-color: #d9dcdf;\r\n    padding: 3px 0;\r\n    text-align: center;\r\n}\r\n#create a {\r\n    font-family: RobotoCondensed;\r\n    color: rgba(0, 0, 0, 0.5);\r\n    cursor: pointer;\r\n    font-weight: 400;\r\n    font-size: 12px;\r\n}\r\n\r\n/* PAGE NOSOTROS */\r\n#img-cover > img {\r\n    height: 100vh;\r\n    width: 100%;\r\n    /* position: absolute; */\r\n    z-index: -100;\r\n    margin-bottom: -10px;\r\n}\r\n.us-texto {\r\n    justify-content: center;\r\n    align-content: center;\r\n    align-items: center;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10%;\r\n    right: 0%;\r\n    color: #ffff;\r\n}\r\n#nosotros-titulo {\r\n    font-size: 2em;\r\n}\r\n\r\n.form-error{\r\n    color: rgb(216, 55, 55);\r\n}\r\n\r\n.link-cliente{\r\n    color: white;\r\n}\r\n/*css UploadFile*/\r\n.page-upload{\r\n    background: black;\r\n    width: 100%;\r\n    height: 100vh;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.page-upload label{\r\n    color: white;\r\n    text-align: center;\r\n    line-height: 2;\r\n    font-size: 30px;\r\n}\r\n\r\n.page-upload-label{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.input-code{\r\n    margin-bottom: 5px;\r\n    height: 30px;\r\n    border: none;\r\n    color: rgba(0, 0, 0, 0.87);\r\n}\r\n#ic-code{\r\n    border-radius: 5px 0 0 5px ;\r\n    width: 30%;\r\n    margin-right: 6px;\r\n}\r\n#ic-url{\r\n    border-radius: 0 5px 5px 0 ;\r\n    width: 68%;\r\n}\r\n#ic-del{\r\n    border-radius: 5px 5px 5px 5px ;\r\n    width: 100%;\r\n}\r\n#label-del{\r\n    margin-top: 20px;\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n/*css LinksFooter Inicio*/\r\n.davs{\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    flex-direction: column;\r\n    width:100%;\r\n    height: 200px;\r\n}\r\n#label-down{\r\n    text-align: center;\r\n    color: #3d3d3d;\r\n    font-size: 1.9em;\r\n    margin-bottom: 20px;\r\n}\r\n#ic-down{\r\n    border-radius: 5px 5px 5px 5px ;\r\n    width: 19%;\r\n    height: 50px;\r\n    font-size: 25px;\r\n    border: 1px solid #000;\r\n    margin-bottom: 20px;\r\n}\r\n\r\n#a-download{\r\n    font-size: 1.3em;\r\n    transition: opacity 0.3s ease, background 0.3s ease;\r\n    display: block;\r\n    opacity: 1;\r\n    margin: 0;\r\n    padding: 5px;\r\n    cursor: pointer;\r\n    width: 30%;\r\n    background-color: transparent;\r\n    color: #000;\r\n    border: 1px solid #000;\r\n    border-radius: 3px;\r\n    margin-bottom: 20px;\r\n    text-align: center;\r\n}\r\n#a-download:hover{\r\n    background-color: #000;\r\n    color: #fff;\r\n    font-weight: 400;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10419,7 +12824,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_1___ = _node_modules_css_loader_dist_runtime_g
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = _node_modules_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_2___default()(___CSS_LOADER_URL_IMPORT_3___);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/CSS/responsive.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAElB,eAAe;AACf;IACI;QACI,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;QACI,iBAAiB;IACrB;;IAEA;QACI,kBAAkB;QAClB,eAAe;QACf,cAAc;IAClB;IACA;QACI,YAAY;QACZ,aAAa;QACb,QAAQ;IACZ;;IAEA;QACI,kBAAkB;QAClB,YAAY;QACZ,aAAa;QACb,sBAAsB;IAC1B;;IAEA;QACI,yDAAsF;QACtF,sBAAsB;QACtB,4BAA4B;IAChC;IACA;QACI,yDAAwF;QACxF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAqF;QACrF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAuF;QACvF,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;;;;QAII,kBAAkB;QAClB,WAAW;QACX,YAAY;QACZ,8BAA8B;QAC9B,UAAU;IACd;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA;IACI;QACI,eAAe;QACf,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,YAAY;QACZ,QAAQ;IACZ;IACA;QACI,cAAc;QACd,iBAAiB;QACjB,cAAc;IAClB;;IAEA;QACI,cAAc;QACd,eAAe;IACnB;;IAEA;QACI,4BAA4B;QAC5B,eAAe;IACnB;;IAEA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,mBAAmB;IACvB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,WAAW;QACX,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;AACJ;;AAEA;IACI;QACI,aAAa;IACjB;IACA;QACI,iBAAiB;IACrB;IACA;QACI,eAAe;QACf,oBAAoB;IACxB;;IAEA;QACI,YAAY;QACZ,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,eAAe;IACnB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;IACA;QACI,iBAAiB;QACjB,mBAAmB;IACvB;AACJ;;AAEA,gBAAgB;AAChB;IACI;QACI,uBAAuB;IAC3B;IACA;QACI,OAAO;IACX;IACA;QACI,OAAO;QACP,iBAAiB;IACrB;IACA;QACI,WAAW;QACX,QAAQ;QACR,cAAc;IAClB;IACA;QACI,QAAQ;IACZ;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA,iBAAiB;AACjB;IACI;QACI,cAAc;QACd,WAAW;IACf;IACA;QACI,aAAa;IACjB;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,iBAAiB;IACrB;AACJ","sourcesContent":["/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(../images/img-no-modificar/img_responsive/social_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(../images/img-no-modificar/img_responsive/producto_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/aereo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/turismo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n\r\n    .container-mosaico {\r\n        margin-top: 270px;\r\n    }\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n    .page-upload label{\r\n        text-align: center;\r\n        line-height: 1;\r\n        font-size: 20px;\r\n        margin-bottom: 10px;\r\n    }\r\n    .page-upload-label{\r\n        width: 80%;\r\n    }\r\n    #ic-del, #ic-url, #ic-code{\r\n        font-size: 13px;\r\n    }\r\n\r\n    #label-down{\r\n        font-size: 1.2em;\r\n    }\r\n\r\n    #ic-down{\r\n        height: 30px;\r\n        width: 38%;\r\n        font-size: 15px;\r\n    }\r\n    \r\n    #a-download{\r\n        font-size: 0.9em;\r\n        width: 60%;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n\r\n    .container-mosaico {\r\n        margin-top: 100px;\r\n    }\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n@media only screen and (min-width: 300px) and (max-width: 883px){\r\n    .toggle-show{\r\n        display: none;\r\n    }\r\n}\r\n\r\n", "",{"version":3,"sources":["webpack://./src/CSS/responsive.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAElB,eAAe;AACf;;IAEI;QACI,iBAAiB;IACrB;IACA;QACI,WAAW;QACX,aAAa;IACjB;IACA;QACI,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;QACI,iBAAiB;IACrB;;IAEA;QACI,kBAAkB;QAClB,eAAe;QACf,cAAc;IAClB;IACA;QACI,YAAY;QACZ,aAAa;QACb,QAAQ;IACZ;;IAEA;QACI,kBAAkB;QAClB,YAAY;QACZ,aAAa;QACb,sBAAsB;IAC1B;;IAEA;QACI,yDAAsF;QACtF,sBAAsB;QACtB,4BAA4B;IAChC;IACA;QACI,yDAAwF;QACxF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAqF;QACrF,sBAAsB;QACtB,4BAA4B;QAC5B,kBAAkB;IACtB;IACA;QACI,yDAAuF;QACvF,sBAAsB;QACtB,4BAA4B;IAChC;;IAEA;;;;QAII,kBAAkB;QAClB,WAAW;QACX,YAAY;QACZ,8BAA8B;QAC9B,UAAU;IACd;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA;;IAEI;QACI,WAAW;QACX,aAAa;IACjB;IACA;QACI,eAAe;QACf,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,YAAY;QACZ,QAAQ;IACZ;IACA;QACI,cAAc;QACd,iBAAiB;QACjB,cAAc;IAClB;;IAEA;QACI,cAAc;QACd,eAAe;IACnB;;IAEA;QACI,4BAA4B;QAC5B,eAAe;IACnB;;IAEA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,mBAAmB;IACvB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,WAAW;QACX,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;AACJ;;AAEA;;IAEI;QACI,WAAW;QACX,aAAa;IACjB;IACA;QACI,aAAa;IACjB;IACA;QACI,iBAAiB;IACrB;IACA;QACI,eAAe;QACf,oBAAoB;IACxB;;IAEA;QACI,YAAY;QACZ,oBAAoB;IACxB;IACA;QACI,WAAW;QACX,cAAc;IAClB;IACA;QACI,sBAAsB;QACtB,mBAAmB;IACvB;;IAEA;QACI,WAAW;QACX,eAAe;IACnB;IACA;QACI,cAAc;QACd,cAAc;IAClB;IACA;QACI,eAAe;QACf,SAAS;QACT,SAAS;IACb;IACA;QACI,WAAW;IACf;IACA;QACI,UAAU;IACd;IACA;QACI,UAAU;IACd;IACA;QACI,iBAAiB;QACjB,mBAAmB;IACvB;IACA;QACI,kBAAkB;QAClB,cAAc;QACd,eAAe;QACf,mBAAmB;IACvB;IACA;QACI,UAAU;IACd;IACA;QACI,eAAe;IACnB;;IAEA;QACI,gBAAgB;IACpB;;IAEA;QACI,YAAY;QACZ,UAAU;QACV,eAAe;IACnB;;IAEA;QACI,gBAAgB;QAChB,UAAU;IACd;AACJ;;AAEA,gBAAgB;AAChB;;IAEI;QACI,iBAAiB;IACrB;IACA;QACI,uBAAuB;IAC3B;IACA;QACI,OAAO;IACX;IACA;QACI,OAAO;QACP,iBAAiB;IACrB;IACA;QACI,WAAW;QACX,QAAQ;QACR,cAAc;IAClB;IACA;QACI,QAAQ;IACZ;IACA;QACI,WAAW;QACX,cAAc;IAClB;AACJ;;AAEA,iBAAiB;AACjB;IACI;QACI,cAAc;QACd,WAAW;IACf;IACA;QACI,aAAa;IACjB;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,QAAQ;IACZ;IACA;QACI,iBAAiB;IACrB;AACJ;AACA;IACI;QACI,aAAa;IACjB;AACJ","sourcesContent":["/* MEDIA QUERIES */\r\n\r\n/* RESPONSIVE */\r\n@media only screen and (min-width: 300px) and (max-width: 1200px) {\r\n\r\n    .container-mosaico {\r\n        margin-top: 270px;\r\n    }\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    #travel {\r\n        background-size: unset;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    #portafolio h2 {\r\n        font-size: 1.5rem;\r\n    }\r\n\r\n    .portafolio-container {\r\n        width: fit-content;\r\n        flex-wrap: wrap;\r\n        display: block;\r\n    }\r\n    .portafolio-container .d-h {\r\n        width: 340px;\r\n        height: 680px;\r\n        order: 3;\r\n    }\r\n\r\n    .portafolio-container .d-v {\r\n        position: relative;\r\n        width: 340px;\r\n        height: 340px;\r\n        background-size: cover;\r\n    }\r\n\r\n    .portafolio-container .d-social {\r\n        background-image: url(../images/img-no-modificar/img_responsive/social_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n    .portafolio-container .d-producto {\r\n        background-image: url(../images/img-no-modificar/img_responsive/producto_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-aereo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/aereo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n        position: relative;\r\n    }\r\n    .portafolio-container .d-turismo {\r\n        background-image: url(../images/img-no-modificar/img_responsive/turismo_responsive.png);\r\n        background-size: cover;\r\n        background-repeat: no-repeat;\r\n    }\r\n\r\n    .filtro-aereo,\r\n    .filtro-social,\r\n    .filtro-producto,\r\n    .filtro-turismo {\r\n        position: absolute;\r\n        width: 100%;\r\n        height: 100%;\r\n        background: rgba(0, 0, 0, 0.5);\r\n        opacity: 1;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 600px) and (max-width: 768px) {\r\n\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 2rem;\r\n        letter-spacing: 20px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .card {\r\n        width: 200px;\r\n        top: 10%;\r\n    }\r\n    .card-texto {\r\n        color: #589bdf;\r\n        text-align: right;\r\n        font-size: 1em;\r\n    }\r\n\r\n    .card-description {\r\n        line-height: 1;\r\n        font-size: 10px;\r\n    }\r\n\r\n    a.animated-button.thar-three {\r\n        padding: 10px 10px 10px 10px;\r\n        font-size: 10px;\r\n    }\r\n\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: fit-content;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        width: 20px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n}\r\n\r\n@media only screen and (min-width: 300px) and (max-width: 599px) {\r\n\r\n    .swiper-container {\r\n        width: 100%;\r\n        height: 200px;\r\n    }\r\n    .card {\r\n        display: none;\r\n    }\r\n    #portafolio {\r\n        padding-top: 10px;\r\n    }\r\n    #portafolio h2 {\r\n        font-size: 1rem;\r\n        letter-spacing: 20px;\r\n    }\r\n\r\n    #travel h2 {\r\n        color: #ffff;\r\n        letter-spacing: 30px;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n    .mosaico-row {\r\n        flex-direction: column;\r\n        height: fit-content;\r\n    }\r\n\r\n    .f-m {\r\n        width: 100%;\r\n        height: inherit;\r\n    }\r\n    .m div{\r\n        width: inherit;\r\n        margin: 20px 0;\r\n    }\r\n    .btn-back {\r\n        position: fixed;\r\n        top: 10px;\r\n        left: 5px;\r\n    }\r\n    .btn-back a img {\r\n        width: 40px;\r\n    }\r\n    .portafolio-info {\r\n        width: 94%;\r\n    }\r\n    .quienes-somos{\r\n        width: 90%;\r\n    }\r\n    .container-img h2{\r\n        font-size: 1.7rem;\r\n        letter-spacing: 8px;\r\n    }\r\n    .page-upload label{\r\n        text-align: center;\r\n        line-height: 1;\r\n        font-size: 20px;\r\n        margin-bottom: 10px;\r\n    }\r\n    .page-upload-label{\r\n        width: 80%;\r\n    }\r\n    #ic-del, #ic-url, #ic-code{\r\n        font-size: 13px;\r\n    }\r\n\r\n    #label-down{\r\n        font-size: 1.2em;\r\n    }\r\n\r\n    #ic-down{\r\n        height: 30px;\r\n        width: 38%;\r\n        font-size: 15px;\r\n    }\r\n    \r\n    #a-download{\r\n        font-size: 0.9em;\r\n        width: 60%;\r\n    }\r\n}\r\n\r\n/* Tablet menu */\r\n@media all and (min-width: 600px) {\r\n\r\n    .container-mosaico {\r\n        margin-top: 100px;\r\n    }\r\n    .menu {\r\n        justify-content: center;\r\n    }\r\n    .logo {\r\n        flex: 1;\r\n    }\r\n    .toggle {\r\n        flex: 1;\r\n        text-align: right;\r\n    }\r\n    .item.lach {\r\n        width: auto;\r\n        order: 1;\r\n        display: block;\r\n    }\r\n    .toggle {\r\n        order: 2;\r\n    }\r\n    #p-div-title {\r\n        width: auto;\r\n        font-size: 1em;\r\n    }\r\n}\r\n\r\n/* Desktop menu */\r\n@media all and (min-width: 900px) {\r\n    .item {\r\n        display: block;\r\n        width: auto;\r\n    }\r\n    .toggle {\r\n        display: none;\r\n    }\r\n    .logo {\r\n        order: 0;\r\n    }\r\n    .item {\r\n        order: 1;\r\n    }\r\n    .lach {\r\n        order: 2;\r\n    }\r\n    .menu li {\r\n        padding: 0px 10px;\r\n    }\r\n}\r\n@media only screen and (min-width: 300px) and (max-width: 883px){\r\n    .toggle-show{\r\n        display: none;\r\n    }\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -12638,66 +15043,6 @@ const validateParams = (userID, serviceID, templateID) => {
     return true;
 };
 
-
-/***/ }),
-
-/***/ "./src/descargas/pagina_aereo.rar":
-/*!****************************************!*\
-  !*** ./src/descargas/pagina_aereo.rar ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/f9ae1fe81496ee388a544d92b04df60b-pagina_aereo.rar");
-
-/***/ }),
-
-/***/ "./src/descargas/pagina_products.rar":
-/*!*******************************************!*\
-  !*** ./src/descargas/pagina_products.rar ***!
-  \*******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/09636483b05724e8061e6a6900d638a1-pagina_products.rar");
-
-/***/ }),
-
-/***/ "./src/descargas/pagina_social.rar":
-/*!*****************************************!*\
-  !*** ./src/descargas/pagina_social.rar ***!
-  \*****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/7553c82a0b7d467245dc9163efcd9907-pagina_social.rar");
-
-/***/ }),
-
-/***/ "./src/descargas/pagina_turismo.rar":
-/*!******************************************!*\
-  !*** ./src/descargas/pagina_turismo.rar ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "images/d31cfde8c1dca1d1b006f42f77487481-pagina_turismo.rar");
 
 /***/ }),
 

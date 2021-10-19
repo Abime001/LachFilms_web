@@ -3,9 +3,6 @@
 /* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
 
-    .container-mosaico {
-        margin-top: 270px;
-    }
     .swiper-container {
         width: 100%;
         height: 200px;
@@ -14,7 +11,6 @@
         background-size: unset;
         background-repeat: no-repeat;
     }
-
     #portafolio h2 {
         font-size: 1.5rem;
     }
@@ -77,7 +73,7 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
-
+    
     .swiper-container {
         width: 100%;
         height: 200px;
@@ -86,13 +82,17 @@
         font-size: 2rem;
         letter-spacing: 20px;
     }
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #p-div-title {
         width: auto;
         font-size: 1em;
     }
     .card {
         width: 200px;
-        top: 10%;
+        top: 20%;
     }
     .card-texto {
         color: #589bdf;
@@ -149,6 +149,10 @@
     .card {
         display: none;
     }
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #portafolio {
         padding-top: 10px;
     }
@@ -156,7 +160,10 @@
         font-size: 1rem;
         letter-spacing: 20px;
     }
-
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #travel h2 {
         color: #ffff;
         letter-spacing: 30px;
@@ -227,9 +234,9 @@
 
 /* Tablet menu */
 @media all and (min-width: 600px) {
-
-    .container-mosaico {
-        margin-top: 100px;
+    .swiper-container {
+        width: 100%;
+        height: 200px;
     }
     .menu {
         justify-content: center;
@@ -260,6 +267,7 @@
     .item {
         display: block;
         width: auto;
+        z-index: 10000;
     }
     .toggle {
         display: none;
@@ -282,4 +290,3 @@
         display: none;
     }
 }
-

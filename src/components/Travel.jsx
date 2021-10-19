@@ -26,7 +26,7 @@ const Travel = () => {
                 <Swiper
                     cssMode={true}
                     navigation={true}
-                    pagination={true}
+                    pagination={false}
                     mousewheel={true}
                     keyboard={true}
                     loop={true}

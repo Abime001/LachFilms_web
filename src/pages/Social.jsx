@@ -10,7 +10,6 @@ import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
 
-
 const Social = () => {
     return (
         <>

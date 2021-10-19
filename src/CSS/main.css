@@ -255,11 +255,13 @@ ul {
     padding: 5px 10px;
     white-space: nowrap;
     margin: 0;
+    z-index: 10000;
 }
 .toggle a {
     font-size: 20px;
     color: #3d3d3d;
     text-decoration: none;
+    z-index: 10000;
 }
 
 /* Mobile menu */
@@ -270,20 +272,24 @@ ul {
     align-items: center;
     margin-top: 0px;
     margin-bottom: 0px;
+    z-index: 10000;
 }
 .toggle {
     order: 1;
+
 }
 .item.lach {
     order: 2;
     color: #3d3d3d;
     font-weight: 400;
     font-size: 20px;
+    z-index: 10000;
 }
 .item {
     width: 100%;
     text-align: center;
     order: 3;
+    z-index: 10000;
 }
 .item.active {
     display: block;

@@ -28,9 +28,8 @@ const Turismo = ()=>{
                         ¿Tienes un evento familiar, vas a salir de vacaciones, necesitas un albúm de tu aventura por la república? <br/> 
                         en <Link to="/">LachFilms</Link> nos gusta complacer a nuestros clientes, por eso <br/>
                          ofrecemos este servicio de turismo. ¿tienes alguna duda?
-                        <a href="https://www.lachfilms.com/#about-us">¡Escríbenos!</a>
+                        <a href="/#about-us">¡Escríbenos!</a>
                         <br/>
-                        {/* <a href={TurismoRar} download="lachfilm - pack turismo.rar"><p id="anuncio"><i>Puedes descargar nuestras imágenes totalmente gratis</i></p></a> */}
                     </span>
                     <hr />
                     <Mosaico

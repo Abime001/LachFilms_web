@@ -6,6 +6,7 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
+
 const Productos = () => (
     <>
         <div className="load-container">
@@ -27,11 +28,11 @@ const Productos = () => (
                         <br /> la mejor cara de tus productos. Deja volar la
                         creatividad. Incrementa el valor de tu negocio <br />{" "}
                         con estas increibles fotografías.
-                        <a href="https://www.lachfilms.com/#about-us">
+                        <a href="/#about-us">
                             ¡Escríbenos!
                         </a>
                         <br />
-                        </span>
+                    </span>
                     <hr />
                     <Mosaico
                         img1={productoImg1}

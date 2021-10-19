@@ -29,7 +29,7 @@ const Videos = () => (
                     <hr />
                     <div className="container-mosaico">
                         <div className="mosaico-row m-video m">
-                        <iframe width="760" height="515" src="https://www.youtube.com/embed/videoseries?list=PLXZ6sO1TY9PvCfE39_lOXbMezijg85wlu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="760" height="515" src="https://www.youtube.com/embed/8fQYmDNbPdA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
 
                     </div>

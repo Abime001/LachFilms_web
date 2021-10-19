@@ -130,6 +130,10 @@
     .card {
         display: none;
     }
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #portafolio {
         padding-top: 10px;
     }
@@ -208,6 +212,10 @@
 
 /* Tablet menu */
 @media all and (min-width: 600px) {
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     .menu {
         justify-content: center;
     }

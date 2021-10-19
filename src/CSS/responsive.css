@@ -2,6 +2,11 @@
 
 /* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
+
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #travel {
         background-size: unset;
         background-repeat: no-repeat;
@@ -68,6 +73,11 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 768px) {
+    
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #portafolio h2 {
         font-size: 2rem;
         letter-spacing: 20px;
@@ -133,6 +143,10 @@
 @media only screen and (min-width: 300px) and (max-width: 599px) {
     .card {
         display: none;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 200px;
     }
     #portafolio {
         padding-top: 10px;
@@ -215,6 +229,10 @@
 
 /* Tablet menu */
 @media all and (min-width: 600px) {
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     .menu {
         justify-content: center;
     }

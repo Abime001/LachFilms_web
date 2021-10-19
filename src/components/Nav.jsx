@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LogoIMG from '../images/img-no-modificar/icons/lach_logo.png';
 
-const Nav = () => (
-    <nav>
+const Nav = () => {
+    const [showItem, setShowItem] = useState(false);
+    
+    const handleToggle = ()=> setShowItem(!showItem);
+
+    return(
+        <nav>
         <ul className="menu" id="menu">
             <li className="logo">
                 <a href="#menu">
@@ -16,7 +21,9 @@ const Nav = () => (
                     <label>LACH FILMS</label>
                 </a>
             </li>
-            <li className="item">
+            {showItem ?
+                <>
+                <li className="item">
                 <a href="#home">Home</a>
             </li>
             <li className="item">
@@ -30,11 +37,19 @@ const Nav = () => (
             </li>
             <li className="toggle">
                 <a id="btn__menu_nav" href="#">
-                    <i className="fas fa-bars"></i>
+                    <i className="fas fa-bars" onClick={handleToggle}></i>
                 </a>
             </li>
+                </>
+                :<li className="toggle">
+                <a id="btn__menu_nav" href="#">
+                    <i className="fas fa-bars" onClick={handleToggle}></i>
+                </a>
+            </li>
+            }
         </ul>
     </nav>
-);
+    )
+};
 
 export default Nav;

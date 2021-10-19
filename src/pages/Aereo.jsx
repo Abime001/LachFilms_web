@@ -9,7 +9,6 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
-import AereoRar from '../descargas/pagina_aereo.rar';
 
 const Aerero = () => (
     <>

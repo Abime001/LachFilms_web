@@ -9,7 +9,6 @@ import Mosaico from "../components/Mosaico";
 import DivCreate from "../components/DivCreate";
 import IconBack from "../components/IconBack";
 import {Link} from 'react-router-dom';
-import SocialRar from '../descargas/pagina_social.rar';
 
 const Social = () => {
     return (

@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import B0001 from '../Clientes/00001.rar';
-// import B0002 from '../Clientes/00002.rar';
 
 const CodigoCliente = () => {
     const [input, setInput] = useState("");

@@ -23,7 +23,7 @@ const Turismo = ()=>{
                 <div className="container-img">
                     <h2>TURISMO</h2>
                     <span>
-                        Deja que vayamos contigo y capturemos los mejores momentos. <br/> 
+                        Abi-texto prueba Deja que vayamos contigo y capturemos los mejores momentos. <br/> 
                         En esta sección encontrarás algunas imágenes de nuestro trabajo. <br/> 
                         ¿Tienes un evento familiar, vas a salir de vacaciones, necesitas un albúm de tu aventura por la república? <br/> 
                         en <Link to="/">LachFilms</Link> nos gusta complacer a nuestros clientes, por eso <br/>

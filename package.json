@@ -4,10 +4,8 @@
     "description": "Versiones de LachFilms",
     "main": "index.js",
     "scripts": {
-        "start": "webpack serve --mode=development",
-        "build": "webpack",
-        "api": "nodemon backend/index.js --exec babel-node",
-        "server": "json-server -p3000 --watch db.json"
+        "start": "webpack server --mode=development",
+        "build": "webpack"
     },
     "repository": {
         "type": "git",

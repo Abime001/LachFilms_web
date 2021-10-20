@@ -12,12 +12,12 @@ const App = ()=>(
     <Router>
         <Switch>
             <Route exact path="/" component={Inicio}/>
-            <Route exact path="/aereo" component={Aereo}/>
-            <Route exact path="/producto" component={Productos}/>
-            <Route exact path="/social" component={Social}/>
-            <Route exact path="/turismo" component={Turismo}/>
-            <Route exact path="/videos_lachfilms" component={Videos}/>
-            <Route exact path="/uploadFile" component={UploadFile} />
+            <Route path="/aereo" component={Aereo}/>
+            <Route path="/producto" component={Productos}/>
+            <Route path="/social" component={Social}/>
+            <Route path="/turismo" component={Turismo}/>
+            <Route path="/videos_lachfilms" component={Videos}/>
+            <Route path="/codigos" component={UploadFile} />
         </Switch>
     </Router>
 );

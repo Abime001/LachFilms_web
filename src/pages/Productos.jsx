@@ -27,21 +27,11 @@ const Productos = () => (
                         ayudarte a mostrar
                         <br /> la mejor cara de tus productos. Deja volar la
                         creatividad. Incrementa el valor de tu negocio <br />{" "}
-                        con estas increibles fotografías.
-                        <a href="https://www.lachfilms.com/#about-us">
+                        con estas increibles fotografías. 
+                        <a href="/#about-us">
                             ¡Escríbenos!
                         </a>
                         <br />
-                        <a
-                            href="../descargas/pagina_products.rar"
-                            download="lachfilm - pack products.rar">
-                            <p id="anuncio">
-                                <i>
-                                    Puedes descargar nuestras imágenes
-                                    totalmente gratis
-                                </i>
-                            </p>
-                        </a>
                     </span>
                     <hr />
                     <Mosaico

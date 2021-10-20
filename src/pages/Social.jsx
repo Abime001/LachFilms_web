@@ -34,21 +34,11 @@ const Social = () => {
                             de la mejor manera, conservando un bello recuerdo.
                             <br />
                             Visita nuestras redes sociales para ver nuestro
-                            trabajo o
-                            <a href="https://www.lachfilms.com/#about-us">
-                                ¡Escríbenos!
+                            trabajo o 
+                            <a href="/#about-us">
+                                 ¡Escríbenos!
                             </a>
                             <br />
-                            <a
-                                href="../descargas/pagina_social.rar"
-                                download="lachfilm - pack social.rar">
-                                <p id="anuncio">
-                                    <i>
-                                        Puedes descargar nuestras imágenes
-                                        totalmente gratis
-                                    </i>
-                                </p>
-                            </a>
                         </span>
                         <hr />
                         <Mosaico

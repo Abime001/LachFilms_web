@@ -27,11 +27,10 @@ const Videos = () => (
                         <Link to="/#about-us">¡Escríbenos!</Link>
                     </span>
                     <hr />
-                    <div className="container-mosaico">
+                    <div className="container-mosaico video-secc">
                         <div className="mosaico-row m-video m">
-                        <iframe width="760" height="515" src="https://www.youtube.com/embed/videoseries?list=PLXZ6sO1TY9PvCfE39_lOXbMezijg85wlu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <iframe id="video-sec" width="760" height="515" src="https://www.youtube.com/embed/8fQYmDNbPdA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-
                     </div>
                 </div>
             </div>

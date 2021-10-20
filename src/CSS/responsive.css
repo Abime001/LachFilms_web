@@ -2,6 +2,24 @@
 
 /* RESPONSIVE */
 @media only screen and (min-width: 300px) and (max-width: 1200px) {
+    /*Margen de video en sección*/
+    #video-sec{
+        width:100%;
+        height: 50%;
+    }
+    .video-secc{
+        padding-top: 0px;
+    }
+
+    /*Margen de moisaco en secciones */
+    .container-mosaico {
+        margin-top: 270px;
+    }
+    /*tamaño de videotravel */
+    .swiper-container {
+        width: 100%;
+        height: 200px;
+    }
     #travel {
         background-size: unset;
         background-repeat: no-repeat;
@@ -108,7 +126,7 @@
     }
     .m div{
         width: inherit;
-        margin: 20px 0;
+        margin: 0 0;
     }
     .btn-back {
         position: fixed;
@@ -128,6 +146,11 @@
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
+    /*tamaño de videotravel */
+    .swiper-container { 
+        width: 100%;
+        height: 200px;
+    }
     .card {
         display: none;
     }

@@ -32,23 +32,12 @@ const Aerero = () => (
                         importa el lugar del que requieras una toma aerea.{" "}
                         <br />
                         Puede ser para publicidad, venta, eventos masivos o
-                        pequeños. Nosotros podemos encargarnos,
-                        <a href="https://www.lachfilms.com/#about-us">
+                        pequeños. Nosotros podemos encargarnos, 
+                        <a href="/#about-us">
                             ¡Escríbenos!
                         </a>
                         <br />
-                        <a
-                            href="../descargas/pagina_aereo.rar"
-                            download="lachfilm - pack aereo.rar">
-                            <p id="anuncio">
-                                <i>
-                                    Puedes descargar nuestras imágenes
-                                    totalmente gratis
-                                </i>
-                            </p>
-                        </a>
                     </span>
-                    En Lachfilms entendemos a nuestros clientes.
                     <hr />
                     <Mosaico
                         img1={aereoImg1}

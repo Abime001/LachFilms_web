@@ -6,6 +6,7 @@ import Portafolio from "../components/Portafolio";
 import Somos from "../components/Somos";
 import Travel from "../components/Travel";
 import Video_Header from "../components/Video_Header";
+import CodigoCliente from '../components/CodigoCliente';
 
 const Inicio = () => (
     <div>
@@ -15,6 +16,7 @@ const Inicio = () => (
         <Somos/>
         <Travel/>
         <Portafolio/>
+        <CodigoCliente/>
         <Footer/>
     </div>
 );

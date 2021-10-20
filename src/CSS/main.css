@@ -741,7 +741,7 @@ button:hover {
     font-size: 2em;
 }
 
-.davs{
+/* .davs{
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -776,6 +776,52 @@ button:hover {
     color: #000;
     background: white;
     border: 2px solid #000;
+}
+ */
+
+ .davs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+    height: 200px;
+}
+#label-down{
+    text-align: center;
+    color: #3d3d3d;
+    font-size: 1.9em;
+    margin-bottom: 20px;
+}
+#ic-down{
+    border-radius: 5px 5px 5px 5px ;
+    width: 19%;
+    height: 50px;
+    font-size: 25px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+#a-download{
+    font-size: 1.3em;
+    transition: opacity 0.3s ease, background 0.3s ease;
+    display: block;
+    opacity: 1;
+    margin: 0;
+    padding: 5px;
+    cursor: pointer;
+    width: 30%;
+    background-color: transparent;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#a-download:hover{
+    background-color: #000;
+    color: #fff;
+    font-weight: 400;
 }
 
 .page-upload{

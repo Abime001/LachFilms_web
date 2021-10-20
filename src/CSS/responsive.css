@@ -146,6 +146,21 @@
 }
 
 @media only screen and (min-width: 300px) and (max-width: 599px) {
+
+    #label-down{
+        font-size: 1.2em;
+    }
+
+    #ic-down{
+        height: 30px;
+        width: 38%;
+        font-size: 15px;
+    }
+    
+    #a-download{
+        font-size: 0.9em;
+        width: 60%;
+    }
     /*tamaño de videotravel */
     .swiper-container { 
         width: 100%;
